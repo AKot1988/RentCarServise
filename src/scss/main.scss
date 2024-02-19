@@ -1,0 +1,10 @@
+@import './reset.scss';
+@import './variables.scss';
+@import './mixins.scss';
+@import './fonts.scss';
+
+#app{
+  background-color: teal;
+  width: 100vw;
+  height: 100vh;
+}
