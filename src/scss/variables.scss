@@ -1,0 +1,42 @@
+:root {
+  // --------------------------colors-------------------------------
+  --basic-decore-color: #C4C4C4;
+  --secondary-decore-color: #F6F7F9;
+  --third-decore-color: #fff;
+
+  --headers1-text-color: #1A202C;
+  --headers2-text-color: black;
+  --header-unselected-items-color: #fff;
+  --header-selected-items-color: #1A202C;
+  --basic-text-color: #1A202C;
+  --secondary-text-color: #326876;
+
+
+  --basic-background-blur-color: #e5e4e2;
+
+  --shadow-color: #bababa;
+
+  //---------------------------sizes----------------------------------
+  --headers1-font-size: 32px;
+  --headers2-font-size: 25px;
+  --headers3-font-size: 20px;
+  --main-font-size: 16px;
+  --small-font-size: 12px;
+
+  --padding-main: 50px;
+  --gap-main: 20px;
+
+  //---------------------------margins----------------------------------
+
+  --header-height: 10vh;
+  --header-height-littleScreen: 150px;
+  --footer-height: 10vh;
+
+  //---------------------------fonts----------------------------------
+  --headers-font-family: 'Ruslan Display', system-ui, cursive;
+  --main-font-family: 'Play', system-ui, cursive;
+
+  --main-font-weight: 400;
+  --headers-font-weight: 600;
+  --secondary-font-weight: 500;
+}
