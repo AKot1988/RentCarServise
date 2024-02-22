@@ -1,10 +1,11 @@
-@import './reset.scss';
-@import './variables.scss';
-@import './mixins.scss';
-@import './fonts.scss';
+@import './helper/reset.scss';
+@import './helper/variables.scss';
+@import './helper/mixins.scss';
+@import './helper/fonts.scss';
 
 #app{
   background-color: teal;
   width: 100vw;
   height: 100vh;
+  @include font ($main-font-family, 600, $headers1-font-size, 50px);
 }
