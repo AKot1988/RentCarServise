@@ -1,4 +1,6 @@
-const menuConfig = [
+import { MenuConfigurtionItem } from "./types";
+
+const menuConfig: MenuConfigurtionItem[] = [
   {
     innerText: "Home",
     anchor: "#",
@@ -21,7 +23,7 @@ const menuConfig = [
   },
 ];
 
-export const createMenuList = (parent: HTMLUListElement) => {
+export const createMenuList = (parent: HTMLUListElement): void => {
   menuConfig.forEach((element, index) => {
     const menuItem = document.createElement("li");
     menuItem.classList.add("navigation__menu-item");
