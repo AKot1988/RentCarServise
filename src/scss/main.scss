@@ -1,8 +1,8 @@
-@import './helper/reset.scss';
-@import './helper/variables.scss';
-@import './helper/mixins.scss';
-@import './helper/fonts.scss';
+@import "./helper/reset.scss";
+@import "./helper/variables.scss";
+@import "./helper/mixins.scss";
+@import "./helper/fonts.scss";
 
-#app{
-
+#app {
+  font-family: $main-font-family;
 }

@@ -1,0 +1,44 @@
+@import "../../scss/helper/variables.scss";
+@import "../../scss//helper/mixins.scss";
+
+.navigation {
+  padding: 30px 65px;
+  @include flex(center, space-between, row);
+  background-color: $basic-decore-color;
+  border-bottom: 1px solid #b8b8b8;
+
+  &__logo {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+    letter-spacing: -3%;
+    color: $headers1-text-color;
+  }
+  &__menu {
+    @include flex(center, center, row);
+    gap: 20px;
+
+    &-item {
+      padding: 0 20px;
+    }
+
+    &-link {
+      font-weight: $secondary-font-weight;
+      color: #fff;
+      text-decoration: none;
+      transition-duration: 0.4s;
+      &:hover {
+        color: $basic-text-color;
+      }
+    }
+
+    &:last-child {
+      border-right: 1px solid #fff;
+    }
+  }
+}
+
+.active {
+  font-weight: 600;
+  color: $basic-text-color;
+}
