@@ -1,4 +1,4 @@
-import { newElementAttributesInterface } from '../../types/types.ts'
+import { newElementAttributesInterface } from './types.ts'
 
 export default class UniversalButton {
   public newButton: HTMLButtonElement;
