@@ -2,7 +2,20 @@
 @import "./helper/variables.scss";
 @import "./helper/mixins.scss";
 @import "./helper/fonts.scss";
+@import "./component/carCardComponent.scss";
 
-#app {
-  font-family: $main-font-family;
+
+
+
+#header,
+#footer,
+.container {
+  @include font ($main-font-family, $main-font-weight, $main-font-size, $basic-text-color);
+}
+
+#header,
+#footer,
+.container {
+  max-width: 1310px;
+  margin: 0 auto;
 }
