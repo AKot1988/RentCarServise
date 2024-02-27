@@ -2,11 +2,12 @@ import UniversalButton from "../UniversalButton/UniversalButton";
 import { heart_to_favoritesSVG } from "../../../assets/img/SVG/svg";
 import { newElementAttributesInterface } from "../UniversalButton/types";
 
+
 let buttonOptions: newElementAttributesInterface = {
   innerText: 'Rent Now',
   class: "rent_now-button",
   onClick: () => console.log('rent now'),
-} 
+}
 
 export default class CarCardComponent {
   public self: HTMLDivElement;

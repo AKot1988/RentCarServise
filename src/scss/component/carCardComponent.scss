@@ -8,17 +8,18 @@
 
   &__header {
     @include font($main-font-family, $secondary-font-weight, $headers2-font-size, $headers2-text-color);
-    @include flex(center, center, row);
+    text-align: center;
     margin-top: 100px;
-    width: 630px;
-    height: 70px;
+    max-width: 630px;
+    min-height: 70px;
   }
   &__description {
     @include font($main-font-family, $main-font-weight, $main-font-size, $basic-text-color);
+    text-align: center;
     padding-top: 0px;
     margin-top: 20px;
-    width: 530px;
-    height: 65px;
+    max-width: 530px;
+    min-height: 65px;
   }
   &__cars {
     @include flex (center, center, row);
@@ -28,6 +29,10 @@
     gap: 30px;
   }
 
+  & .container {
+    @include flex(center, center, column);
+    padding-bottom: 200px;
+  }
 }
 
 

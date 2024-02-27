@@ -1,5 +1,6 @@
 
-//linc to the photo 'https://api.thecatapi.com/v1/images/search?limit=1'
+export const photoURL: string = 'https://api.thecatapi.com/v1/images/search?limit=1'
+
 
 export const carCardData = [
   {
@@ -40,16 +41,6 @@ export const carCardData = [
   {
     model: "Honda",
     price: "800",
-    image: "https://cdn2.thecatapi.com/images/2o6.jpg"
-  },
-  {
-    model: "Subaru",
-    price: "900",
-    image: "https://cdn2.thecatapi.com/images/2o6.jpg"
-  },
-  {
-    model: "Mitsubishi",
-    price: "1000",
     image: "https://cdn2.thecatapi.com/images/2o6.jpg"
   }
 ]
