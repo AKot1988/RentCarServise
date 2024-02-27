@@ -15,8 +15,7 @@
 
 //TODO update text mixin
 
-@mixin font($font-family, $font-weight, $font-size, $color) {
-  font-family: $font-family;
+@mixin font($font-size, $font-weight, $color) {
   font-weight: $font-weight;
   font-size: $font-size;
   color: $color;

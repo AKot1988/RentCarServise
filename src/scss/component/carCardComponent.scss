@@ -7,14 +7,14 @@
   background-color: $third-decore-color;
 
   &__header {
-    @include font($main-font-family, $secondary-font-weight, $headers2-font-size, $headers2-text-color);
+    @include font($headers2-font-size, $secondary-font-weight, $headers2-text-color);
     text-align: center;
     margin-top: 100px;
     max-width: 630px;
     min-height: 70px;
   }
   &__description {
-    @include font($main-font-family, $main-font-weight, $main-font-size, $basic-text-color);
+    @include font($main-font-size, $main-font-weight, $basic-text-color);
     text-align: center;
     padding-top: 0px;
     margin-top: 20px;
@@ -67,15 +67,15 @@
   }
 
   &__model {
-    @include font($main-font-family, $third-font-weight, $large-font-size, $basic-text-color);
+    @include font($large-font-size, $third-font-weight, $basic-text-color);
   }
 
   &__price {
-    @include font($main-font-family, $third-font-weight, $large-font-size, $basic-text-color);
+    @include font($large-font-size, $third-font-weight, $basic-text-color);
     padding-right: 20px;
 
     &--period {
-      @include font($main-font-family, $third-font-weight, $tiny-font-size, $basic-text-color);
+      @include font($tiny-font-size, $third-font-weight, $basic-text-color);
     }
   }
 }
@@ -85,5 +85,5 @@
   border: none;
   width: 115px;
   height: 45px;
-  @include font($main-font-family, $headers-font-weight, $small-font-size, $header-selected-items-color);
+  @include font($small-font-size, $headers-font-weight, $header-selected-items-color);
 }

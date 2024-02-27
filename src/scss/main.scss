@@ -10,7 +10,7 @@
 #header,
 #footer,
 .container {
-  @include font ($main-font-family, $main-font-weight, $main-font-size, $basic-text-color);
+  font-family: "Plus Jakarta Sans", sans-serif;
 }
 
 #header,
