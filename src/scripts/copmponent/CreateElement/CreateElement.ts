@@ -1,10 +1,11 @@
-export default class CreateElement {
+export default class CreateElement<Props> {
     public tagName: string;
-    public params: {[key: string]:any}
-    constructor(tagName: string, params: {[key: string]: any}) {
+    public params: Props
+    constructor(tagName: string, params: Props) {
         this.tagName = tagName
         this.params = params
     }
+
     render(): HTMLElement {
         const element = document.createElement(this.tagName)
         for (let key in this.params) {
@@ -21,3 +22,55 @@ export default class CreateElement {
         return element
     }
 }
+
+// interface INodeElement {
+//     textContent?: '',
+//     className: '',
+// }
+
+// interface IImg extends INodeElement {
+//     url: '',
+//     alt: ''
+// }
+
+// interface PropsInput {
+//     type: string
+//     placeholder: string
+// }
+
+// new CreateElement<PropsInput>('asdasd', {
+//     placeholder: 'asdsad',
+// })
+
+
+// type SelectFieldOptionProps {
+//   value?: string
+//   options: string[]
+//   classes: string[]
+// }
+
+// type RadioFieldOptionProps {
+//   value?: string
+//   options: string[]
+//   classes: string[]
+// }
+
+// interface CommonInputProps {
+//   value?: string
+//   classes: string[]
+// }
+
+// interface OptionsRequired {
+//   options: string[]
+// }
+
+// type OptionableFieldProps = CommonInputProps & OptionsRequired
+
+
+// type A = string
+// type B = number 
+// type S = A & B
+
+// interface A extends B {
+
+// }

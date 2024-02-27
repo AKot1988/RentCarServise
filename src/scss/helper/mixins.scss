@@ -5,15 +5,18 @@
   flex-direction: $direction;
 }
 
+//TODO update grid mixin
+
 @mixin grid($columns, $rows) {
   display: grid;
   grid-template-columns: $columns;
   grid-template-rows: $rows;
 }
 
-@mixin font($font-family, $font-weight, $font-size, $line-height) {
-  font-family: $font-family;
+//TODO update text mixin
+
+@mixin font($font-size, $font-weight, $color) {
   font-weight: $font-weight;
   font-size: $font-size;
-  line-height: $line-height;
+  color: $color;
 }
