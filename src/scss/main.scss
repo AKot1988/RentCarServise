@@ -3,6 +3,8 @@
 @import "./helper/mixins.scss";
 @import "./helper/fonts.scss";
 
+@import "./components/select.scss";
+
 #app {
   font-family: $main-font-family;
 }
