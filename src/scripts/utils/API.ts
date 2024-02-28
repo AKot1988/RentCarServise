@@ -1,10 +1,68 @@
-import { Options } from './types.ts';
+import { Data } from "../copmponent/Select/type";
 
-export const fetcher = async function(URL: string, requestQuantity?: string, options: Options = {method: 'GET', body: null}) {
-  const responses = [];
-  for (let i = 1; i <= Number(requestQuantity); i++) {
-    const response = await fetch(URL, options);
-    responses.push(response);
-  }
-  return responses;
+
+export default class API {
+    private ROOT_URL: string
+    constructor(public baseUrl: string) {
+        this.ROOT_URL = baseUrl;
+    }
+
+    async getRequest(): Promise<Data> {
+        const requestOptions = {
+            method: "GET",
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+            },
+        };
+        const response = await fetch(this.ROOT_URL, requestOptions);
+        return await response.json();
+    }
+
+    async postRequest(routing: string, data: any): Promise<Data> {
+        const requestOptions = {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+            },
+            body: JSON.stringify(data),
+        };
+
+        const response = await fetch(this.ROOT_URL + routing, requestOptions);
+        return await response.json();
+    }
+
+    async putRequest(routing: string, data: any): Promise<Data> {
+        const requestOptions = {
+            method: "PUT",
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+            },
+            body: JSON.stringify(data),
+        };
+
+        const response = await fetch(this.ROOT_URL + routing, requestOptions);
+        return await response.json();
+    }
+
+    async patchRequest(routing: string, data: any): Promise<Data> {
+        const requestOptions = {
+            method: "PATCH",
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+            },
+            body: JSON.stringify(data),
+        };
+
+        const response = await fetch(this.ROOT_URL + routing, requestOptions);
+        return await response.json();
+    }
+
+    async deleteRequest(routing: string): Promise<Data> {
+        const requestOptions = {
+            method: "DELETE",
+        };
+
+        const response = await fetch(this.ROOT_URL + routing, requestOptions);
+        return await response.json();
+    }
 }

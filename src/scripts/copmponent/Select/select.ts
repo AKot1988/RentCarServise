@@ -118,6 +118,7 @@ export default class Select {
         const selectedItem = this.options.data.find(item => item.id === this.selectedId);
         if (selectedItem) {
             this.value.textContent = selectedItem.value;
+            this.value.style.fontSize = '16px';
             this.close();
             this.elem.querySelectorAll('[data-type="item"]').forEach(item => {
                 item.classList.remove('selected');

@@ -17,3 +17,10 @@ const button = new UniversalButton(buttonOptions);
 button.render(parentElement);
 
 
+// import CarCardComponent from "../scripts/copmponent/CarCardComponent/CarCardComponent";
+
+// import { carCardData, tabsData } from "../../dataJSON/carDada.ts";
+
+
+
+// carCardData.forEach((car) => {new CarCardComponent(car, document.querySelector('.popular__cars'))})

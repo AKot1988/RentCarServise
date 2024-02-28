@@ -54,9 +54,8 @@
   }
 
   .input {
-    font-size: 16px;
+    @include font(16px, 600, $basic-text-color);
     line-height: 24px;
-    font-weight: 600;
   }
 }
 
@@ -69,9 +68,8 @@
   width: 100%;
   max-width: 134px;
   .select__title {
-    font-size: 16px;
+    @include font(16px, 700, $basic-text-color);
     line-height: 24px;
-    font-weight: 700;
   }
 
   .select {
@@ -89,9 +87,8 @@
       height: 20px;
       @include flex(flex-start, space-between, row);
 
-      font-size: 12px;
+      @include font(12px, 500, $basic-text-color);
       line-height: 16px;
-      font-weight: 500;
       cursor: pointer;
     }
 
@@ -151,10 +148,8 @@
   cursor: pointer;
 
   font-family: inherit;
-  font-size: 16px;
+  @include font(16px, 600, $headers1-text-color);
   line-height: 24px;
-  font-weight: 600;
-  color: $headers1-text-color;
 
   transition: all 0.5s;
   background-color: $general-background-color;

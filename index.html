@@ -12,73 +12,74 @@
 <body>
   <main>
     <section class="dropdown">
-      <div class="dropdown__wrapper">
-        <div class="pick-up__wrapper">
-          <div class="pick-up">
-            <input type="radio" name="pickup-dropoff" id="radio-pickup" />
-            <label class="input" for="radio-pickup">Pick - Up</label>
+      <div class="container">
+        <div class="dropdown__wrapper">
+          <div class="pick-up__wrapper">
+            <div class="pick-up">
+              <input type="radio" name="pickup-dropoff" id="radio-pickup" />
+              <label class="input" for="radio-pickup">Pick - Up</label>
+            </div>
+            <div class="select__wrapper">
+              <div class="select__group-title">
+                <h3 class="select__title">Locations</h3>
+                <div id="select"></div>
+              </div>
+              <figure class="divider">
+                <svg class="divider__svg" width="1" height="48" viewBox="0 0 1 48" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <line x1="0.5" y1="0.5" x2="0.5" y2="47.5" stroke="#B8B8B8" stroke-linecap="round" />
+                </svg>
+              </figure>
+              <div class="select__group-title">
+                <h3 class="select__title">Date</h3>
+                <div id="select1"></div>
+              </div>
+              <figure class="divider">
+                <svg class="divider__svg" width="1" height="48" viewBox="0 0 1 48" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <line x1="0.5" y1="0.5" x2="0.5" y2="47.5" stroke="#B8B8B8" stroke-linecap="round" />
+                </svg>
+              </figure>
+              <div class="select__group-title">
+                <h3 class="select__title">Time</h3>
+                <div id="select2"></div>
+              </div>
+            </div>
           </div>
-          <div class="select__wrapper">
-            <div class="select__group-title">
-              <h3 class="select__title">Locations</h3>
-              <div id="select"></div>
+          <div class="drop-off__wrapper">
+            <div class="drop-off">
+              <input type="radio" name="pickup-dropoff" id="radio-dropoff" />
+              <label class="input" for="radio-dropoff">Drop - Off</label>
             </div>
-            <figure class="divider">
-              <svg class="divider__svg" width="1" height="48" viewBox="0 0 1 48" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <line x1="0.5" y1="0.5" x2="0.5" y2="47.5" stroke="#B8B8B8" stroke-linecap="round" />
-              </svg>
-            </figure>
-            <div class="select__group-title">
-              <h3 class="select__title">Date</h3>
-              <div id="select1"></div>
-            </div>
-            <figure class="divider">
-              <svg class="divider__svg" width="1" height="48" viewBox="0 0 1 48" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <line x1="0.5" y1="0.5" x2="0.5" y2="47.5" stroke="#B8B8B8" stroke-linecap="round" />
-              </svg>
-            </figure>
-            <div class="select__group-title">
-              <h3 class="select__title">Time</h3>
-              <div id="select2"></div>
-            </div>
-          </div>
-        </div>
-        <div class="drop-off__wrapper">
-          <div class="drop-off">
-            <input type="radio" name="pickup-dropoff" id="radio-dropoff" />
-            <label class="input" for="radio-dropoff">Drop - Off</label>
-          </div>
-          <div class="select__wrapper select__wrapper--drop">
-            <div class="select__group-title">
-              <h3 class="select__title">Locations</h3>
-              <div id="select3"></div>
-            </div>
-            <figure class="divider">
-              <svg class="divider__svg" width="1" height="48" viewBox="0 0 1 48" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <line x1="0.5" y1="0.5" x2="0.5" y2="47.5" stroke="#B8B8B8" stroke-linecap="round" />
-              </svg>
-            </figure>
-            <div class="select__group-title">
-              <h3 class="select__title">Date</h3>
-              <div id="select4"></div>
-            </div>
-            <figure class="divider">
-              <svg class="divider__svg" width="1" height="48" viewBox="0 0 1 48" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <line x1="0.5" y1="0.5" x2="0.5" y2="47.5" stroke="#B8B8B8" stroke-linecap="round" />
-              </svg>
-            </figure>
-            <div class="select__group-title">
-              <h3 class="select__title">Time</h3>
-              <div id="select5"></div>
+            <div class="select__wrapper select__wrapper--drop">
+              <div class="select__group-title">
+                <h3 class="select__title">Locations</h3>
+                <div id="select3"></div>
+              </div>
+              <figure class="divider">
+                <svg class="divider__svg" width="1" height="48" viewBox="0 0 1 48" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <line x1="0.5" y1="0.5" x2="0.5" y2="47.5" stroke="#B8B8B8" stroke-linecap="round" />
+                </svg>
+              </figure>
+              <div class="select__group-title">
+                <h3 class="select__title">Date</h3>
+                <div id="select4"></div>
+              </div>
+              <figure class="divider">
+                <svg class="divider__svg" width="1" height="48" viewBox="0 0 1 48" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <line x1="0.5" y1="0.5" x2="0.5" y2="47.5" stroke="#B8B8B8" stroke-linecap="round" />
+                </svg>
+              </figure>
+              <div class="select__group-title">
+                <h3 class="select__title">Time</h3>
+                <div id="select5"></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
 
     </section>
     <section class="popular">
@@ -86,6 +87,7 @@
         <h2 class="popular__header">Most popular car rental deals</h2>
         <p class="popular__description">A high-performing web-based car rental system for any rent-a-car company and
           website</p>
+        <div class="popular__tabs__container"></div>
         <div class="popular__cars"></div>
       </div>
     </section>
