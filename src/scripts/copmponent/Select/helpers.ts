@@ -1,8 +1,8 @@
 import Select from "./select";
-import API from "../../utils/Api";
+import API from '../../utils/API.ts'
 
 export default async function fetchData() {
-    const api = new API('../src/data/data.json');
+    // const api = new API('../src/data/data.json');
     try {
         const response = await api.getRequest();
         const { date, location, time } = response;
