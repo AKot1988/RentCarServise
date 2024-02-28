@@ -1,0 +1,26 @@
+{
+    "location":[
+      { "id": "1", "value": "Kyiv" },
+      { "id": "2", "value": "Chernigiv" },
+      { "id": "3", "value": "Kharkiv" },
+      { "id": "4", "value": "Odessa" },
+      { "id": "5", "value": "Lviv" },
+      { "id": "6", "value": "Uzhhorod" }
+    ],
+    "date":[
+      { "id": "1", "value": "2024.02.26" },
+      { "id": "2", "value": "2024.02.27" },
+      { "id": "3", "value": "2024.03.05" },
+      { "id": "4", "value": "2024.03.16" },
+      { "id": "5", "value": "2024.04.05" },
+      { "id": "6", "value": "2024.04.10" }
+    ],
+    "time":[
+      { "id": "1", "value": "10:00" },
+      { "id": "2", "value": "12:15" },
+      { "id": "3", "value": "14:30" },
+      { "id": "4", "value": "16:15" },
+      { "id": "5", "value": "17:00" },
+      { "id": "6", "value": "19:10" }
+    ]
+  }

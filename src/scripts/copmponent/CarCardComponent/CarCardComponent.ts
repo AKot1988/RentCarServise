@@ -41,13 +41,6 @@ export default class CarCardComponent {
     this.price.classList.add('car-card__price');
     this.image.classList.add('car-card__image');
     this.favIcon.classList.add('car-card__fav-icon');
-    // for (let key in this.data) {
-      //   let value = this.data[key];
-      //   if(key === 'image') {
-        //     this.parent.innerHTML += `<img src="${value}" alt="car">`
-        //   }
-        
-        // }
     this.favIcon.innerHTML = heart_to_favoritesSVG;
     this.image.src = this.data.image;
     this.carmodel.innerText = this.data.model;
