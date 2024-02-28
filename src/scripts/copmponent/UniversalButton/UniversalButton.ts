@@ -5,7 +5,6 @@ export default class UniversalButton {
   constructor(public options: newElementAttributesInterface, public parent?: HTMLElement) {
     this.newButton = document.createElement('button');
   }
-
   render(parent: HTMLElement): HTMLElement {
     Object.keys(this.options).forEach((key) => {
       if (key === 'style') {
