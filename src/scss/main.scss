@@ -4,8 +4,11 @@
 @import "./helper/fonts.scss";
 @import "./component/carCardComponent.scss";
 
+@import "./component/select.scss";
 
-
+#app {
+  font-family: $main-font-family;
+}
 
 #header,
 #footer,
