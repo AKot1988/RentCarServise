@@ -2,9 +2,23 @@
 @import "./helper/variables.scss";
 @import "./helper/mixins.scss";
 @import "./helper/fonts.scss";
+@import "./component/carCardComponent.scss";
 
 @import "./components/select.scss";
 
 #app {
   font-family: $main-font-family;
+}
+
+#header,
+#footer,
+.container {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+#header,
+#footer,
+.container {
+  max-width: 1310px;
+  margin: 0 auto;
 }
