@@ -1,5 +1,5 @@
 import Select from "./select";
-import API from '../../utils/API.ts'
+// import API from '../../utils/API.ts'
 
 export default async function fetchData() {
     // const api = new API('../src/data/data.json');
