@@ -1,0 +1,172 @@
+{
+  "Sedan": [
+    {
+      "model": "BMW",
+      "price": "100",
+      "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+    },
+    {
+      "model": "Audi",
+      "price": "200",
+      "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+    },
+    {
+      "model": "Toyota",
+      "price": "500",
+      "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+    },
+    {
+      "model": "Nissan",
+      "price": "600",
+      "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+    },
+    {
+      "model": "Mazda",
+      "price": "700",
+      "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+    },
+    {
+      "model": "Mercedes",
+      "price": "300",
+      "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+    },
+    {
+      "model": "Lexus",
+      "price": "400",
+      "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+    },
+    {
+      "model": "Honda",
+      "price": "800",
+      "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+    }
+  ],
+  "SUV":
+  [
+  {
+    "model": "BMW",
+    "price": "100",
+    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+  },
+  {
+    "model": "Audi",
+    "price": "200",
+    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+  },
+  {
+    "model": "Mercedes",
+    "price": "300",
+    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+  },
+  {
+    "model": "Lexus",
+    "price": "400",
+    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+  },
+  {
+    "model": "Toyota",
+    "price": "500",
+    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+  },
+  {
+    "model": "Nissan",
+    "price": "600",
+    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+  },
+  {
+    "model": "Mazda",
+    "price": "700",
+    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+  },
+  {
+    "model": "Honda",
+    "price": "800",
+    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+  }
+],
+  "Hatchback":
+  [
+  {
+    "model": "BMW",
+    "price": "100",
+    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+  },
+  {
+    "model": "Audi",
+    "price": "200",
+    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+  },
+  {
+    "model": "Mercedes",
+    "price": "300",
+    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+  },
+  {
+    "model": "Lexus",
+    "price": "400",
+    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+  },
+  {
+    "model": "Toyota",
+    "price": "500",
+    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+  },
+  {
+    "model": "Nissan",
+    "price": "600",
+    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+  },
+  {
+    "model": "Mazda",
+    "price": "700",
+    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+  },
+  {
+    "model": "Honda",
+    "price": "800",
+    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+  }
+],
+"Wagon": [
+  {
+    "model": "BMW",
+    "price": "100",
+    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+  },
+  {
+    "model": "Audi",
+    "price": "200",
+    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+  },
+  {
+    "model": "Mercedes",
+    "price": "300",
+    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+  },
+  {
+    "model": "Lexus",
+    "price": "400",
+    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+  },
+  {
+    "model": "Toyota",
+    "price": "500",
+    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+  },
+  {
+    "model": "Nissan",
+    "price": "600",
+    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+  },
+  {
+    "model": "Mazda",
+    "price": "700",
+    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+  },
+  {
+    "model": "Honda",
+    "price": "800",
+    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+  }
+]
+}
