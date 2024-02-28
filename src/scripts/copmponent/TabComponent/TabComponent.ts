@@ -8,7 +8,7 @@ export class TabComponent {
   }
   render(parent?: HTMLDivElement) {
     if (parent) {
-      parent.appendChild(this.newTab)
+      parent.append(this.newTab)
     }
   }
 }
