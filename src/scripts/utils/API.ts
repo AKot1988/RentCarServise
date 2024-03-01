@@ -1,7 +1,7 @@
 import { Data } from "../copmponent/Select/type";
 
 
-export default class API {
+export default class API <Data>{
     private ROOT_URL: string
     constructor(public baseUrl: string) {
         this.ROOT_URL = baseUrl;

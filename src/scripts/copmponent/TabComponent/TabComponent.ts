@@ -40,3 +40,17 @@ export class TabComponent {
   }
 }
 
+// export class TabComponent extends CreateElement {
+
+// 	constructor(
+// 		public newTab: HTMLElement = document.createElement('div')
+// 		public tabList: HTMLElement[] = []
+// 	) {
+// 		super()
+// 	}
+
+// 	render() {
+	
+// 		super.render('div', param)
+// 	}
+// }

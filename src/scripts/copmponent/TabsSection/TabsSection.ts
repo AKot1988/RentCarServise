@@ -1,3 +1,4 @@
+import '../../../scss/component/TabsSection.scss';
 import { TabComponent } from "../TabComponent/TabComponent";
 import { CarCardComponent } from "../CarCardComponent/CarCardComponent";
 import CreateElement from "../CreateElement/CreateElement";
@@ -10,67 +11,65 @@ export default class TabsSection {
   public carTypeWrapperArray: HTMLElement[] = [];
   public activeTab: HTMLElement;
 
-  // Конструктор класу TabsSection
   constructor(public tabParams: any, public carCardData: any) {
-    // Створення екземпляру TabComponent та присвоєння його до властивості tabComponent
-    this.tabComponent = new TabComponent(tabParams, document.querySelector('.popular__tabs__container'));
+    this.tabComponent = new TabComponent(tabParams, document.querySelector('.popular__tabs__container') as HTMLDivElement);
+    this.carCardComponent = new CarCardComponent(carCardData, document.createElement('div') as HTMLDivElement);
+    this.carTypeWrapper = document.createElement('div');
+    
+    this.activeTab = document.querySelector('.tab--active') as HTMLElement;
+    console.dir(this.activeTab);
 
-    // Отримання активної вкладки і присвоєння її до властивості activeTab
-    this.activeTab = document.querySelector('.tab--active');
-
-    // Виклик методу render, який рендерить вміст відповідно до активної вкладки
     this.render();
 
-    // Виклик методу tabHandler, який встановлює обробник подій для переключення вкладок
     this.tabHandler();
   }
 
-  // Метод, який рендерить вміст відповідно до активної вкладки
   render() {
-    // Проходження через дані автомобілів та рендерінг кожного типу автомобілів
     for (let carType in this.carCardData) {
-      // Створення обгортки типу автомобілів
-      this.carTypeWrapper = new CreateElement('div', {
-        classes: `carTypeWrapper--${carType}`,
-        dataset: { tabContent: `${carType}` }
-      }).render();
+      this.carTypeWrapper = new CreateElement('div', {classes: [`carTypeWrapper--${carType}`, 'carTypeWrapper'], dataset: { tabContent: `${carType}`}}).render();
+      document.querySelector('.popular__cars__container')?.append(this.carTypeWrapper);
 
-      // Позначення активної вкладки
       if (this.carTypeWrapper.dataset.tabContent === this.activeTab.dataset.tabHeader) {
-        this.carTypeWrapper.classList.add('active');
+        this.carTypeWrapper.classList.add('content--active');
       }
 
-      // Рендерінг кожного автомобіля відповідно до типу
       this.carCardData[carType].forEach((car: newElementAttributesInterface) => {
-        new CarCardComponent(car, document.querySelector(`.carTypeWrapper--${carType}`));
+        new CarCardComponent(car, document.querySelector(`.carTypeWrapper--${carType}`) as HTMLDivElement);
       });
 
-      // Додавання обгортки типу автомобілів до масиву
       this.carTypeWrapperArray.push(this.carTypeWrapper);
     }
   }
 
-  // Метод, який встановлює обробник подій для переключення вкладок
   tabHandler() {
-    document.querySelector('.popular__tabs__container').addEventListener('click', (e) => {
+    document.querySelector('.popular__tabs__container')?.addEventListener('click', (e) => {
+      console.dir(e.target);
       if (e.target.classList.contains('tab') && !e.target.classList.contains('tab--active')) {
-        // Видалення класу 'tab--active' з попередньої активної вкладки
         this.activeTab.classList.remove('tab--active');
-
-        // Присвоєння поточної вкладки до activeTab
         this.activeTab = e.target;
-
-        // Додавання класу 'tab--active' до нової активної вкладки
         this.activeTab.classList.add('tab--active');
 
-        // Відобразити відповідний вміст для нової вкладки
         this.carTypeWrapperArray.forEach((wrapper) => {
-          wrapper.classList.remove('active');
+          wrapper.classList.remove('content--active');
           if (wrapper.dataset.tabContent === this.activeTab.dataset.tabHeader) {
-            wrapper.classList.add('active');
+            wrapper.classList.add('content--active');
           }
         });
       }
     });
   }
 }
+
+
+// const arr = [
+// 	{ a: 1, b: 2 },
+// 	{ a: 3, b: 4 },
+// 	{ a: 5, b: 6 },
+// ]
+
+// arr.forEach((item, index) => {
+// 	const { a, b } = item
+// })
+// arr.forEach(({ a, b }, index) => {
+// 	// const { a, b } = item
+// })
