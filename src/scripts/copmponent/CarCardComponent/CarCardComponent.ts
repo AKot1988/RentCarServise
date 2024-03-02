@@ -8,7 +8,6 @@ export let carCardData = await new API('../../../../dataJSON/carDada.json').getR
 export let updatedCarCardData = await Promise.all(Object.values(carCardData).map(async (carType) => {
   return Promise.all(carType.map(async (car: any) => {
     let imageSRCReasponse = await new API('https://api.thecatapi.com/v1/images/search?limit=1').getRequest();
-    console.log(imageSRCReasponse[0].url);
     car.image = imageSRCReasponse[0].url;
     return car;
   }));
