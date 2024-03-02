@@ -1,7 +1,4 @@
-import { Data } from "../copmponent/Select/type";
-
-
-export default class API {
+export default class API<Data> {
     private ROOT_URL: string
     constructor(public baseUrl: string) {
         this.ROOT_URL = baseUrl;
@@ -18,7 +15,7 @@ export default class API {
         return await response.json();
     }
 
-    async postRequest(routing: string, data: any): Promise<Data> {
+    async postRequest<T>(routing: string, data: T): Promise<Data> {
         const requestOptions = {
             method: "POST",
             headers: {
@@ -31,7 +28,7 @@ export default class API {
         return await response.json();
     }
 
-    async putRequest(routing: string, data: any): Promise<Data> {
+    async putRequest<T>(routing: string, data: T): Promise<Data> {
         const requestOptions = {
             method: "PUT",
             headers: {
@@ -44,7 +41,7 @@ export default class API {
         return await response.json();
     }
 
-    async patchRequest(routing: string, data: any): Promise<Data> {
+    async patchRequest<T>(routing: string, data: T): Promise<Data> {
         const requestOptions = {
             method: "PATCH",
             headers: {
