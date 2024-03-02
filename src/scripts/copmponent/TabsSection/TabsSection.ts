@@ -15,11 +15,8 @@ export default class TabsSection {
     this.tabComponent = new TabComponent(tabParams, document.querySelector('.popular__tabs__container') as HTMLDivElement);
     this.carCardComponent = new CarCardComponent(carCardData, document.createElement('div') as HTMLDivElement);
     this.carTypeWrapper = document.createElement('div');
-    
     this.activeTab = document.querySelector('.tab--active') as HTMLElement;
-
     this.render();
-
     this.tabHandler();
   }
 
@@ -46,6 +43,7 @@ export default class TabsSection {
         this.activeTab.classList.remove('tab--active');
         this.activeTab = e.target;
         this.activeTab.classList.add('tab--active');
+
         this.carTypeWrapperArray.forEach((wrapper) => {
           wrapper.classList.remove('content--active');
           if (wrapper.dataset.tabContent === this.activeTab.dataset.tabHeader) {

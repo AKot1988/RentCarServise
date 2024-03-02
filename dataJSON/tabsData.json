@@ -1,22 +1,23 @@
 [
   {
-    "class": "tab",
-    "textContent": "Sedan",
-    "dataset": "Sedan"
+    "innerText": "Sedan",
+    "classes": ["tab", "tab--active"],
+    "dataset": {"tabHeader": "Sedan"}
   },
   {
-    "class": "tab",
-    "textContent": "SUV",
-    "dataset": "SUV"
+    "innerText": "SUV",
+    "classes": ["tab"],
+    "dataset": {"tabHeader": "SUV"}
   },
   {
-    "class": "tab",
-    "textContent": "Hatchback",
-    "dataset": "Hatchback"
+    "innerText": "Hatchback",
+    "classes": ["tab"],
+    "dataset": {"tabHeader": "Hatchback"}
   },
   {
-    "class": "tab",
-    "textContent": "Wagon",
-    "dataset": "Wagon"
+    "innerText": "Wagon",
+    "classes": ["tab"],
+    "dataset": {"tabHeader": "Wagon"}
   }
 ]
+

@@ -5,10 +5,8 @@ import TabsSection from "./copmponent/TabsSection/TabsSection";
 import { carCardData } from "./copmponent/CarCardComponent/CarCardComponent";
 import { tabParams } from "./copmponent/TabComponent/TabComponent";
 
+
 const tabsSection = new TabsSection(tabParams, carCardData);
-
-
-
 
 
 fetchData();

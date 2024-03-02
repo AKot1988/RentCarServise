@@ -1,32 +1,7 @@
 import CreateElement from '../CreateElement/CreateElement'
 import { newElementAttributesInterface } from '../UniversalButton/types'
-
-export const tabParams: newElementAttributesInterface[] = [
-  {
-    innerText: 'Sedan',
-    classes: ['tab', 'tab--active'],
-    dataset: {tabHeader: 'Sedan'}
-  },
-
-  {
-    innerText:`SUV`,
-    classes: 'tab',
-    dataset: {tabHeader: 'SUV'}
-  },
-
-  {
-    innerText: 'Hatchback',
-    classes: 'tab',
-    dataset: {tabHeader: 'Hatchback'}
-  },
-
-  {
-    innerText: 'Wagon',
-    classes: 'tab',
-    dataset: {tabHeader: 'Wagon'}
-  }
-]
-
+import API from "../../utils/API";
+export const tabParams = await new API('../../../../dataJSON/tabsData.json').getRequest();
 export class TabComponent {
   public newTab: HTMLElement = document.createElement('div');
   public tabList: HTMLElement[] = [];
@@ -39,18 +14,3 @@ export class TabComponent {
     this.parent.append(...this.tabList);
   }
 }
-
-// export class TabComponent extends CreateElement {
-
-// 	constructor(
-// 		public newTab: HTMLElement = document.createElement('div')
-// 		public tabList: HTMLElement[] = []
-// 	) {
-// 		super()
-// 	}
-
-// 	render() {
-	
-// 		super.render('div', param)
-// 	}
-// }
