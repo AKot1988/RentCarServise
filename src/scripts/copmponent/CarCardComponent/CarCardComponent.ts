@@ -5,17 +5,6 @@ import { newElementAttributesInterface } from "../UniversalButton/types";
 import API from "../../utils/API";
 
 export let carCardData = await new API('../../../../dataJSON/carDada.json').getRequest();
-
-
-// export let updatedCarCardData = Object.values(carCardData).map((carType) => {
-//   carType.map(async (car: any) => {
-//     let imageSRCReasponse = await new API('https://api.thecatapi.com/v1/images/search?limit=1').getRequest()
-//     console.log(imageSRCReasponse[0].url);
-//     car.image = imageSRCReasponse.url;
-//   });
-// })
-// console.log(updatedCarCardData);
-
 export let updatedCarCardData = await Promise.all(Object.values(carCardData).map(async (carType) => {
   return Promise.all(carType.map(async (car: any) => {
     let imageSRCReasponse = await new API('https://api.thecatapi.com/v1/images/search?limit=1').getRequest();
