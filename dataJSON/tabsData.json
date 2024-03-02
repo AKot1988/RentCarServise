@@ -1,0 +1,23 @@
+[
+  {
+    "innerText": "Sedan",
+    "classes": ["tab", "tab--active"],
+    "dataset": {"tabHeader": "Sedan"}
+  },
+  {
+    "innerText": "SUV",
+    "classes": ["tab"],
+    "dataset": {"tabHeader": "SUV"}
+  },
+  {
+    "innerText": "Hatchback",
+    "classes": ["tab"],
+    "dataset": {"tabHeader": "Hatchback"}
+  },
+  {
+    "innerText": "Wagon",
+    "classes": ["tab"],
+    "dataset": {"tabHeader": "Wagon"}
+  }
+]
+
