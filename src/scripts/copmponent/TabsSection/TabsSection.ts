@@ -54,17 +54,3 @@ export default class TabsSection {
     });
   }
 }
-
-
-// const arr = [
-// 	{ a: 1, b: 2 },
-// 	{ a: 3, b: 4 },
-// 	{ a: 5, b: 6 },
-// ]
-
-// arr.forEach((item, index) => {
-// 	const { a, b } = item
-// })
-// arr.forEach(({ a, b }, index) => {
-// 	// const { a, b } = item
-// })
