@@ -17,7 +17,6 @@ export default class TabsSection {
     this.carTypeWrapper = document.createElement('div');
     
     this.activeTab = document.querySelector('.tab--active') as HTMLElement;
-    console.dir(this.activeTab);
 
     this.render();
 
@@ -43,12 +42,10 @@ export default class TabsSection {
 
   tabHandler() {
     document.querySelector('.popular__tabs__container')?.addEventListener('click', (e) => {
-      console.dir(e.target);
       if (e.target.classList.contains('tab') && !e.target.classList.contains('tab--active')) {
         this.activeTab.classList.remove('tab--active');
         this.activeTab = e.target;
         this.activeTab.classList.add('tab--active');
-
         this.carTypeWrapperArray.forEach((wrapper) => {
           wrapper.classList.remove('content--active');
           if (wrapper.dataset.tabContent === this.activeTab.dataset.tabHeader) {
