@@ -1,8 +1,14 @@
 import "../scss/main.scss";
 import fetchData from "./copmponent/Select/helpers";
 import UniversalButton from "./copmponent/UniversalButton/UniversalButton";
-// import { carCardData, tabsData } from "../../dataJSON/carDada.ts";
-// import CarCardComponent from "../scripts/copmponent/CarCardComponent/CarCardComponent";
+import TabsSection from "./copmponent/TabsSection/TabsSection";
+import { carCardData, updatedCarCardData } from "./copmponent/CarCardComponent/CarCardComponent";
+import { tabParams } from "./copmponent/TabComponent/TabComponent";
+
+let newCarData = await (updatedCarCardData as any);
+
+const tabsSection = new TabsSection(tabParams, updatedCarCardData);
+
 
 // carCardData.forEach((car) => {new CarCardComponent(car, document.querySelector('.popular__cars'))})
 

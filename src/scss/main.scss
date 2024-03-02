@@ -6,14 +6,26 @@
 
 @import "./component/select.scss";
 
-#app {
-  font-family: $main-font-family;
+* {
+  font-family: var(--headers-font-family);
+  animation: global;
+  animation-duration: 0.5s;
+}
+
+@keyframes global {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 #header,
 #footer,
 .container {
   font-family: "Plus Jakarta Sans", sans-serif;
+  
 }
 
 #header,

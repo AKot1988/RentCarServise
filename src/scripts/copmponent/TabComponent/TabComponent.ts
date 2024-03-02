@@ -1,6 +1,10 @@
 import CreateElement from '../CreateElement/CreateElement'
 import { newElementAttributesInterface } from '../UniversalButton/types'
+import API from "../../utils/API";
 
+export const tabParams = await new API('../../../../dataJSON/tabsData.json').getRequest();
+
+>>>>>>> Stashed changes
 export class TabComponent {
   public newTab: HTMLElement
   constructor (public params: newElementAttributesInterface, public parent?: HTMLDivElement) {
