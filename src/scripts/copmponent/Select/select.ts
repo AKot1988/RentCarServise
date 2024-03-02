@@ -7,7 +7,7 @@ export default class Select {
     private value!: HTMLElement;
     private selectedId: string | null;
 
-    constructor(private select: string, private options: { placeholder: string, data: DataItem[] }) {
+    constructor(public select: string, private options: { placeholder: string, data: DataItem[] }) {
         this.elem = document.querySelector(select) as HTMLElement;
 
         if (!this.elem) {
