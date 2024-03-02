@@ -4,12 +4,12 @@ import UniversalButton from "./copmponent/UniversalButton/UniversalButton";
 import TabsSection from "./copmponent/TabsSection/TabsSection";
 import { carCardData } from "./copmponent/CarCardComponent/CarCardComponent";
 import { tabParams } from "./copmponent/TabComponent/TabComponent";
-
+import renderTestimonials from "./copmponent/Testimonials/renderTestimonials";
 
 const tabsSection = new TabsSection(tabParams, carCardData);
 
-
 fetchData();
+renderTestimonials()
 
 
 const buttonOptions = {

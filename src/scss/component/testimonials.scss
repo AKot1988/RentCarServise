@@ -1,0 +1,92 @@
+@import "../helper/fonts.scss";
+@import "../helper/mixins.scss";
+@import "../helper/variables.scss";
+
+.testimonials {
+    font-family: 'Rubik', sans-serif;
+    padding-top: 100px;
+    &__title {
+        @include font(35px, 500, #0B132A);
+        text-align: center;
+        margin-inline: auto;
+        width: 422px;
+    }
+    &__text {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        margin-top: 20px;
+        @include font(18px, 400, $basic-text-color);
+        text-align: center;
+        margin-inline: auto;
+        width: 530px;
+    }
+    &__arrow {
+        margin-left: auto;
+        @include flex(center, flex-end, row);
+        gap: 50px;
+        &-left, &-right {
+            width: 30px;
+            height: 30px;
+            border: transparent;
+            background-color: $general-background-color;
+        }
+    }
+
+    &__wrapper {
+        margin-top: 51px;
+        margin-bottom: 82px;
+        @include flex(center, space-between, row);
+        gap: 49px;
+        &-item.active{
+            @include grid(1fr 5fr 1fr, 40px 100px);
+            row-gap: 20px;   
+        }
+        &-item {
+            display: none;
+            background-color: $basic-decore-color;
+            padding: 30px 24px 30px 41px;
+            border-radius: 10px;
+
+            &-pic{
+                grid-column: 1/ span 1;
+                grid-row: 1/ span 1;
+                justify-items: center;
+                align-self: center;
+                width: 40px;
+                height: 40px;
+                border-radius: 40px;
+                background-color: #d9d9d9;
+                &-photo{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 40px;
+                }
+            }
+            &-customer{
+                grid-column: 2/ span 1;
+                grid-row: 1/ span 1;
+                padding-left: 17px;
+                align-self: center;
+                &-name{
+                    @include font(18px, 500, #0b132a);
+                }
+                &-location{
+                    @include font(14px, 400, #4f5665);
+                }
+            }
+            &-rating{
+                grid-column: 3/ span 1;
+                grid-row: 1/ span 1;
+                padding-right: 34px;
+                justify-items: end;
+                align-self: center;
+                @include font(16px, 400, #0b132a);
+            }
+            &-content{
+                grid-column: 1/ span 3;
+                grid-row: 2/ span 1;
+                @include font(16px, 400, #4f5665);
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+@import "../helper/mixins.scss";
+@import "../helper/variables.scss";
+
+#footer {
+    margin-top: 82px;
+    background-color: $basic-decore-color
+}
+.footer__content {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    @include flex(center, space-between, row);
+    &-item{
+        @include font(16px, 600, $basic-text-color);
+    }
+}
