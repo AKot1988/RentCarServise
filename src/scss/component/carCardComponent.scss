@@ -42,7 +42,7 @@
   @include flex(center, space-between, column);
 
   padding: 25px;
-  max-width: 305px;
+  width: 305px;
   height: 390px;
   background-color: $basic-decore-color;
   border-radius: 10px;
@@ -55,7 +55,11 @@
   }
 
   &__image {
-    width: 90%;
+    // background-size: cover;
+    aspect-ratio: 16/14;
+    width: 95%;
+    border-radius: 10px;
+    // height: 50%;
     background-size: cover;
     background-position: center;
     margin-bottom: 20px;
