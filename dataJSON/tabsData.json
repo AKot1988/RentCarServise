@@ -1,0 +1,22 @@
+[
+  {
+    "class": "tab",
+    "textContent": "Sedan",
+    "dataset": "Sedan"
+  },
+  {
+    "class": "tab",
+    "textContent": "SUV",
+    "dataset": "SUV"
+  },
+  {
+    "class": "tab",
+    "textContent": "Hatchback",
+    "dataset": "Hatchback"
+  },
+  {
+    "class": "tab",
+    "textContent": "Wagon",
+    "dataset": "Wagon"
+  }
+]
