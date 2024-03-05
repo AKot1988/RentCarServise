@@ -2,7 +2,7 @@
 @import "./helper/variables.scss";
 @import "./helper/mixins.scss";
 @import "./helper/fonts.scss";
-@import "./helper/loyaut.scss";
+@import "./helper/layout.scss";
 
 @import "./component/carCardComponent.scss";
 @import "./component/TabsSection.scss";
@@ -26,6 +26,3 @@
     opacity: 1;
   }
 }
-
-
-
