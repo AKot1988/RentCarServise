@@ -6,22 +6,12 @@
 @import "./component/TabsSection.scss";
 @import "./component/testimonials.scss";
 @import "./component/footer.scss";
+@import "./component/loader.scss";
 
 @import "./component/select.scss";
 
 * {
   font-family: var(--headers-font-family);
-  animation: global;
-  animation-duration: 0.5s;
-}
-
-@keyframes global {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 
 #header,
@@ -35,4 +25,6 @@
 .container {
   max-width: 1310px;
   margin: 0 auto;
+  position: relative;
+  min-height: 500px;
 }
