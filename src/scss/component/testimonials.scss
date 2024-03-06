@@ -4,6 +4,8 @@
 
 .testimonials {
     font-family: 'Rubik', sans-serif;
+    position: relative;
+    overflow: hidden;
     padding-top: 100px;
     &__title {
         @include font(35px, 500, #0B132A);
@@ -30,22 +32,35 @@
             background-color: $general-background-color;
         }
     }
+    &__arrow > .deact {
+        cursor: pointer;
+        path {
+            fill: $basic-decore-color;
+        }
+    }
 
     &__wrapper {
+        width: calc(100% + 49px);
         margin-top: 51px;
         margin-bottom: 82px;
-        @include flex(center, space-between, row);
-        gap: 49px;
-        &-item.active{
-            @include grid(1fr 5fr 1fr, 40px 100px);
-            row-gap: 20px;   
-        }
-        &-item {
+        overflow: scroll;
+        scroll-behavior: smooth;
+        @include flex(center, start, row);
+        &::-webkit-scrollbar {
             display: none;
+        }
+    
+        &-item {
+            margin-right: 49px;
+            width: 100%;
+            height: 100%;
+            flex: 1 0 25%;
+            @include grid(1fr 5fr 1fr, 40px 100px);
+            row-gap: 20px; 
             background-color: $basic-decore-color;
             padding: 30px 24px 30px 41px;
             border-radius: 10px;
-
+            
             &-pic{
                 grid-column: 1/ span 1;
                 grid-row: 1/ span 1;

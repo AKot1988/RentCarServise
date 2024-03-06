@@ -11,21 +11,12 @@ if(testimonialsList) {
     try {
         const testimonials = await api.getRequest();
         
-        let numberItem = 0 
-
         testimonials.forEach((elem) =>{
             const review = new Testimonials(elem)
             review.render(testimonialsList)
         })
         
-        let allReviews = document.querySelectorAll('.testimonials__wrapper-item') 
-        allReviews.forEach(elem => {
-            numberItem++
-            if(numberItem <= 3) {
-                elem.classList.add('active')
-            }
-        })
-        new Slider('.testimonials__arrow-right', '.testimonials__arrow-left', '.testimonials__wrapper-item', 0, 3, numberItem) 
+        new Slider('.testimonials__wrapper', '.testimonials__wrapper-item', '.testimonials__arrow-right', '.testimonials__arrow-left') 
     
     } catch (error) {
         console.error('Error fetching data:', error);
