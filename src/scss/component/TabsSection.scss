@@ -30,6 +30,7 @@
 
 .content--active,
 .popular__cars__container {
+  max-width: 1330px;
   margin-top: 50px;
   @include flex (center,center, row);
   flex-wrap: wrap;

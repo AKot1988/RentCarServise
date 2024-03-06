@@ -7,18 +7,12 @@
 @import "./component/testimonials.scss";
 @import "./component/footer.scss";
 @import "./component/loader.scss";
-
 @import "./component/select.scss";
-
-* {
-  font-family: var(--headers-font-family);
-}
 
 #header,
 #footer,
 .container {
   font-family: "Plus Jakarta Sans", sans-serif;
-  
 }
 
 #header,
