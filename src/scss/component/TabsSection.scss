@@ -4,7 +4,6 @@
 
 .popular__tabs__container{
   width: 100%;
-  // @include flex (center,center, row);?
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   margin-top: 50px
@@ -29,7 +28,9 @@
   display: none;
 }
 
-.content--active {
+.content--active,
+.popular__cars__container {
+  max-width: 1330px;
   margin-top: 50px;
   @include flex (center,center, row);
   flex-wrap: wrap;

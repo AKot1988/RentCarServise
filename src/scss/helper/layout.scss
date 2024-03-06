@@ -1,0 +1,66 @@
+#header,
+#footer,
+.container {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+#header,
+.container {
+  max-width: 1310px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $basic-decore-color;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: $general-background-color;
+}
+
+.section-title {
+  @include font(
+    clamp(1.5rem, 0.9718rem + 2.2535vw, 3rem),
+    500,
+    $headers2-text-color
+  );
+  line-height: 72px;
+  text-align: center;
+  margin-bottom: 18px;
+
+  @media screen and (max-width: $tablet-bigger) {
+    line-height: 45px;
+  }
+
+  @media screen and (max-width: $tablet) {
+    line-height: 34px;
+    margin-bottom: 10px;
+  }
+
+  @media screen and (max-width: $mobile) {
+    line-height: 26px;
+  }
+}
+
+.section-description {
+  @include font(
+    clamp(0.875rem, 0.787rem + 0.3756vw, 1.125rem),
+    400,
+    $headers1-text-color
+  );
+  line-height: 27px;
+  text-align: center;
+  max-width: 529px;
+  margin: 0 auto;
+
+  @media screen and (max-width: $tablet) {
+    line-height: 21px;
+  }
+}

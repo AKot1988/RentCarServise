@@ -1,5 +1,6 @@
 // --------------------------colors-------------------------------
 $basic-decore-color: #c4c4c4;
+$basic-decore-color-svg: rgb(196, 196, 196, 0.14);
 $secondary-decore-color: #f6f7f9;
 $third-decore-color: #f3f3f3;
 $general-background-color: #fff;
@@ -39,3 +40,9 @@ $main-font-weight: 400;
 $headers-font-weight: 600;
 $secondary-font-weight: 500;
 $third-font-weight: 700;
+
+//---------------------------BreakPoints------------------------------
+$mobile: 375px;
+$tablet: 768px;
+$tablet-bigger: 1024px;
+$desktop: 1440px;

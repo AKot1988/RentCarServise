@@ -1,56 +1,71 @@
 import '../../../scss/component/TabsSection.scss';
 import { TabComponent } from "../TabComponent/TabComponent";
-import { CarCardComponent } from "../CarCardComponent/CarCardComponent";
-import CreateElement from "../CreateElement/CreateElement";
-import { newElementAttributesInterface } from "../UniversalButton/types";
+import CarCardComponent from "../CarCardComponent/CarCardComponent";
+import { CarCardProps } from "../CarCardComponent/types";
+import Loader from "../Loader/Loader";
+import { GenerateDataToRender } from "../CarCardComponent/helper";
+
+
+
+const loader = new Loader(document.querySelector('.popular__cars__container') as HTMLElement);
 
 export default class TabsSection {
   public tabComponent: TabComponent;
   public carCardComponent: CarCardComponent;
-  public carTypeWrapper: HTMLElement;
   public carTypeWrapperArray: HTMLElement[] = [];
   public activeTab: HTMLElement;
+  public activeCarTypeByDefault: string;
+  public dafaultCarDataToRender: CarCardProps[] = [];
 
-  constructor(public tabParams: any, public carCardData: any) {
-    this.tabComponent = new TabComponent(tabParams, document.querySelector('.popular__tabs__container') as HTMLDivElement);
-    this.carCardComponent = new CarCardComponent(carCardData, document.createElement('div') as HTMLDivElement);
-    this.carTypeWrapper = document.createElement('div');
+  constructor(public tabParams: any) {
+    this.tabComponent = new TabComponent(this.tabParams, document.querySelector('.popular__tabs__container') as HTMLDivElement);
+
+
+    this.carCardComponent = new CarCardComponent(this.dafaultCarDataToRender, document.createElement('div') as HTMLDivElement);
     this.activeTab = document.querySelector('.tab--active') as HTMLElement;
+    this.activeCarTypeByDefault = this.activeTab.innerText;
     this.render();
     this.tabHandler();
   }
-
-  render() {
-    for (let carType in this.carCardData) {
-      this.carTypeWrapper = new CreateElement('div', {classes: [`carTypeWrapper--${carType}`, 'carTypeWrapper'], dataset: { tabContent: `${carType}`}}).render();
-      document.querySelector('.popular__cars__container')?.append(this.carTypeWrapper);
-
-      if (this.carTypeWrapper.dataset.tabContent === this.activeTab.dataset.tabHeader) {
-        this.carTypeWrapper.classList.add('content--active');
-      }
-
-      this.carCardData[carType].forEach((car: newElementAttributesInterface) => {
-        new CarCardComponent(car, document.querySelector(`.carTypeWrapper--${carType}`) as HTMLDivElement);
+  async render() {
+      try {
+        this.dafaultCarDataToRender = await GenerateDataToRender(this.activeCarTypeByDefault, '../../../../dataJSON/carData.json', 'https://api.thecatapi.com/v1/images/search?limit=1')
+        loader.remove();
+        this.dafaultCarDataToRender.forEach((car: CarCardProps) => {
+        new CarCardComponent(car, document.querySelector(`.popular__cars__container`) as HTMLDivElement);
       });
-
-      this.carTypeWrapperArray.push(this.carTypeWrapper);
+    } catch (error) {
+      console.error('Помилка під час отримання даних:', error);
+      loader.ErrorGif()
     }
   }
 
-  tabHandler() {
-    document.querySelector('.popular__tabs__container')?.addEventListener('click', (e) => {
-      if (e.target.classList.contains('tab') && !e.target.classList.contains('tab--active')) {
-        this.activeTab.classList.remove('tab--active');
-        this.activeTab = e.target;
-        this.activeTab.classList.add('tab--active');
+  async tabHandler() {
+      document.querySelector('.popular__tabs__container')?.addEventListener('click', async (e) => {
+          let target = e.target as HTMLElement;
+          if (target.classList.contains('tab') && !target.classList.contains('tab--active')) {
+              let carCardPArent = document.querySelector('.popular__cars__container') as HTMLElement;
+              while (carCardPArent.firstChild) {
+                  carCardPArent.removeChild(carCardPArent.firstChild);
+              }
+              this.activeTab.classList.remove('tab--active');
+              this.activeTab = target;
+              this.activeTab.classList.add('tab--active');
+              this.activeCarTypeByDefault = this.activeTab.innerText;
 
-        this.carTypeWrapperArray.forEach((wrapper) => {
-          wrapper.classList.remove('content--active');
-          if (wrapper.dataset.tabContent === this.activeTab.dataset.tabHeader) {
-            wrapper.classList.add('content--active');
+              const loader = new Loader(document.querySelector('.popular__cars__container') as HTMLElement);
+
+              try {
+                  this.dafaultCarDataToRender = await GenerateDataToRender(this.activeTab.innerText, '../../../../dataJSON/carData.json', 'https://api.thecatapi.com/v1/images/search?limit=1');
+                  loader.remove();
+                  this.dafaultCarDataToRender.forEach((car: CarCardProps) => {
+                      new CarCardComponent(car, document.querySelector('.popular__cars__container') as HTMLDivElement);
+                  });
+              } catch (error) {
+                  console.error('Помилка під час отримання даних:', error);
+                  loader.ErrorGif()
+              }
           }
-        });
-      }
-    });
+      });
   }
 }

@@ -1,0 +1,102 @@
+.how-work {
+  padding: 43px 0 105px;
+
+  @media screen and (max-width: $tablet-bigger) {
+    padding: 33px 0 75px;
+  }
+
+  @media screen and (max-width: $tablet) {
+    padding: 23px 0 55px;
+  }
+
+  &__list {
+    @include flex(center, space-between, row);
+
+    margin-top: 40px;
+
+    @media screen and (max-width: $tablet-bigger) {
+      margin-top: 25px;
+    }
+
+    @media screen and (max-width: $tablet) {
+      @include flex(center, space-between, column);
+    }
+  }
+
+  &__item {
+    max-width: 276px;
+    @include flex(center, space-between, column);
+
+    @media screen and (max-width: $tablet-bigger) {
+      max-width: 225px;
+    }
+
+    @media screen and (max-width: $tablet) {
+      max-width: 100%;
+    }
+  }
+
+  &__image {
+    width: 106px;
+    height: 106px;
+
+    @include flex(center, center, row);
+    margin-bottom: 30px;
+
+    background-color: $basic-decore-color-svg;
+    border-radius: 30px;
+
+    @media screen and (max-width: $tablet-bigger) {
+      width: 96px;
+      height: 96px;
+
+      margin-bottom: 15px;
+    }
+
+    @media screen and (max-width: $tablet) {
+      width: 56px;
+      height: 56px;
+      border-radius: 100%;
+    }
+
+    svg {
+      @media screen and (max-width: $tablet) {
+        width: 20px;
+        height: 27px;
+      }
+    }
+  }
+
+  &__title {
+    @include font(
+      clamp(0.875rem, 0.6549rem + 0.939vw, 1.5rem),
+      600,
+      $headers1-text-color
+    );
+    line-height: 36px;
+    margin-bottom: 18px;
+
+    @media screen and (max-width: $tablet-bigger) {
+      line-height: 26px;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__description {
+    @include font(
+      clamp(0.75rem, 0.706rem + 0.1878vw, 0.875rem),
+      400,
+      $headers1-text-color
+    );
+    line-height: 24.5px;
+    text-align: center;
+
+    @media screen and (max-width: $tablet-bigger) {
+      line-height: 21px;
+    }
+
+    @media screen and (max-width: $tablet) {
+      margin-bottom: 8px;
+    }
+  }
+}
