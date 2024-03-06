@@ -2,11 +2,14 @@
 @import "./helper/variables.scss";
 @import "./helper/mixins.scss";
 @import "./helper/fonts.scss";
+@import "./helper/layout.scss";
+
 @import "./component/carCardComponent.scss";
 @import "./component/TabsSection.scss";
 @import "./component/testimonials.scss";
 @import "./component/footer.scss";
-@import "./component/loader.scss";
+@import "./component/howWork.scss";
+
 @import "./component/select.scss";
 
 #header,

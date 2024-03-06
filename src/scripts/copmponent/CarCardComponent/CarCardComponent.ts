@@ -29,12 +29,12 @@ export default class CarCardComponent {
     this.image = new CreateElement('img', {classes: 'car-card__image', src: this.data.image}).render();
     this.priceButtonContainer = new CreateElement('div', {classes: 'car-card__price-button-container'}).render();
     this.button = new UniversalButton(buttonOptions);
-    this.favIcon = new CreateElement('figure', {classes: 'car-card__fav-icon',  innerHTML: heart_to_favoritesSVG}).render();
+    this.favIcon = new CreateElement('figure', { classes: 'car-card__fav-icon', innerHTML: heart_to_favoritesSVG }).render();
     this.parent = parent;
 
     this.render();
   }
-  
+
   render() {
     this.modelFavContainer.append(this.carmodel, this.favIcon);
     this.priceButtonContainer.append(this.price);
