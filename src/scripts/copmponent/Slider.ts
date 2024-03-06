@@ -1,18 +1,14 @@
 export default class Slider {
+    public track: HTMLElement
+    public slide: HTMLElement
     public btnRight: HTMLElement
     public btnLeft: HTMLElement
-    public slides: HTMLElement[]
-    public firstIndex: number
-    public set: number
-    public qtySlides: number
-
-    constructor(btnRight: string, btnLeft: string, slideItem: string, indexFirstElem: number, set: number, qtySlides: number) {
+    
+    constructor(track: string, slideItem: string, btnRight: string, btnLeft: string) {
+        this.track = document.querySelector(track) as HTMLElement
+        this.slide = document.querySelector(slideItem) as HTMLElement
         this.btnRight = document.querySelector(btnRight) as HTMLElement
         this.btnLeft = document.querySelector(btnLeft) as HTMLElement
-        this.slides = Array.from(document.querySelectorAll(slideItem));
-        this.firstIndex = indexFirstElem || 0;
-        this.set = set || 3;
-        this.qtySlides = qtySlides 
         
         this.init()
     }
@@ -21,36 +17,36 @@ export default class Slider {
         this.btnLeft.addEventListener('click', () => {
             this.btnRight.classList.remove('deact')
             
-            if(this.firstIndex === 0 ) {
-                this.btnLeft.classList.add('deact')
-            } else {
-                let lastIndex = this.firstIndex + this.set - 1 
-                this.slides[lastIndex].classList.remove('active')
-                
-                this.firstIndex = this.firstIndex - 1 
-                this.slides[this.firstIndex].classList.add('active')
-            }
+            const slideWidth = this.slide.clientWidth + 49
+            this.track.scrollLeft -= slideWidth
+
         })
         
-        this.btnRight.addEventListener('click', () => {
-            let slideCount = this.slides.length;
-
+        this.btnRight.addEventListener('click', () => {  
             this.btnLeft.classList.remove('deact')
             
-            if (slideCount <= (this.firstIndex + this.set)) {
+            const slideWidth = this.slide.clientWidth + 49
+            this.track.scrollLeft += slideWidth   
+        })
+
+        this.track.addEventListener('scroll', () => {
+            const trackScrollWidth = this.track.scrollWidth
+            const trackOuterWidth = this.track.clientWidth
+    
+            this.btnLeft.classList.remove('deact')
+            this.btnRight.classList.remove('deact')
+    
+            if (this.track.scrollLeft <= 0) {
+                this.btnLeft.classList.add('deact')
+            }
+            if (this.track.scrollLeft === trackScrollWidth - trackOuterWidth) {
                 this.btnRight.classList.add('deact')
-            } else {
-                this.slides[this.firstIndex].classList.remove('active') 
-                this.firstIndex = this.firstIndex + 1 
-                
-                let lastIndex = this.firstIndex + this.set - 1
-                this.slides[lastIndex].classList.add('active')
             }
         })
     }
 
     init(){
-        if(!!this.slides.length){
+        if(!!this.slide){
             this.handleSlider()
         } 
     }

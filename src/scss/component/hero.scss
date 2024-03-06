@@ -1,0 +1,47 @@
+@import "../helper/variables.scss";
+@import "../helper/mixins.scss";
+@import "../helper/fonts.scss";
+
+.hero {
+  background-color: $basic-decore-color;
+  font-family: $main-font-family;
+  &__wrapper {
+    padding: 55px 65px 155px 65px;
+    max-width: 1440px;
+    margin: 0 auto;
+    @include flex(center, space-between, row);
+    flex-wrap: wrap;
+  }
+  &__call-to-action {
+    max-width: 575px;
+  }
+  &__add-caption {
+    @include font(14px, 500, $headers1-text-color);
+    line-height: 17px;
+    margin-bottom: 40px;
+  }
+  &__title {
+    @include font(46px, 800, $headers1-text-color);
+    line-height: 56px;
+    margin-bottom: 25px;
+  }
+  &__sub-title {
+    @include font(16px, 500, #8b8c91);
+    line-height: 25px;
+    letter-spacing: -2%;
+    margin-bottom: 55px;
+  }
+  &__book-btn {
+    padding: 10px 20px;
+    background-color: white;
+    @include font(16px, 600, $headers1-text-color);
+    line-height: 24px;
+    letter-spacing: -2%;
+    text-decoration: none;
+    border-radius: 4px;
+    &:hover {
+      cursor: pointer;
+      background-color: rgba(255, 255, 255, 0.542);
+    }
+  }
+}
