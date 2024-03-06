@@ -13,7 +13,7 @@ export default class UniversalButton {
       else if (key === 'innerText') { this.newButton.innerText = this.options[key] as string }
       else if (key === "onClick") {
         if (typeof this.options.onClick === 'function') {
-          this.newButton.addEventListener('click', this.options.onClick as EventListener);
+          this.newButton.addEventListener('click', this.options.onClick);
         }
       } else {
         this.newButton.setAttribute(key, this.options[key] as string)

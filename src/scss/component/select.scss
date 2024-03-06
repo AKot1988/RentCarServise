@@ -2,12 +2,18 @@
   height: 145px;
   background-color: $secondary-decore-color;
   font-family: Plus Jakarta Sans, sans-serif;
+  margin-top: 300px;
 
   &__wrapper {
     position: relative;
     bottom: 73px;
     @include flex(center, center, row);
     column-gap: 16px;
+
+    @media screen and (max-width: $tablet-bigger) {
+      @include flex(stretch, center, row);
+      bottom: 90px;
+    }
 
     .pick-up__wrapper,
     .drop-off__wrapper {
@@ -21,11 +27,29 @@
     .pick-up__wrapper {
       padding: 16px 59px 32px 24px;
       width: 569px;
+
+      @media screen and (max-width: $desktop) {
+        padding: 16px 24px 32px 24px;
+        width: 530px;
+      }
     }
 
     .drop-off__wrapper {
       padding: 16px 83px 32px 24px;
       width: 727px;
+
+      @media screen and (max-width: $desktop) {
+        padding: 16px 24px 32px 24px;
+        width: 680px;
+      }
+    }
+
+    .drop-off__wrapper,
+    .pick-up__wrapper {
+      @media screen and (max-width: $tablet-bigger) {
+        padding: 10px 15px;
+        width: 100%;
+      }
     }
 
     .pick-up,
@@ -60,11 +84,30 @@
     .select__wrapper {
       @include flex(center, space-between, row);
       column-gap: 24px;
+
+      @media screen and (max-width: $desktop) {
+        column-gap: 16px;
+      }
+
+      @media screen and (max-width: $tablet-bigger) {
+        @include flex(stretch, space-between, column);
+      }
+
+      .divider__svg {
+        @media screen and (max-width: $tablet-bigger) {
+          display: none;
+        }
+      }
     }
 
     .select__group-title {
       width: 100%;
       max-width: 134px;
+
+      @media screen and (max-width: $tablet-bigger) {
+        max-width: 100%;
+      }
+
       .select__title {
         @include font(16px, 700, $basic-text-color);
         line-height: 24px;
@@ -88,6 +131,7 @@
           @include font(12px, 500, $basic-text-color);
           line-height: 16px;
           cursor: pointer;
+          z-index: 0;
         }
 
         &__svg {
@@ -103,13 +147,19 @@
           position: absolute;
           border: 1px solid #ccc;
           border-radius: 5px;
-          top: 45px;
+          top: 25px;
           left: 0;
           right: 0;
           max-height: 200px;
           overflow-y: auto;
+          overflow-x: hidden;
           background-color: $shadow-color;
+          z-index: 1;
           box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.3);
+
+          @media screen and (max-width: $tablet-bigger) {
+            top: 15px;
+          }
         }
 
         &__list {
@@ -152,6 +202,11 @@
       transition: all 0.5s;
       background-color: $general-background-color;
 
+      @media screen and (max-width: $desktop) {
+        min-width: 85px;
+        height: 36px;
+      }
+
       &:hover {
         background-color: $basic-decore-color;
       }
@@ -164,5 +219,19 @@
         outline: solid 1px $headers1-text-color;
       }
     }
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: $basic-decore-color;
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: $general-background-color;
   }
 }
