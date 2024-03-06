@@ -3,12 +3,18 @@
 @import "../helper/fonts.scss";
 
 .navigation {
-  padding: 30px 65px;
-  @include flex(center, space-between, row);
   background-color: $basic-decore-color;
   border-bottom: 1px solid #b8b8b8;
   user-select: none;
   font-family: $main-font-family;
+
+  &__wrapper {
+    padding: 30px 65px;
+    max-width: 1440px;
+    margin: 0 auto;
+    @include flex(center, space-between, row);
+    flex-wrap: wrap;
+  }
 
   &__logo {
     font-weight: 600;
@@ -20,10 +26,12 @@
 
   &__menu-container {
     @include flex(center, center, row);
+    flex-wrap: wrap;
   }
 
   &__menu {
     @include flex(center, center, row);
+    flex-wrap: wrap;
     gap: 20px;
 
     &-item {
@@ -63,9 +71,10 @@
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
-    font-weight: $secondary-font-weight;
     font-family: $main-font-family;
     line-height: 21px;
+    letter-spacing: -3%;
+    @include font(14px, 500, $headers1-text-color);
     &:hover {
       cursor: pointer;
       background-color: rgba(255, 255, 255, 0.542);
