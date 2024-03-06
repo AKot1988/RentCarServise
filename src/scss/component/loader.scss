@@ -1,0 +1,16 @@
+
+.loader {
+  position: absolute;
+  background-color: transparent;
+  width: 1330px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+
+  &__spinner {
+    width: 100px;
+    height: 100px;
+  }
+}

@@ -12,17 +12,15 @@
 
 @import "./component/select.scss";
 
-* {
-  font-family: var(--headers-font-family);
-  animation: global;
-  animation-duration: 0.5s;
+#header,
+#footer,
+.container {
+  font-family: "Plus Jakarta Sans", sans-serif;
 }
 
-@keyframes global {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+#header,
+.container {
+  max-width: 1310px;
+  margin: 0 auto;
+  position: relative;
 }
