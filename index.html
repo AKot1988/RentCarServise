@@ -1,191 +1,316 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RentCarService Vite + TS</title>
+  </head>
 
-
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RentCarService Vite + TS</title>
-</head>
-
-<body>
-  <main>
-    <section class="dropdown">
-      <div class="container">
-        <div class="dropdown__wrapper">
-          <div class="pick-up__wrapper">
-            <div class="pick-up">
-              <input type="radio" name="pickup-dropoff" id="radio-pickup" />
-              <label class="input" for="radio-pickup">Pick - Up</label>
+  <body>
+    <header class="navigation">
+      <h2 class="navigation__logo">Logo</h2>
+      <menu class="navigation__menu-container">
+        <ul class="navigation__menu">
+          <li class="navigation__menu-item">
+            <a href="#" class="navigation__menu-link">Home</a>
+          </li>
+          <li class="navigation__menu-item">
+            <a href="#" class="navigation__menu-link">How it Work</a>
+          </li>
+          <li class="navigation__menu-item">
+            <a href="#" class="navigation__menu-link">Rental details</a>
+          </li>
+          <li class="navigation__menu-item">
+            <a href="#" class="navigation__menu-link">Why Choose Us</a>
+          </li>
+          <li class="navigation__menu-item">
+            <a href="#" class="navigation__menu-link">Testimonials</a>
+          </li>
+        </ul>
+        <div class="navigation__buttons-container">
+          <p class="navigation__register-button">Register</p>
+          <button class="navigation__login-button">Log In</button>
+        </div>
+      </menu>
+    </header>
+    <main>
+      <section class="dropdown">
+        <div class="container">
+          <div class="dropdown__wrapper">
+            <div class="pick-up__wrapper">
+              <div class="pick-up">
+                <input type="radio" name="pickup-dropoff" id="radio-pickup" />
+                <label class="input" for="radio-pickup">Pick - Up</label>
+              </div>
+              <div class="select__wrapper">
+                <div class="select__group-title">
+                  <h3 class="select__title">Locations</h3>
+                  <div id="select"></div>
+                </div>
+                <figure class="divider">
+                  <svg
+                    class="divider__svg"
+                    width="1"
+                    height="48"
+                    viewBox="0 0 1 48"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <line
+                      x1="0.5"
+                      y1="0.5"
+                      x2="0.5"
+                      y2="47.5"
+                      stroke="#B8B8B8"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </figure>
+                <div class="select__group-title">
+                  <h3 class="select__title">Date</h3>
+                  <div id="select1"></div>
+                </div>
+                <figure class="divider">
+                  <svg
+                    class="divider__svg"
+                    width="1"
+                    height="48"
+                    viewBox="0 0 1 48"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <line
+                      x1="0.5"
+                      y1="0.5"
+                      x2="0.5"
+                      y2="47.5"
+                      stroke="#B8B8B8"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </figure>
+                <div class="select__group-title">
+                  <h3 class="select__title">Time</h3>
+                  <div id="select2"></div>
+                </div>
+              </div>
             </div>
-            <div class="select__wrapper">
-              <div class="select__group-title">
-                <h3 class="select__title">Locations</h3>
-                <div id="select"></div>
+            <div class="drop-off__wrapper">
+              <div class="drop-off">
+                <input type="radio" name="pickup-dropoff" id="radio-dropoff" />
+                <label class="input" for="radio-dropoff">Drop - Off</label>
               </div>
-              <figure class="divider">
-                <svg class="divider__svg" width="1" height="48" viewBox="0 0 1 48" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <line x1="0.5" y1="0.5" x2="0.5" y2="47.5" stroke="#B8B8B8" stroke-linecap="round" />
-                </svg>
-              </figure>
-              <div class="select__group-title">
-                <h3 class="select__title">Date</h3>
-                <div id="select1"></div>
-              </div>
-              <figure class="divider">
-                <svg class="divider__svg" width="1" height="48" viewBox="0 0 1 48" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <line x1="0.5" y1="0.5" x2="0.5" y2="47.5" stroke="#B8B8B8" stroke-linecap="round" />
-                </svg>
-              </figure>
-              <div class="select__group-title">
-                <h3 class="select__title">Time</h3>
-                <div id="select2"></div>
-              </div>
-            </div>
-          </div>
-          <div class="drop-off__wrapper">
-            <div class="drop-off">
-              <input type="radio" name="pickup-dropoff" id="radio-dropoff" />
-              <label class="input" for="radio-dropoff">Drop - Off</label>
-            </div>
-            <div class="select__wrapper select__wrapper--drop">
-              <div class="select__group-title">
-                <h3 class="select__title">Locations</h3>
-                <div id="select3"></div>
-              </div>
-              <figure class="divider">
-                <svg class="divider__svg" width="1" height="48" viewBox="0 0 1 48" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <line x1="0.5" y1="0.5" x2="0.5" y2="47.5" stroke="#B8B8B8" stroke-linecap="round" />
-                </svg>
-              </figure>
-              <div class="select__group-title">
-                <h3 class="select__title">Date</h3>
-                <div id="select4"></div>
-              </div>
-              <figure class="divider">
-                <svg class="divider__svg" width="1" height="48" viewBox="0 0 1 48" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <line x1="0.5" y1="0.5" x2="0.5" y2="47.5" stroke="#B8B8B8" stroke-linecap="round" />
-                </svg>
-              </figure>
-              <div class="select__group-title">
-                <h3 class="select__title">Time</h3>
-                <div id="select5"></div>
+              <div class="select__wrapper select__wrapper--drop">
+                <div class="select__group-title">
+                  <h3 class="select__title">Locations</h3>
+                  <div id="select3"></div>
+                </div>
+                <figure class="divider">
+                  <svg
+                    class="divider__svg"
+                    width="1"
+                    height="48"
+                    viewBox="0 0 1 48"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <line
+                      x1="0.5"
+                      y1="0.5"
+                      x2="0.5"
+                      y2="47.5"
+                      stroke="#B8B8B8"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </figure>
+                <div class="select__group-title">
+                  <h3 class="select__title">Date</h3>
+                  <div id="select4"></div>
+                </div>
+                <figure class="divider">
+                  <svg
+                    class="divider__svg"
+                    width="1"
+                    height="48"
+                    viewBox="0 0 1 48"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <line
+                      x1="0.5"
+                      y1="0.5"
+                      x2="0.5"
+                      y2="47.5"
+                      stroke="#B8B8B8"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </figure>
+                <div class="select__group-title">
+                  <h3 class="select__title">Time</h3>
+                  <div id="select5"></div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="how-work">
-      <div class="container">
-        <h2 class="section-title">How it work</h2>
-        <p class="section-description">
-          A high-performing web-based car rental system for any rent-a-car company and
-          website
+      <section class="how-work">
+        <div class="container">
+          <h2 class="section-title">How it work</h2>
+          <p class="section-description">
+            A high-performing web-based car rental system for any rent-a-car
+            company and website
+          </p>
+          <ul class="how-work__list">
+            <li class="how-work__item">
+              <figure class="how-work__image">
+                <svg
+                  width="40"
+                  height="47"
+                  viewBox="0 0 40 47"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M19.5231 46.2019C16.0004 43.4371 12.7352 40.406 9.76157 37.1404C5.29914 32.2362 2.45125e-06 24.9326 2.45125e-06 17.9729C-0.00193285 14.4185 1.14213 10.9435 3.2874 7.98761C5.43267 5.03173 8.48273 2.72786 12.0515 1.36759C15.6204 0.00730545 19.5475 -0.348243 23.3361 0.345938C27.1246 1.04012 30.6041 2.75282 33.3344 5.2673C35.1521 6.93244 36.5929 8.91278 37.5734 11.0937C38.5538 13.2746 39.0545 15.6128 39.0463 17.9729C39.0463 24.9326 33.7471 32.2362 29.2847 37.1404C26.3111 40.406 23.0458 43.437 19.5231 46.2019ZM19.5231 10.2741C17.3041 10.2741 15.1759 11.0852 13.6067 12.529C12.0376 13.9728 11.1561 15.9311 11.1561 17.9729C11.1561 20.0148 12.0376 21.973 13.6067 23.4168C15.1759 24.8606 17.3041 25.6717 19.5231 25.6717C21.7422 25.6717 23.8704 24.8606 25.4396 23.4168C27.0087 21.973 27.8902 20.0148 27.8902 17.9729C27.8902 15.9311 27.0087 13.9728 25.4396 12.529C23.8704 11.0852 21.7422 10.2741 19.5231 10.2741Z"
+                    fill="#B8B8B8"
+                  />
+                </svg>
+              </figure>
+              <h3 class="how-work__title">Choose Location</h3>
+              <p class="how-work__description">
+                Aliquam erat volutpat. Integer malesuada turpis id fringilla
+                suscipit. Maecenas ultrices, orci vitae convallis mattis.
+              </p>
+            </li>
+
+            <li class="how-work__item">
+              <figure class="how-work__image">
+                <svg
+                  width="46"
+                  height="45"
+                  viewBox="0 0 46 45"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M45.4995 42.5969C45.4995 43.5704 44.6951 44.3569 43.6995 44.3569H2.29951C1.30389 44.3569 0.499512 43.5704 0.499512 42.5969V19.4969H45.4995V42.5969ZM2.29951 4.31693H11.7495V0.796934C11.7495 0.554934 11.952 0.356934 12.1995 0.356934H15.3495C15.597 0.356934 15.7995 0.554934 15.7995 0.796934V4.31693H30.1995V0.796934C30.1995 0.554934 30.402 0.356934 30.6495 0.356934H33.7995C34.047 0.356934 34.2495 0.554934 34.2495 0.796934V4.31693H43.6995C44.6951 4.31693 45.4995 5.10343 45.4995 6.07693V15.7569H0.499512V6.07693C0.499512 5.10343 1.30389 4.31693 2.29951 4.31693Z"
+                    fill="#B8B8B8"
+                  />
+                </svg>
+              </figure>
+              <h3 class="how-work__title">Pick-up Date</h3>
+              <p class="how-work__description">
+                Aliquam erat volutpat. Integer malesuada turpis id fringilla
+                suscipit. Maecenas ultrices, orci vitae convallis mattis.
+              </p>
+            </li>
+
+            <li class="how-work__item">
+              <fig&ure class="how-work__image">
+                <svg
+                  width="48"
+                  height="50"
+                  viewBox="0 0 48 50"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_1_246)">
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M7.902 11.6216C8.46866 10.2435 9.41098 9.06917 10.612 8.24437C11.8131 7.41957 13.22 6.9806 14.6583 6.98194H33.3466C36.2841 6.98194 38.9396 8.80719 40.097 11.6216L42.4235 17.2811C42.6438 17.8171 43.0404 18.2581 43.5398 18.5184C45.0085 19.284 46.0513 20.7081 46.3744 22.3832L47.3585 27.5252C47.4554 28.0182 47.5024 28.5205 47.5024 29.0258V30.2906C47.5024 32.7835 46.3568 35.0161 44.5649 36.4064V42.2007C44.5649 42.6068 44.4102 42.9963 44.1348 43.2834C43.8593 43.5706 43.4857 43.7319 43.0962 43.7319H37.2212C36.8317 43.7319 36.4581 43.5706 36.1826 43.2834C35.9072 42.9963 35.7524 42.6068 35.7524 42.2007V38.1031C31.9572 38.2501 27.689 38.3726 24.0024 38.3726C20.3159 38.3726 16.0477 38.2501 12.2524 38.1031V42.2007C12.2524 42.6068 12.0977 42.9963 11.8223 43.2834C11.5468 43.5706 11.1732 43.7319 10.7837 43.7319H4.90869C4.51915 43.7319 4.14557 43.5706 3.87013 43.2834C3.59468 42.9963 3.43994 42.6068 3.43994 42.2007V36.4064C1.64807 35.0161 0.502441 32.7835 0.502441 30.2906V29.0258C0.502934 28.5219 0.551147 28.0192 0.646379 27.5252L1.63044 22.3802C1.95357 20.7081 2.99638 19.2809 4.46219 18.5184C4.9639 18.257 5.36045 17.8186 5.58138 17.2811L7.90788 11.6216H7.902ZM9.312 31.4819C10.0911 31.4819 10.8382 31.1593 11.3891 30.5849C11.94 30.0106 12.2495 29.2317 12.2495 28.4194C12.2495 27.6072 11.94 26.8283 11.3891 26.2539C10.8382 25.6796 10.0911 25.3569 9.312 25.3569C8.53293 25.3569 7.78577 25.6796 7.23488 26.2539C6.68399 26.8283 6.3745 27.6072 6.3745 28.4194C6.3745 29.2317 6.68399 30.0106 7.23488 30.5849C7.78577 31.1593 8.53293 31.4819 9.312 31.4819ZM38.687 31.4819C39.4661 31.4819 40.2132 31.1593 40.7641 30.5849C41.315 30.0106 41.6245 29.2317 41.6245 28.4194C41.6245 27.6072 41.315 26.8283 40.7641 26.2539C40.2132 25.6796 39.4661 25.3569 38.687 25.3569C37.9079 25.3569 37.1608 25.6796 36.6099 26.2539C36.059 26.8283 35.7495 27.6072 35.7495 28.4194C35.7495 29.2317 36.059 30.0106 36.6099 30.5849C37.1608 31.1593 37.9079 31.4819 38.687 31.4819ZM18.1245 25.3569C17.3454 25.3569 16.5983 25.6796 16.0474 26.2539C15.4965 26.8283 15.187 27.6072 15.187 28.4194C15.187 29.2317 15.4965 30.0106 16.0474 30.5849C16.5983 31.1593 17.3454 31.4819 18.1245 31.4819H29.8745C30.6536 31.4819 31.4007 31.1593 31.9516 30.5849C32.5025 30.0106 32.812 29.2317 32.812 28.4194C32.812 27.6072 32.5025 26.8283 31.9516 26.2539C31.4007 25.6796 30.6536 25.3569 29.8745 25.3569H18.1245ZM9.03588 16.7482L11.8441 10.8897C11.9662 10.6357 12.1537 10.4221 12.3856 10.2728C12.6175 10.1235 12.8847 10.0444 13.1572 10.0444H34.8418C35.1144 10.0444 35.3815 10.1235 35.6134 10.2728C35.8453 10.4221 36.0328 10.6357 36.1549 10.8897L38.9631 16.7482C39.0779 16.9953 39.1283 17.2694 39.1091 17.5432C39.09 17.8169 39.0019 18.0806 38.8539 18.3076C38.7059 18.5346 38.5031 18.7169 38.2659 18.8361C38.0288 18.9554 37.7657 19.0074 37.5032 18.9869C34.8301 18.7634 27.6626 18.4663 23.9995 18.4663C20.3364 18.4663 13.166 18.7634 10.4958 18.9869C10.2333 19.0074 9.97019 18.9554 9.73306 18.8361C9.49594 18.7169 9.29315 18.5346 9.14512 18.3076C8.99709 18.0806 8.90906 17.8169 8.88988 17.5432C8.8707 17.2694 8.92106 16.9953 9.03588 16.7482Z"
+                      fill="#B8B8B8"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1_246">
+                      <rect
+                        width="47"
+                        height="49"
+                        fill="white"
+                        transform="translate(0.499512 0.856934)"
+                      />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </fig&ure>
+              <h3 class="how-work__title">Book your car</h3>
+              <p class="how-work__description">
+                Aliquam erat volutpat. Integer malesuada turpis id fringilla
+                suscipit. Maecenas ultrices, orci vitae convallis mattis.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="popular">
+        <div class="container">
+          <h2 class="popular__header">Most popular car rental deals</h2>
+          <p class="popular__description">
+            A high-performing web-based car rental system for any rent-a-car
+            company and website
+          </p>
+          <div class="popular__tabs__container"></div>
+          <div class="popular__cars__container"></div>
+        </div>
+      </section>
+
+      <section class="testimonials container">
+        <h2 class="testimonials__title">
+          Trusted by Thousands of Happy Customer
+        </h2>
+        <p class="testimonials__text">
+          A high-performing web-based car rental system for any rent-a-car
+          company and website
         </p>
-        <ul class="how-work__list">
-          <li class="how-work__item">
-            <figure class="how-work__image">
-              <svg width="40" height="47" viewBox="0 0 40 47" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M19.5231 46.2019C16.0004 43.4371 12.7352 40.406 9.76157 37.1404C5.29914 32.2362 2.45125e-06 24.9326 2.45125e-06 17.9729C-0.00193285 14.4185 1.14213 10.9435 3.2874 7.98761C5.43267 5.03173 8.48273 2.72786 12.0515 1.36759C15.6204 0.00730545 19.5475 -0.348243 23.3361 0.345938C27.1246 1.04012 30.6041 2.75282 33.3344 5.2673C35.1521 6.93244 36.5929 8.91278 37.5734 11.0937C38.5538 13.2746 39.0545 15.6128 39.0463 17.9729C39.0463 24.9326 33.7471 32.2362 29.2847 37.1404C26.3111 40.406 23.0458 43.437 19.5231 46.2019ZM19.5231 10.2741C17.3041 10.2741 15.1759 11.0852 13.6067 12.529C12.0376 13.9728 11.1561 15.9311 11.1561 17.9729C11.1561 20.0148 12.0376 21.973 13.6067 23.4168C15.1759 24.8606 17.3041 25.6717 19.5231 25.6717C21.7422 25.6717 23.8704 24.8606 25.4396 23.4168C27.0087 21.973 27.8902 20.0148 27.8902 17.9729C27.8902 15.9311 27.0087 13.9728 25.4396 12.529C23.8704 11.0852 21.7422 10.2741 19.5231 10.2741Z"
-                  fill="#B8B8B8" />
-              </svg>
-            </figure>
-            <h3 class="how-work__title">Choose Location</h3>
-            <p class="how-work__description">
-              Aliquam erat volutpat. Integer malesuada turpis id fringilla suscipit.
-              Maecenas ultrices, orci vitae convallis mattis.</p>
-          </li>
+        <div class="testimonials__arrow">
+          <button class="testimonials__arrow-left">
+            <svg
+              width="20"
+              height="18"
+              viewBox="0 0 20 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.75 7.74961H3.925L8.4625 2.29961C8.67467 2.04434 8.77675 1.71524 8.74628 1.38471C8.7158 1.05417 8.55527 0.749285 8.3 0.537112C8.04473 0.324939 7.71563 0.222862 7.3851 0.253336C7.05456 0.283811 6.74967 0.444341 6.5375 0.699612L0.2875 8.19961C0.245451 8.25927 0.207849 8.32194 0.175 8.38711C0.175 8.44961 0.175 8.48711 0.0875002 8.54961C0.0308421 8.69294 0.0011764 8.8455 0 8.99961C0.0011764 9.15372 0.0308421 9.30629 0.0875002 9.44961C0.0875002 9.51211 0.0874998 9.54961 0.175 9.61211C0.207849 9.67729 0.245451 9.73996 0.2875 9.79961L6.5375 17.2996C6.65503 17.4407 6.8022 17.5542 6.96856 17.632C7.13491 17.7097 7.31636 17.7499 7.5 17.7496C7.79207 17.7502 8.07511 17.6485 8.3 17.4621C8.42657 17.3572 8.5312 17.2283 8.60789 17.0829C8.68458 16.9374 8.73183 16.7783 8.74692 16.6146C8.76202 16.4509 8.74466 16.2858 8.69586 16.1288C8.64705 15.9718 8.56775 15.8259 8.4625 15.6996L3.925 10.2496H18.75C19.0815 10.2496 19.3995 10.1179 19.6339 9.8835C19.8683 9.64907 20 9.33113 20 8.99961C20 8.66809 19.8683 8.35015 19.6339 8.11573C19.3995 7.88131 19.0815 7.74961 18.75 7.74961Z"
+                fill="#1A202C"
+              />
+            </svg>
+          </button>
+          <button class="testimonials__arrow-right">
+            <svg
+              width="20"
+              height="18"
+              viewBox="0 0 20 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.25 7.74961H16.075L11.5375 2.29961C11.3253 2.04434 11.2232 1.71524 11.2537 1.38471C11.2842 1.05417 11.4447 0.749285 11.7 0.537112C11.9553 0.324939 12.2844 0.222862 12.6149 0.253336C12.9454 0.283811 13.2503 0.444341 13.4625 0.699612L19.7125 8.19961C19.7545 8.25927 19.7922 8.32194 19.825 8.38711C19.825 8.44961 19.825 8.48711 19.9125 8.54961C19.9692 8.69294 19.9988 8.8455 20 8.99961C19.9988 9.15372 19.9692 9.30629 19.9125 9.44961C19.9125 9.51211 19.9125 9.54961 19.825 9.61211C19.7922 9.67729 19.7545 9.73996 19.7125 9.79961L13.4625 17.2996C13.345 17.4407 13.1978 17.5542 13.0314 17.632C12.8651 17.7097 12.6836 17.7499 12.5 17.7496C12.2079 17.7502 11.9249 17.6485 11.7 17.4621C11.5734 17.3572 11.4688 17.2283 11.3921 17.0829C11.3154 16.9374 11.2682 16.7783 11.2531 16.6146C11.238 16.4509 11.2553 16.2858 11.3041 16.1288C11.3529 15.9718 11.4322 15.8259 11.5375 15.6996L16.075 10.2496H1.25C0.91848 10.2496 0.600536 10.1179 0.366116 9.8835C0.131695 9.64907 0 9.33113 0 8.99961C0 8.66809 0.131695 8.35015 0.366116 8.11573C0.600536 7.88131 0.91848 7.74961 1.25 7.74961Z"
+                fill="#1A202C"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="testimonials__wrapper"></div>
+      </section>
+    </main>
 
-          <li class="how-work__item">
-            <figure class="how-work__image">
-              <svg width="46" height="45" viewBox="0 0 46 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M45.4995 42.5969C45.4995 43.5704 44.6951 44.3569 43.6995 44.3569H2.29951C1.30389 44.3569 0.499512 43.5704 0.499512 42.5969V19.4969H45.4995V42.5969ZM2.29951 4.31693H11.7495V0.796934C11.7495 0.554934 11.952 0.356934 12.1995 0.356934H15.3495C15.597 0.356934 15.7995 0.554934 15.7995 0.796934V4.31693H30.1995V0.796934C30.1995 0.554934 30.402 0.356934 30.6495 0.356934H33.7995C34.047 0.356934 34.2495 0.554934 34.2495 0.796934V4.31693H43.6995C44.6951 4.31693 45.4995 5.10343 45.4995 6.07693V15.7569H0.499512V6.07693C0.499512 5.10343 1.30389 4.31693 2.29951 4.31693Z"
-                  fill="#B8B8B8" />
-              </svg>
-            </figure>
-            <h3 class="how-work__title">Pick-up Date</h3>
-            <p class="how-work__description">
-              Aliquam erat volutpat. Integer malesuada turpis id fringilla suscipit.
-              Maecenas ultrices, orci vitae convallis mattis.</p>
-          </li>
-
-          <li class="how-work__item">
-            <fig&ure class="how-work__image">
-              <svg width="48" height="50" viewBox="0 0 48 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clip-path="url(#clip0_1_246)">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M7.902 11.6216C8.46866 10.2435 9.41098 9.06917 10.612 8.24437C11.8131 7.41957 13.22 6.9806 14.6583 6.98194H33.3466C36.2841 6.98194 38.9396 8.80719 40.097 11.6216L42.4235 17.2811C42.6438 17.8171 43.0404 18.2581 43.5398 18.5184C45.0085 19.284 46.0513 20.7081 46.3744 22.3832L47.3585 27.5252C47.4554 28.0182 47.5024 28.5205 47.5024 29.0258V30.2906C47.5024 32.7835 46.3568 35.0161 44.5649 36.4064V42.2007C44.5649 42.6068 44.4102 42.9963 44.1348 43.2834C43.8593 43.5706 43.4857 43.7319 43.0962 43.7319H37.2212C36.8317 43.7319 36.4581 43.5706 36.1826 43.2834C35.9072 42.9963 35.7524 42.6068 35.7524 42.2007V38.1031C31.9572 38.2501 27.689 38.3726 24.0024 38.3726C20.3159 38.3726 16.0477 38.2501 12.2524 38.1031V42.2007C12.2524 42.6068 12.0977 42.9963 11.8223 43.2834C11.5468 43.5706 11.1732 43.7319 10.7837 43.7319H4.90869C4.51915 43.7319 4.14557 43.5706 3.87013 43.2834C3.59468 42.9963 3.43994 42.6068 3.43994 42.2007V36.4064C1.64807 35.0161 0.502441 32.7835 0.502441 30.2906V29.0258C0.502934 28.5219 0.551147 28.0192 0.646379 27.5252L1.63044 22.3802C1.95357 20.7081 2.99638 19.2809 4.46219 18.5184C4.9639 18.257 5.36045 17.8186 5.58138 17.2811L7.90788 11.6216H7.902ZM9.312 31.4819C10.0911 31.4819 10.8382 31.1593 11.3891 30.5849C11.94 30.0106 12.2495 29.2317 12.2495 28.4194C12.2495 27.6072 11.94 26.8283 11.3891 26.2539C10.8382 25.6796 10.0911 25.3569 9.312 25.3569C8.53293 25.3569 7.78577 25.6796 7.23488 26.2539C6.68399 26.8283 6.3745 27.6072 6.3745 28.4194C6.3745 29.2317 6.68399 30.0106 7.23488 30.5849C7.78577 31.1593 8.53293 31.4819 9.312 31.4819ZM38.687 31.4819C39.4661 31.4819 40.2132 31.1593 40.7641 30.5849C41.315 30.0106 41.6245 29.2317 41.6245 28.4194C41.6245 27.6072 41.315 26.8283 40.7641 26.2539C40.2132 25.6796 39.4661 25.3569 38.687 25.3569C37.9079 25.3569 37.1608 25.6796 36.6099 26.2539C36.059 26.8283 35.7495 27.6072 35.7495 28.4194C35.7495 29.2317 36.059 30.0106 36.6099 30.5849C37.1608 31.1593 37.9079 31.4819 38.687 31.4819ZM18.1245 25.3569C17.3454 25.3569 16.5983 25.6796 16.0474 26.2539C15.4965 26.8283 15.187 27.6072 15.187 28.4194C15.187 29.2317 15.4965 30.0106 16.0474 30.5849C16.5983 31.1593 17.3454 31.4819 18.1245 31.4819H29.8745C30.6536 31.4819 31.4007 31.1593 31.9516 30.5849C32.5025 30.0106 32.812 29.2317 32.812 28.4194C32.812 27.6072 32.5025 26.8283 31.9516 26.2539C31.4007 25.6796 30.6536 25.3569 29.8745 25.3569H18.1245ZM9.03588 16.7482L11.8441 10.8897C11.9662 10.6357 12.1537 10.4221 12.3856 10.2728C12.6175 10.1235 12.8847 10.0444 13.1572 10.0444H34.8418C35.1144 10.0444 35.3815 10.1235 35.6134 10.2728C35.8453 10.4221 36.0328 10.6357 36.1549 10.8897L38.9631 16.7482C39.0779 16.9953 39.1283 17.2694 39.1091 17.5432C39.09 17.8169 39.0019 18.0806 38.8539 18.3076C38.7059 18.5346 38.5031 18.7169 38.2659 18.8361C38.0288 18.9554 37.7657 19.0074 37.5032 18.9869C34.8301 18.7634 27.6626 18.4663 23.9995 18.4663C20.3364 18.4663 13.166 18.7634 10.4958 18.9869C10.2333 19.0074 9.97019 18.9554 9.73306 18.8361C9.49594 18.7169 9.29315 18.5346 9.14512 18.3076C8.99709 18.0806 8.90906 17.8169 8.88988 17.5432C8.8707 17.2694 8.92106 16.9953 9.03588 16.7482Z"
-                    fill="#B8B8B8" />
-                </g>
-                <defs>
-                  <clipPath id="clip0_1_246">
-                    <rect width="47" height="49" fill="white" transform="translate(0.499512 0.856934)" />
-                  </clipPath>
-                </defs>
-              </svg>
-            </fig&ure>
-            <h3 class="how-work__title">Book your car</h3>
-            <p class="how-work__description">
-              Aliquam erat volutpat. Integer malesuada turpis id fringilla suscipit.
-              Maecenas ultrices, orci vitae convallis mattis.</p>
-          </li>
-        </ul>
+    <footer id="footer">
+      <div class="footer__content container">
+        <p class="footer__content-item">©2022 Auto Fast. All rights reserved</p>
+        <p class="footer__content-item">Privacy & Policy</p>
+        <p class="footer__content-item">Terms & Condition</p>
       </div>
-    </section>
+    </footer>
 
-    <section class="popular">
-      <div class="container">
-        <h2 class="popular__header">Most popular car rental deals</h2>
-        <p class="popular__description">A high-performing web-based car rental system for any rent-a-car company and
-          website</p>
-        <div class="popular__tabs__container"></div>
-        <div class="popular__cars__container"></div>
-      </div>
-    </section>
-
-    <section class="testimonials container">
-      <h2 class="testimonials__title">Trusted by Thousands of Happy Customer</h2>
-      <p class="testimonials__text">A high-performing web-based car rental system for any rent-a-car company and website
-      </p>
-      <div class="testimonials__arrow">
-        <button class="testimonials__arrow-left">
-          <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M18.75 7.74961H3.925L8.4625 2.29961C8.67467 2.04434 8.77675 1.71524 8.74628 1.38471C8.7158 1.05417 8.55527 0.749285 8.3 0.537112C8.04473 0.324939 7.71563 0.222862 7.3851 0.253336C7.05456 0.283811 6.74967 0.444341 6.5375 0.699612L0.2875 8.19961C0.245451 8.25927 0.207849 8.32194 0.175 8.38711C0.175 8.44961 0.175 8.48711 0.0875002 8.54961C0.0308421 8.69294 0.0011764 8.8455 0 8.99961C0.0011764 9.15372 0.0308421 9.30629 0.0875002 9.44961C0.0875002 9.51211 0.0874998 9.54961 0.175 9.61211C0.207849 9.67729 0.245451 9.73996 0.2875 9.79961L6.5375 17.2996C6.65503 17.4407 6.8022 17.5542 6.96856 17.632C7.13491 17.7097 7.31636 17.7499 7.5 17.7496C7.79207 17.7502 8.07511 17.6485 8.3 17.4621C8.42657 17.3572 8.5312 17.2283 8.60789 17.0829C8.68458 16.9374 8.73183 16.7783 8.74692 16.6146C8.76202 16.4509 8.74466 16.2858 8.69586 16.1288C8.64705 15.9718 8.56775 15.8259 8.4625 15.6996L3.925 10.2496H18.75C19.0815 10.2496 19.3995 10.1179 19.6339 9.8835C19.8683 9.64907 20 9.33113 20 8.99961C20 8.66809 19.8683 8.35015 19.6339 8.11573C19.3995 7.88131 19.0815 7.74961 18.75 7.74961Z"
-              fill="#1A202C" />
-          </svg>
-        </button>
-        <button class="testimonials__arrow-right">
-          <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M1.25 7.74961H16.075L11.5375 2.29961C11.3253 2.04434 11.2232 1.71524 11.2537 1.38471C11.2842 1.05417 11.4447 0.749285 11.7 0.537112C11.9553 0.324939 12.2844 0.222862 12.6149 0.253336C12.9454 0.283811 13.2503 0.444341 13.4625 0.699612L19.7125 8.19961C19.7545 8.25927 19.7922 8.32194 19.825 8.38711C19.825 8.44961 19.825 8.48711 19.9125 8.54961C19.9692 8.69294 19.9988 8.8455 20 8.99961C19.9988 9.15372 19.9692 9.30629 19.9125 9.44961C19.9125 9.51211 19.9125 9.54961 19.825 9.61211C19.7922 9.67729 19.7545 9.73996 19.7125 9.79961L13.4625 17.2996C13.345 17.4407 13.1978 17.5542 13.0314 17.632C12.8651 17.7097 12.6836 17.7499 12.5 17.7496C12.2079 17.7502 11.9249 17.6485 11.7 17.4621C11.5734 17.3572 11.4688 17.2283 11.3921 17.0829C11.3154 16.9374 11.2682 16.7783 11.2531 16.6146C11.238 16.4509 11.2553 16.2858 11.3041 16.1288C11.3529 15.9718 11.4322 15.8259 11.5375 15.6996L16.075 10.2496H1.25C0.91848 10.2496 0.600536 10.1179 0.366116 9.8835C0.131695 9.64907 0 9.33113 0 8.99961C0 8.66809 0.131695 8.35015 0.366116 8.11573C0.600536 7.88131 0.91848 7.74961 1.25 7.74961Z"
-              fill="#1A202C" />
-          </svg>
-        </button>
-      </div>
-      <div class="testimonials__wrapper">
-      </div>
-    </section>
-  </main>
-
-  <footer id="footer">
-    <div class="footer__content container">
-      <p class="footer__content-item">©2022 Auto Fast. All rights reserved</p>
-      <p class="footer__content-item">Privacy & Policy</p>
-      <p class="footer__content-item">Terms & Condition</p>
-    </div>
-  </footer>
-
-  <script type="module" src="src/scripts/main.ts"></script>
-</body>
-
+    <script type="module" src="src/scripts/main.ts"></script>
+  </body>
 </html>

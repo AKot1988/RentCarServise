@@ -1,5 +1,6 @@
-@import "../../scss/helper/variables.scss";
-@import "../../scss//helper/mixins.scss";
+@import "../helper/variables.scss";
+@import "../helper/mixins.scss";
+@import "../helper/fonts.scss";
 
 .navigation {
   padding: 30px 65px;
@@ -7,6 +8,7 @@
   background-color: $basic-decore-color;
   border-bottom: 1px solid #b8b8b8;
   user-select: none;
+  font-family: $main-font-family;
 
   &__logo {
     font-weight: 600;
