@@ -2,6 +2,7 @@ import UniversalButton from "../UniversalButton/UniversalButton";
 import CreateElement from "../CreateElement/CreateElement";
 import { heart_to_favoritesSVG } from "../../../assets/img/SVG/svg";
 import { newElementAttributesInterface } from "../UniversalButton/types";
+import { CarCardProps } from "./types";
 
 
 
@@ -15,7 +16,7 @@ export default class CarCardComponent {
   public button: UniversalButton
   public favIcon: HTMLElement
 
-  constructor (public data: newElementAttributesInterface, public parent?: HTMLElement){
+  constructor (public data: CarCardProps, public parent?: HTMLElement){
     let buttonOptions: newElementAttributesInterface = {
       innerText: 'Rent Now',
       class: "rent_now-button",

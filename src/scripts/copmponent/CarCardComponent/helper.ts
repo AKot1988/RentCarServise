@@ -1,21 +1,6 @@
 import { fetchResponse, carSetInterface, CarCardProps } from "./types"
 import API from "../../utils/API";
 
-
-// //дає відповідь від мок дати у dataJSON
-// export let carCardData = await new API <carSetInterface>('../../../../dataJSON/carData.json').getRequest();
-
-// //оновлюємо дані з мок дати, додаючи до кожного обєкту посилання на картинку кота
-// export let updatedCarCardData = await Promise.all(Object.values(carCardData).map(async (carType) => {
-//   return Promise.all(carType.map(async (car: any) => {
-//     let imageSRCReasponse = await new API <fetchResponse []>('https://api.thecatapi.com/v1/images/search?limit=1').getRequest();
-//     car.image = imageSRCReasponse[0].url;
-//     return car;
-//   }));
-// }));
-
-
-//request by car category
 export let getCarByType = async function (requestedCarType: string, URLtoCarData: string) {
   let response = await new API <carSetInterface>(URLtoCarData).getRequest();
   let responseCarType = undefined
@@ -37,19 +22,6 @@ let getPhotoURLs = async function (requestQantity: number, URLtoFetchPhoto: stri
   return URLsArray;
 }
 
-// let GenerateDataToRender = async function (cb1: any, cb2: any, URLPhotoFetch: string) {
-//   let carData = await cb1;
-//   let photoURLs = await cb2 (carData.length, URLPhotoFetch);
-//   let filledData: CarCardProps[] = []
-//   carData.forEach((car: CarCardProps) => {
-//     car.image = photoURLs.pop();
-//     filledData.push(car);
-//   })
-//   return filledData
-// }
-
-// let carCardDataToRender = await GenerateDataToRender(getCarByType('Sedan', '../../../../dataJSON/carData.json'), getPhotoURLs, 'https://api.thecatapi.com/v1/images/search?limit=1')
-
 export let GenerateDataToRender = async function (carType: string, linkToCarsJSON: string, linkToPhotoJSON: string) {
   let carData = await getCarByType(carType, linkToCarsJSON);
   if (!carData) {
@@ -64,6 +36,5 @@ export let GenerateDataToRender = async function (carType: string, linkToCarsJSO
   return filledData
 }
 
-// export let carCardDataToRender = await GenerateDataToRender('Sedan', '../../../../dataJSON/carData.json','https://api.thecatapi.com/v1/images/search?limit=1')
-// console.log(carCardDataToRender);
+export let carCardDataToRender = await GenerateDataToRender('Sedan', '../../../../dataJSON/carData.json','https://api.thecatapi.com/v1/images/search?limit=1')
   

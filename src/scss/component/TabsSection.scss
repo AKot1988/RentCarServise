@@ -28,7 +28,8 @@
   display: none;
 }
 
-.content--active {
+.content--active,
+.popular__cars__container {
   margin-top: 50px;
   @include flex (center,center, row);
   flex-wrap: wrap;

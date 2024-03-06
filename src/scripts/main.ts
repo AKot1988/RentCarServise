@@ -7,7 +7,6 @@ import { tabParams } from "./copmponent/TabComponent/TabComponent";
 import renderTestimonials from "./copmponent/Testimonials/renderTestimonials";
 
 
-new TabsSection(tabParams, carCardDataToRender);
 
 fetchData();
 renderTestimonials()
@@ -22,6 +21,9 @@ const parentElement = document.querySelector('.select__wrapper--drop') as HTMLEl
 
 const button = new UniversalButton(buttonOptions);
 button.render(parentElement);
+
+
+new TabsSection(tabParams, carCardDataToRender);
 
 
 
