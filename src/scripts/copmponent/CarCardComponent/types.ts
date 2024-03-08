@@ -11,7 +11,7 @@ export interface CarCardPropsExpanded extends CarCardProps{
 }
 
 export interface carSetInterface {
-  [k: string]: CarCardProps[]
+  [k: string]: CarCardProps[] | CarCardPropsExpanded[]
 }
 
 export interface fetchResponse {

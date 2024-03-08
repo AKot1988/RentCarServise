@@ -1,7 +1,7 @@
 import '../../../scss/component/TabsSection.scss';
 import { TabComponent } from "../TabComponent/TabComponent";
 import CarCardComponent from "../CarCardComponent/CarCardComponent";
-import { CarCardProps } from "../CarCardComponent/types";
+import { CarCardProps, carSetInterface } from "../CarCardComponent/types";
 import Loader from "../Loader/Loader";
 import { GenerateDataToRender } from "../CarCardComponent/helper";
 
@@ -11,27 +11,35 @@ const loader = new Loader(document.querySelector('.popular__cars__container') as
 
 export default class TabsSection {
   public tabComponent: TabComponent;
-  public carCardComponent: CarCardComponent;
+  // public carCardComponent: CarCardComponent;
   public carTypeWrapperArray: HTMLElement[] = [];
   public activeTab: HTMLElement;
   public activeCarTypeByDefault: string;
-  public dafaultCarDataToRender: CarCardProps[] = [];
+  public defaultCarDataToRender: CarCardProps[] = [];
 
-  constructor(public tabParams: any) {
+  constructor(public tabParams: any, public type: string = "general") {
     this.tabComponent = new TabComponent(this.tabParams, document.querySelector('.popular__tabs__container') as HTMLDivElement);
-
-
-    this.carCardComponent = new CarCardComponent(this.dafaultCarDataToRender, document.createElement('div') as HTMLDivElement);
+    this.defaultCarDataToRender = []
+    // this.carCardComponent = new CarCardComponent(this.defaultCarDataToRender, document.createElement('div') as HTMLDivElement);
     this.activeTab = document.querySelector('.tab--active') as HTMLElement;
     this.activeCarTypeByDefault = this.activeTab.innerText;
-    this.render();
-    this.tabHandler();
+    switch (this.type) {
+      case "general":
+        this.render();
+        this.tabHandler();
+        break;
+      case "accordingFilterRequest":
+        this.renderAccordingFilterRequest();
+        this.tabHandler()
+        break;
+    }
+
   }
   async render() {
       try {
-        this.dafaultCarDataToRender = await GenerateDataToRender(this.activeCarTypeByDefault, '../../../../dataJSON/carData.json', 'https://api.thecatapi.com/v1/images/search?limit=1')
+        this.defaultCarDataToRender = await GenerateDataToRender(this.activeCarTypeByDefault, '../../../../dataJSON/carData.json', 'https://api.thecatapi.com/v1/images/search?limit=1')
         loader.remove();
-        this.dafaultCarDataToRender.forEach((car: CarCardProps) => {
+        this.defaultCarDataToRender.forEach((car: CarCardProps) => {
         new CarCardComponent(car, document.querySelector(`.popular__cars__container`) as HTMLDivElement);
       });
     } catch (error) {
@@ -39,6 +47,8 @@ export default class TabsSection {
       loader.ErrorGif()
     }
   }
+
+
 
   async tabHandler() {
       document.querySelector('.popular__tabs__container')?.addEventListener('click', async (e) => {
@@ -56,9 +66,9 @@ export default class TabsSection {
               const loader = new Loader(document.querySelector('.popular__cars__container') as HTMLElement);
 
               try {
-                  this.dafaultCarDataToRender = await GenerateDataToRender(this.activeTab.innerText, '../../../../dataJSON/carData.json', 'https://api.thecatapi.com/v1/images/search?limit=1');
+                  this.defaultCarDataToRender = await GenerateDataToRender(this.activeTab.innerText, '../../../../dataJSON/carData.json', 'https://api.thecatapi.com/v1/images/search?limit=1');
                   loader.remove();
-                  this.dafaultCarDataToRender.forEach((car: CarCardProps) => {
+                  this.defaultCarDataToRender.forEach((car: CarCardProps) => {
                       new CarCardComponent(car, document.querySelector('.popular__cars__container') as HTMLDivElement);
                   });
               } catch (error) {

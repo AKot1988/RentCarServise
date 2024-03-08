@@ -2,181 +2,266 @@
   "Sedan": [
     {
       "model": "BMW",
-      "price": "100",
-      "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
-    },
-    {
-      "model": "BMW",
-      "price": "100",
-      "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
-    },
-    {
-      "model": "BMW",
-      "price": "100",
-      "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+      "price": "75",
+      "image": "https://cdn2.thecatapi.com/images/2o6.jpg",
+      "location": "Kyiv",
+      "data": "2024-03-08",
+      "time": "10:00"
     },
     {
       "model": "Audi",
-      "price": "200",
-      "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
-    },
-    {
-      "model": "Toyota",
-      "price": "500",
-      "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
-    },
-    {
-      "model": "Nissan",
-      "price": "600",
-      "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
-    },
-    {
-      "model": "Mazda",
-      "price": "700",
-      "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+      "price": "100",
+      "image": "https://cdn2.thecatapi.com/images/2o6.jpg",
+      "location": "Chernigiv",
+      "data": "2024-04-15",
+      "time": "10:00"
     },
     {
       "model": "Mercedes",
-      "price": "300",
-      "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+      "price": "150",
+      "image": "https://cdn2.thecatapi.com/images/2o6.jpg",
+      "location": "Odessa",
+      "data": "2024-02-29",
+      "time": "10:00"
     },
     {
       "model": "Lexus",
-      "price": "400",
-      "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+      "price": "200",
+      "image": "https://cdn2.thecatapi.com/images/2o6.jpg",
+      "location": "Chernigiv",
+      "data": "2024-03-14",
+      "time": "10:00"
+    },
+    {
+      "model": "Toyota",
+      "price": "250",
+      "image": "https://cdn2.thecatapi.com/images/2o6.jpg",
+      "location": "Uzhhorod",
+      "data": "2024-05-26",
+      "time": "10:00"
+    },
+    {
+      "model": "Nissan",
+      "price": "300",
+      "image": "https://cdn2.thecatapi.com/images/2o6.jpg",
+      "location": "Chernigiv",
+      "data": "2024-03-10",
+      "time": "10:00"
+    },
+    {
+      "model": "Mazda",
+      "price": "350",
+      "image": "https://cdn2.thecatapi.com/images/2o6.jpg",
+      "location": "Odessa",
+      "data": "2024-03-13",
+      "time": "10:00"
     },
     {
       "model": "Honda",
-      "price": "800",
-      "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+      "price": "400",
+      "image": "https://cdn2.thecatapi.com/images/2o6.jpg",
+      "location": "Chernigiv",
+      "data": "2024-03-12",
+      "time": "10:00"
     }
   ],
-  "SUV":
-  [
-  {
-    "model": "BMW",
-    "price": "100",
-    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
-  },
-  {
-    "model": "Audi",
-    "price": "200",
-    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
-  },
-  {
-    "model": "Mercedes",
-    "price": "300",
-    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
-  },
-  {
-    "model": "Lexus",
-    "price": "400",
-    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
-  },
-  {
-    "model": "Toyota",
-    "price": "500",
-    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
-  },
-  {
-    "model": "Nissan",
-    "price": "600",
-    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
-  },
-  {
-    "model": "Mazda",
-    "price": "700",
-    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
-  },
-  {
-    "model": "Honda",
-    "price": "800",
-    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
-  }
+  "SUV":[
+    {
+      "model": "BMW",
+      "price": "75",
+      "image": "https://cdn2.thecatapi.com/images/2o6.jpg",
+      "location": "Kharkiv",
+      "data": "2024-03-15",
+      "time": "10:00"
+    },
+    {
+      "model": "Audi",
+      "price": "100",
+      "image": "https://cdn2.thecatapi.com/images/2o6.jpg",
+      "location": "Kyiv",
+      "data": "2024-03-21",
+      "time": "10:00"
+    },
+    {
+      "model": "Mercedes",
+      "price": "150",
+      "image": "https://cdn2.thecatapi.com/images/2o6.jpg",
+      "location": "Odessa",
+      "data": "2024-04-01",
+      "time": "10:00"
+    },
+    {
+      "model": "Lexus",
+      "price": "200",
+      "image": "https://cdn2.thecatapi.com/images/2o6.jpg",
+      "location": "Chernigiv",
+      "data": "2024-03-26",
+      "time": "10:00"
+    },
+    {
+      "model": "Toyota",
+      "price": "250",
+      "image": "https://cdn2.thecatapi.com/images/2o6.jpg",
+      "location": "Kharkiv",
+      "data": "2024-03-18",
+      "time": "10:00"
+    },
+    {
+      "model": "Nissan",
+      "price": "300",
+      "image": "https://cdn2.thecatapi.com/images/2o6.jpg",
+      "location": "Lviv",
+      "data": "2024-03-09",
+      "time": "10:00"
+    },
+    {
+      "model": "Mazda",
+      "price": "350",
+      "image": "https://cdn2.thecatapi.com/images/2o6.jpg",
+      "location": "Odessa",
+      "data": "2024-03-05",
+      "time": "10:00"
+    },
+    {
+      "model": "Honda",
+      "price": "400",
+      "image": "https://cdn2.thecatapi.com/images/2o6.jpg",
+      "location": "Chernigiv",
+      "data": "2024-03-13",
+      "time": "10:00"
+    }
 ],
   "Hatchback":
   [
-  {
-    "model": "BMW",
-    "price": "100",
-    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
-  },
-  {
-    "model": "Audi",
-    "price": "200",
-    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
-  },
-  {
-    "model": "Mercedes",
-    "price": "300",
-    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
-  },
-  {
-    "model": "Lexus",
-    "price": "400",
-    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
-  },
-  {
-    "model": "Toyota",
-    "price": "500",
-    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
-  },
-  {
-    "model": "Nissan",
-    "price": "600",
-    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
-  },
-  {
-    "model": "Mazda",
-    "price": "700",
-    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
-  },
-  {
-    "model": "Honda",
-    "price": "800",
-    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
-  }
+    {
+      "model": "BMW",
+      "price": "75",
+      "image": "https://cdn2.thecatapi.com/images/2o6.jpg",
+      "location": "Odessa",
+      "data": "2024-03-15",
+      "time": "10:00"
+    },
+    {
+      "model": "Audi",
+      "price": "100",
+      "image": "https://cdn2.thecatapi.com/images/2o6.jpg",
+      "location": "Lviv",
+      "data": "2024-03-15",
+      "time": "10:00"
+    },
+    {
+      "model": "Mercedes",
+      "price": "150",
+      "image": "https://cdn2.thecatapi.com/images/2o6.jpg",
+      "location": "Kyiv",
+      "data": "2024-03-16",
+      "time": "10:00"
+    },
+    {
+      "model": "Lexus",
+      "price": "200",
+      "image": "https://cdn2.thecatapi.com/images/2o6.jpg",
+      "location": "Kharkiv",
+      "data": "2024-03-04",
+      "time": "10:00"
+    },
+    {
+      "model": "Toyota",
+      "price": "250",
+      "image": "https://cdn2.thecatapi.com/images/2o6.jpg",
+      "location": "Kyiv",
+      "data": "2024-03-23",
+      "time": "10:00"
+    },
+    {
+      "model": "Nissan",
+      "price": "300",
+      "image": "https://cdn2.thecatapi.com/images/2o6.jpg",
+      "location": "Lviv",
+      "data": "2024-03-17",
+      "time": "10:00"
+    },
+    {
+      "model": "Mazda",
+      "price": "350",
+      "image": "https://cdn2.thecatapi.com/images/2o6.jpg",
+      "location": "Odessa",
+      "data": "2024-03-05",
+      "time": "10:00"
+    },
+    {
+      "model": "Honda",
+      "price": "400",
+      "image": "https://cdn2.thecatapi.com/images/2o6.jpg",
+      "location": "Kharkiv",
+      "data": "2024-03-15",
+      "time": "10:00"
+    }
 ],
 "Wagon": [
   {
     "model": "BMW",
-    "price": "100",
-    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+    "price": "75",
+    "image": "https://cdn2.thecatapi.com/images/2o6.jpg",
+    "location": "Lviv",
+    "data": "2024-03-08",
+    "time": "10:00"
   },
   {
     "model": "Audi",
-    "price": "200",
-    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+    "price": "100",
+    "image": "https://cdn2.thecatapi.com/images/2o6.jpg",
+    "location": "Kharkiv",
+    "data": "2024-03-29",
+    "time": "10:00"
   },
   {
     "model": "Mercedes",
-    "price": "300",
-    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+    "price": "150",
+    "image": "https://cdn2.thecatapi.com/images/2o6.jpg",
+    "location": "Kyiv",
+    "data": "2024-03-26",
+    "time": "10:00"
   },
   {
     "model": "Lexus",
-    "price": "400",
-    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+    "price": "200",
+    "image": "https://cdn2.thecatapi.com/images/2o6.jpg",
+    "location": "Odessa",
+    "data": "2024-03-12",
+    "time": "10:00"
   },
   {
     "model": "Toyota",
-    "price": "500",
-    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+    "price": "250",
+    "image": "https://cdn2.thecatapi.com/images/2o6.jpg",
+    "location": "Kyiv",
+    "data": "2024-03-05",
+    "time": "10:00"
   },
   {
     "model": "Nissan",
-    "price": "600",
-    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+    "price": "300",
+    "image": "https://cdn2.thecatapi.com/images/2o6.jpg",
+    "location": "Lviv",
+    "data": "2024-03-06",
+    "time": "10:00"
   },
   {
     "model": "Mazda",
-    "price": "700",
-    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+    "price": "350",
+    "image": "https://cdn2.thecatapi.com/images/2o6.jpg",
+    "location": "Kyiv",
+    "data": "2024-03-26",
+    "time": "10:00"
   },
   {
     "model": "Honda",
-    "price": "800",
-    "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+    "price": "400",
+    "image": "https://cdn2.thecatapi.com/images/2o6.jpg",
+    "location": "Lviv",
+    "data": "2024-03-27",
+    "time": "10:00"
   }
 ]
 }
