@@ -23,7 +23,7 @@ const button = new UniversalButton(buttonOptions);
 button.render(parentElement);
 
 
-new TabsSection(tabParams, carCardDataToRender);
+new TabsSection(tabParams);
 
 
 
