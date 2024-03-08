@@ -4,6 +4,12 @@ export interface CarCardProps {
   "image": string
 }
 
+export interface CarCardPropsExpanded extends CarCardProps{
+  "location": string
+  "data": string,
+  "time": string
+}
+
 export interface carSetInterface {
   [k: string]: CarCardProps[]
 }

@@ -32,7 +32,7 @@
 .popular__cars__container {
   max-width: 1330px;
   margin-top: 50px;
-  @include flex (center,center, row);
+  @include flex (center,start);
   flex-wrap: wrap;
   gap: 30px;
 }

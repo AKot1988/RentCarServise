@@ -38,3 +38,6 @@ export let GenerateDataToRender = async function (carType: string, linkToCarsJSO
 
 export let carCardDataToRender = await GenerateDataToRender('Sedan', '../../../../dataJSON/carData.json','https://api.thecatapi.com/v1/images/search?limit=1')
   
+
+// {location:'Kiev',data:'2024:25:02',time:'10:00'}
+
