@@ -6,6 +6,16 @@
       "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
     },
     {
+      "model": "BMW",
+      "price": "100",
+      "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+    },
+    {
+      "model": "BMW",
+      "price": "100",
+      "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
+    },
+    {
       "model": "Audi",
       "price": "200",
       "image": "https://cdn2.thecatapi.com/images/2o6.jpg"
