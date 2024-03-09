@@ -14,16 +14,16 @@
         width: 422px;
     }
     &__text {
-        font-family: "Plus Jakarta Sans", sans-serif;
+        // font-family: "Plus Jakarta Sans", sans-serif;
         margin-top: 20px;
-        @include font(18px, 400, $basic-text-color);
-        text-align: center;
-        margin-inline: auto;
-        width: 530px;
+        // @include font(18px, 400, $basic-text-color);
+        // text-align: center;
+        // margin-inline: auto;
+        // width: 530px;
     }
     &__arrow {
         margin-left: auto;
-        @include flex(center, flex-end, row);
+        @include flex(center, flex-end);
         gap: 50px;
         &-left, &-right {
             width: 30px;
@@ -42,10 +42,9 @@
     &__wrapper {
         width: calc(100% + 49px);
         margin-top: 51px;
-        margin-bottom: 82px;
         overflow: scroll;
         scroll-behavior: smooth;
-        @include flex(center, start, row);
+        @include flex(center, start);
         &::-webkit-scrollbar {
             display: none;
         }
@@ -101,6 +100,73 @@
                 grid-column: 1/ span 3;
                 grid-row: 2/ span 1;
                 @include font(16px, 400, #4f5665);
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: $tablet-bigger) and (min-width: $tablet) {
+    
+}
+
+@media screen and (max-width: $tablet) and (min-width: $mobile) {
+    
+}
+
+@media screen and (max-width: $mobile) {
+    .testimonials {
+        padding-top: 45px;
+        line-height: 20px;
+        &__title {
+            margin-bottom: 10px;
+            @include font(18px, 500, #0B132A);
+            width: 200px;
+        }
+        &__text {
+            margin-top: 10px;
+        }
+        &__arrow {
+            margin-top: 20px;
+            &-left, &-right {
+                height: 25px;
+            }
+        }
+    
+        &__wrapper {
+            width: calc(100% + 20px);
+            margin-top: 20px;
+            &-item {
+                margin-right: 20px;
+                flex: 1 0 85%;
+                padding: 20px 15px 15px 20px;
+                border-radius: 10px;
+                
+                &-pic{                   
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 32px;
+                    &-photo{
+                        border-radius: 32px;
+                    }
+                }
+                &-customer{
+                    padding-left: 10px;
+                    &-name{
+                        @include font(14px, 500, #0b132a);
+                    }
+                    &-location{
+                        // margin-top: 5px;
+                        @include font(12px, 400, #4f5665);
+                    }
+                }
+                &-rating{
+                    padding-right: 20px;
+                    @include font(13px, 400, #0b132a);
+                }
+                &-content{
+                    @include font(14px, 400, #4f5665);
+                }
             }
         }
     }

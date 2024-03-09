@@ -17,7 +17,7 @@ export default class Slider {
         this.btnLeft.addEventListener('click', () => {
             this.btnRight.classList.remove('deact')
             
-            const slideWidth = this.slide.clientWidth + 49
+            const slideWidth = this.slide.clientWidth + 20
             this.track.scrollLeft -= slideWidth
 
         })
@@ -25,21 +25,22 @@ export default class Slider {
         this.btnRight.addEventListener('click', () => {  
             this.btnLeft.classList.remove('deact')
             
-            const slideWidth = this.slide.clientWidth + 49
+            const slideWidth = this.slide.clientWidth + 20
             this.track.scrollLeft += slideWidth   
         })
 
         this.track.addEventListener('scroll', () => {
             const trackScrollWidth = this.track.scrollWidth
             const trackOuterWidth = this.track.clientWidth
-    
+            const spaceForScroll = trackScrollWidth - trackOuterWidth
+            
             this.btnLeft.classList.remove('deact')
             this.btnRight.classList.remove('deact')
     
             if (this.track.scrollLeft <= 0) {
                 this.btnLeft.classList.add('deact')
             }
-            if (this.track.scrollLeft === trackScrollWidth - trackOuterWidth) {
+            if (this.track.scrollLeft === spaceForScroll || this.track.scrollLeft === spaceForScroll - 1) {
                 this.btnRight.classList.add('deact')
             }
         })
