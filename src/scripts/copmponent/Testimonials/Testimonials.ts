@@ -1,4 +1,4 @@
-import { Review } from "./types"
+import { Review } from "../../utils/types"
 import CreateElement from "../CreateElement/CreateElement"
 
 export default class Testimonials {
