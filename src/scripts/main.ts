@@ -13,9 +13,3 @@ renderTestimonials()
 
 
 new TabsSection(tabParams);
-
-
-
-
-
-
