@@ -10,40 +10,25 @@ export default async function fetchData() {
         const response = await api.getRequest();
         const { date, location, time } = response;
 
-        new Select('#select', {
-            placeholder: 'Select your city',
-            data: location
-        });
+        const selectConfigs = [
+            { id: '#select', placeholder: 'Select your city', data: location },
+            { id: '#select1', placeholder: 'Select your date', data: date },
+            { id: '#select2', placeholder: 'Select your time', data: time },
+            { id: '#select3', placeholder: 'Select your city', data: location },
+            { id: '#select4', placeholder: 'Select your date', data: date },
+            { id: '#select5', placeholder: 'Select your time', data: time }
+        ];
 
-        new Select('#select1', {
-            placeholder: 'Select your date',
-            data: date
+        selectConfigs.forEach(config => {
+            new Select(config.id, {
+                placeholder: config.placeholder,
+                data: config.data
+            }).render();
         });
-
-        new Select('#select2', {
-            placeholder: 'Select your time',
-            data: time
-        });
-
-        new Select('#select3', {
-            placeholder: 'Select your city',
-            data: location
-        });
-
-        new Select('#select4', {
-            placeholder: 'Select your date',
-            data: date
-        });
-
-        new Select('#select5', {
-            placeholder: 'Select your time',
-            data: time
-        });
-
     } catch (error) {
         console.error('Error fetching data:', error);
-    }
-}
+    };
+};
 
 export function collectDataFromSelect() {
     const selectedRadioValue = document.querySelector('input[type="radio"]:checked') as HTMLInputElement;
@@ -72,8 +57,8 @@ export function collectDataFromSelect() {
             }, {});
 
         return sellectData;
-    }
-}
+    };
+};
 
 
 const searchBtn = document.querySelector('.button__search') as HTMLElement;
@@ -81,11 +66,9 @@ const searchBtn = document.querySelector('.button__search') as HTMLElement;
 searchBtn.addEventListener('click', () => {
     const collectedData = collectDataFromSelect();
     if (collectedData) {
-        console.log(collectedData);
-
         return collectedData
     } else {
         throw new Error('No data collected!')
     }
-})
+});
 
