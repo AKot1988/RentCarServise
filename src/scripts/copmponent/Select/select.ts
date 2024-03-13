@@ -14,10 +14,6 @@ export default class Select {
             throw new Error(`Element with selector '${select}' not found.`);
         }
         this.selectedId = null;
-        this.render();
-        this.setUp();
-        this.keydownHandler();
-        this.closeDropdown()
     }
 
     render() {
@@ -54,7 +50,7 @@ export default class Select {
             className: 'select__dropdown',
         }).render();
 
-        const selectList = new CreateElement('div', {
+        const selectList = new CreateElement('ul', {
             className: 'select__list'
         }).render();
 
@@ -74,10 +70,14 @@ export default class Select {
         this.elem.classList.add('select');
         this.arrow = this.elem.querySelector('[data-type="arrow"]') as HTMLElement;
         this.value = this.elem.querySelector('[data-type="value"]') as HTMLElement;
+
+        this.initListeners();
     }
 
-    setUp() {
+    initListeners() {
         this.elem.addEventListener('click', this.clickHandler.bind(this));
+        this.keydownHandler();
+        this.closeDropdown();
     }
 
     clickHandler(event: Event) {
