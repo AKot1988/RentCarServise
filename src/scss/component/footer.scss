@@ -13,3 +13,26 @@
         @include font(16px, 600, $basic-text-color);
     }
 }
+
+@media screen and (max-width: $tablet-bigger) and (min-width: $tablet) {
+    
+}
+
+@media screen and (max-width: $tablet) and (min-width: $mobile) {
+    
+}
+
+@media screen and (max-width: $mobile) {
+    #footer {
+        margin-top: 60px;
+    }
+    .footer__content {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        @include flex(center, center, column);
+        row-gap: 15px;
+        &-item{
+            @include font(11px, 600, $basic-text-color);
+        }
+    }
+}

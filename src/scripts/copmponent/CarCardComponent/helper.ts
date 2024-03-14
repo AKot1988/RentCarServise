@@ -3,7 +3,7 @@ import { newElementAttributesInterface } from '../UniversalButton/types'
 import API from "../../utils/API";
 
 export let getCarByType = async function (requestedCarType: string, URLtoCarData: string) {
-  let response = await new API <carSetInterface>(URLtoCarData).getRequest();
+  let response = await new API<carSetInterface>(URLtoCarData).getRequest();
   let responseCarType = undefined
   for (let carType in response) {
     if (carType === requestedCarType) {
@@ -13,11 +13,11 @@ export let getCarByType = async function (requestedCarType: string, URLtoCarData
   }
   return responseCarType;
 }
- 
+
 let getPhotoURLs = async function (requestQantity: number, URLtoFetchPhoto: string) {
   let URLsArray: string[] = [];
   for (let i = 0; i < requestQantity; i++) {
-    let response = await new API <fetchResponse[]>(URLtoFetchPhoto).getRequest();
+    let response = await new API<fetchResponse[]>(URLtoFetchPhoto).getRequest();
     URLsArray.push(response[0].url);
   }
   return URLsArray;

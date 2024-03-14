@@ -8,14 +8,4 @@ import renderTestimonials from "./copmponent/Testimonials/renderTestimonials";
 
 fetchData();
 renderTestimonials()
-
-
-
-
 new TabsSection(tabParams, '../../dataJSON/carData.json', 'https://api.thecatapi.com/v1/images/search?limit=1', 'general');
-
-
-
-
-
-
