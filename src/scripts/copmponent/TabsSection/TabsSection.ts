@@ -17,7 +17,8 @@ export default class TabsSection {
   public activeCarTypeByDefault: string;
   public defaultCarDataToRender: CarCardProps[] = [];
 
-  constructor(public tabParams: any, public type: string = "general") {
+  constructor(public tabParams: any, public carDataLink: string | carSetInterface, public linkToPhotoFetch: string, public type: string = "general")  {
+    this.carDataLink = carDataLink;
     this.tabComponent = new TabComponent(this.tabParams, document.querySelector('.popular__tabs__container') as HTMLDivElement);
     this.defaultCarDataToRender = []
     // this.carCardComponent = new CarCardComponent(this.defaultCarDataToRender, document.createElement('div') as HTMLDivElement);
@@ -25,7 +26,7 @@ export default class TabsSection {
     this.activeCarTypeByDefault = this.activeTab.innerText;
     switch (this.type) {
       case "general":
-        this.render();
+        this.render(this.carDataLink, this.linkToPhotoFetch);
         this.tabHandler();
         break;
       case "accordingFilterRequest":
@@ -35,11 +36,25 @@ export default class TabsSection {
     }
 
   }
-  async render() {
+  async render(carDataLink: string, linkToPhotoFetch: string ) {
       try {
-        this.defaultCarDataToRender = await GenerateDataToRender(this.activeCarTypeByDefault, '../../../../dataJSON/carData.json', 'https://api.thecatapi.com/v1/images/search?limit=1')
+        this.defaultCarDataToRender = await GenerateDataToRender(this.activeCarTypeByDefault, carDataLink, linkToPhotoFetch)
         loader.remove();
         this.defaultCarDataToRender.forEach((car: CarCardProps) => {
+        new CarCardComponent(car, document.querySelector(`.popular__cars__container`) as HTMLDivElement);
+      });
+    } catch (error) {
+      console.error('Помилка під час отримання даних:', error);
+      loader.ErrorGif()
+    }
+  }
+
+  async renderAccordingFilterRequest() {
+    try {
+      this.defaultCarDataToRender = await GenerateDataToRender(this.activeCarTypeByDefault, this.carDataLink, this.linkToPhotoFetch, 'accordingFilterRequest');
+      loader?.remove();
+      // console.log(this.defaultCarDataToRender)
+      this.defaultCarDataToRender.forEach((car: CarCardProps) => {
         new CarCardComponent(car, document.querySelector(`.popular__cars__container`) as HTMLDivElement);
       });
     } catch (error) {

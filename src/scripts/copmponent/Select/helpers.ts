@@ -1,6 +1,9 @@
 import Select from "./select";
 import API from "../../utils/API";
 import { Data } from "./type";
+import { filterCarData, generateTabsOptions, GenerateDataToRender } from "../CarCardComponent/helper";
+import TabsSection from "../TabsSection/TabsSection";
+import { carSetInterface } from "../CarCardComponent/types"
 
 
 
@@ -78,14 +81,20 @@ export function collectDataFromSelect() {
 
 const searchBtn = document.querySelector('.button__search') as HTMLElement;
 
-searchBtn.addEventListener('click', () => {
+searchBtn.addEventListener('click', async () => {
     const collectedData = collectDataFromSelect();
     if (collectedData) {
         console.log(collectedData);
-
-        return collectedData
+        let filteredData = await filterCarData('../../../../dataJSON/carData.json', collectedData);
+        console.log(filteredData);
+        let tabsOptions = generateTabsOptions(filteredData as carSetInterface);
+        console.log(tabsOptions);
+        let parentElement = document.getElementById("parent");
+        while (parentElement?.firstChild) {
+         parentElement.removeChild(parentElement.firstChild);
+        }
+        new TabsSection(tabsOptions, filteredData as carSetInterface , 'https://api.thecatapi.com/v1/images/search?limit=1', 'accordingFilterRequest');
     } else {
         throw new Error('No data collected!')
     }
 })
-

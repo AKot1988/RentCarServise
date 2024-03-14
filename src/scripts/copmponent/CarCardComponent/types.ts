@@ -6,12 +6,16 @@ export interface CarCardProps {
 
 export interface CarCardPropsExpanded extends CarCardProps{
   "location": string
-  "data": string,
+  "date": string,
   "time": string
 }
 
+// export interface carSetInterface {
+//   [k: string]: CarCardProps[] | CarCardPropsExpanded[]
+// }
+
 export interface carSetInterface {
-  [k: string]: CarCardProps[] | CarCardPropsExpanded[]
+  [k: string]: CarCardPropsExpanded[]
 }
 
 export interface fetchResponse {
