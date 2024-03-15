@@ -1,0 +1,43 @@
+.advantages {
+    padding: 100px 0 40px;
+    &__wrapper-info {
+        margin-top: 34px;
+        @include flex(center, space-between);
+    }
+    &__pic {
+        background-color: #999999;
+        @include flex(center, center)
+    }
+    &__pic>img {
+        padding: 144px 163px;
+        width: 240px;
+        height: 240px;
+    }
+    &__list {
+        margin-right: 19px;
+        &-item {
+            margin-bottom: 40px;
+            @include flex(start, space-between);
+            gap: 24px;
+            &-image {
+                @include flex(center, center);
+                width: 51px;
+                height: 51px;
+                border-radius: 10px;
+                background-color: $basic-decore-color;
+            }
+            &-info {
+                max-width: 432px;
+                &-title {
+                    margin-bottom: 6px;
+                    @include font(22px, 600, $basic-text-color);
+                    line-height: 33px;
+                }
+                &-description {
+                    @include font(16px, 400, $basic-text-color);
+                    line-height: 28px;
+                }
+            }
+        }
+    }
+}

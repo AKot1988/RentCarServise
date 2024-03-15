@@ -1,0 +1,14 @@
+.pictures {
+    padding: 95px 0 95px;
+    background-color: $third-decore-color;
+    overflow: hidden;
+    &__list {
+        @include flex(center, space-between);
+        gap: 32px;
+        &-item {
+            width: 50%;
+            max-height: 360px;
+            object-fit: cover;
+        }
+    }
+}
