@@ -14,6 +14,8 @@
 @import "./component/hero.scss";
 @import "./component/PopularDealsSection.scss";
 @import "./component/loader.scss";
+@import "./component/advantages.scss";
+@import "./component/pictures.scss";
 
 #header,
 #footer,
@@ -38,7 +40,6 @@
   .container {
     padding-inline: 30px;
   }
-
 }
 
 @media screen and (max-width: $mobile) {
