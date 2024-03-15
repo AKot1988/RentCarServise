@@ -1,9 +1,9 @@
 import Select from "./select";
 import API from "../../utils/API";
 import { Data } from "./type";
-import { filterCarData, generateTabsOptions, GenerateDataToRender } from "../CarCardComponent/helper";
+import { filterCarData, generateTabsOptions, GenerateDataToRender } from "../CarCard/helper";
 import TabsSection from "../TabsSection/TabsSection";
-import { carSetInterface } from "../CarCardComponent/types"
+import { carSetInterface } from "../CarCard/types"
 
 
 

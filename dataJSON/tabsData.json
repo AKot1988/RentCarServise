@@ -1,5 +1,10 @@
 [
   {
+    "innerText": "All",
+    "classes": ["tab"],
+    "dataset": {"tabHeader": "Sedan"}
+  },
+  {
     "innerText": "Sedan",
     "classes": ["tab", "tab--active"],
     "dataset": {"tabHeader": "Sedan"}
