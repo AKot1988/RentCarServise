@@ -1,12 +1,10 @@
 .how-work {
   padding: 43px 0 105px;
+  position: relative;
+  z-index: -1;
 
   @media screen and (max-width: $tablet-bigger) {
     padding: 33px 0 75px;
-  }
-
-  @media screen and (max-width: $tablet) {
-    padding: 240px 0 55px;
   }
 
   &__list {

@@ -5,7 +5,7 @@
 
   &__wrapper {
     position: relative;
-    bottom: 73px;
+    transform: translateY(-50%);
     @include flex(center, center, row);
     column-gap: 16px;
 
