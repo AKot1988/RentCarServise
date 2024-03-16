@@ -2,7 +2,7 @@ import CreateElement from '../CreateElement/CreateElement'
 import { newElementAttributesInterface } from '../UniversalButton/types'
 import API from "../../utils/API";
 export const tabParams = await new API('../../../../dataJSON/tabsData.json').getRequest();
-export class TabComponent {
+export class Tab {
   public newTab: HTMLElement = document.createElement('div');
   public tabList: HTMLElement[] = [];
   

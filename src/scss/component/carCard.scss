@@ -7,7 +7,6 @@
 
   padding: 25px;
   width: 305px;
-  height: 390px;
   background-color: $basic-decore-color;
   border-radius: 10px;
   box-sizing: border-box;
@@ -19,13 +18,10 @@
   }
 
   &__image {
-    // background-size: cover;
+    margin-top: 20px;
     aspect-ratio: 16/14;
     width: 95%;
     border-radius: 10px;
-    // height: 50%;
-    background-size: cover;
-    background-position: center;
     margin-bottom: 20px;
   }
 

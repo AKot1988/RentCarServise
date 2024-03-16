@@ -10,7 +10,6 @@
     text-align: center;
     margin-top: 100px;
     max-width: 630px;
-    min-height: 70px;
   }
   &__description {
     @include font($main-font-size, $main-font-weight, $basic-text-color);
@@ -18,10 +17,9 @@
     padding-top: 0px;
     margin-top: 20px;
     max-width: 530px;
-    min-height: 65px;
   }
   &__cars {
-    @include flex (start, center, row);
+    @include flex (start, center);
     margin-top: 50px;
     flex-wrap: wrap;
     width: 100%;
@@ -33,6 +31,3 @@
     padding-bottom: 200px;
   }
 }
-
-
- 
