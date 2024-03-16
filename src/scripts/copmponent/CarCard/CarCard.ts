@@ -6,7 +6,7 @@ import { CarCardPropsExpanded } from "./types";
 
 
 
-export default class CarCardComponent {
+export default class CarCard {
   public self: HTMLElement
   public modelFavContainer: HTMLElement
   public carmodel: HTMLElement

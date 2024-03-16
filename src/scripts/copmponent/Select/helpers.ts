@@ -1,9 +1,10 @@
 import Select from "./select";
 import API from "../../utils/API";
 import { Data } from "./type";
-import { filterCarData, generateTabsOptions, GenerateDataToRender } from "../CarCard/helper";
+import { filterCarData, GenerateDataToRender } from "../CarCard/helper";
 import TabsSection from "../TabsSection/TabsSection";
 import { carSetInterface } from "../CarCard/types"
+import { Tab, tabParams } from "../Tab/Tab.ts"
 
 
 
@@ -65,22 +66,28 @@ export function collectDataFromSelect() {
 
 
 const searchBtn = document.querySelector('.button__search') as HTMLElement;
-
 searchBtn.addEventListener('click', async () => {
+
+    let tabParentElement = document.querySelector('.popular__tabs__container');
+    while (tabParentElement?.firstChild) {
+        console.log('видалили таб');
+        tabParentElement.removeChild(tabParentElement.firstChild);
+    }
+    let parentElement = document.querySelector(".popular__cars__container");
+    while (parentElement?.firstChild) {
+     parentElement.removeChild(parentElement.firstChild);
+    }
+
     const collectedData = collectDataFromSelect();
     if (collectedData) {
-        console.log(collectedData);
         let filteredData = await filterCarData('../../../../dataJSON/carData.json', collectedData);
-        console.log(filteredData);
-        let tabsOptions = generateTabsOptions(filteredData as carSetInterface);
-        console.log(tabsOptions);
-        let parentElement = document.getElementById("parent");
-        while (parentElement?.firstChild) {
-         parentElement.removeChild(parentElement.firstChild);
+        if(Object.values(filteredData).length === 0) {
+            let tabParentElement = document.querySelector('.popular__tabs__container');
+            tabParentElement?.insertAdjacentHTML('beforebegin', `<h2 class="error">Немає автомобілів згідно запиту</h2>`);
+        } else {
+            new Tab(tabParams, document.querySelector('.popular__tabs__container') as HTMLDivElement);
+            new TabsSection(filteredData as carSetInterface);
         }
-        new TabsSection(tabsOptions, filteredData as carSetInterface , 'https://api.thecatapi.com/v1/images/search?limit=1', 'accordingFilterRequest');
-    } else {
-        throw new Error('No data collected!')
     }
 })
 
