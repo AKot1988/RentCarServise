@@ -1,14 +1,32 @@
 .pictures {
-    padding: 95px 0 95px;
-    background-color: $third-decore-color;
-    overflow: hidden;
-    &__list {
-        @include flex(center, space-between);
-        gap: 32px;
-        &-item {
-            width: 50%;
-            max-height: 360px;
-            object-fit: cover;
-        }
+  padding: 95px 0 95px;
+  background-color: $third-decore-color;
+  overflow: hidden;
+
+  @media screen and (max-width: $desktop) {
+    padding: 60px 0 60px;
+  }
+
+  @media screen and (max-width: $tablet) {
+    padding: 30px 0 30px;
+  }
+
+  &__list {
+    @include flex(center, space-between);
+    gap: 32px;
+
+    @media screen and (max-width: $tablet) {
+      flex-direction: column;
+      gap: 22px;
     }
+    &-item {
+      width: 50%;
+      max-height: 360px;
+      object-fit: cover;
+
+      @media screen and (max-width: $tablet) {
+        width: 100%;
+      }
+    }
+  }
 }
