@@ -35,12 +35,12 @@ const getUrlPicture = async () => {
     }
 }
 
-const showPicture = async () => {
+(async () => {
     const url = await getUrlPicture();
     if (url) {
         const pictureElement = document.querySelector('.advantages__img') as HTMLImageElement
         pictureElement.src = url;
     }
-}
-showPicture();
+})()
+
 
