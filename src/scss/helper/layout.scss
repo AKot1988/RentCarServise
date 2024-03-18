@@ -68,3 +68,67 @@ html {
     line-height: 21px;
   }
 }
+
+.navigation-button {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+
+  border-radius: 3px;
+  background-color: transparent;
+  border: none;
+  top: 20px;
+  right: 20px;
+
+  @media screen and (min-width: $tablet-bigger) {
+    display: none;
+  }
+}
+
+.navigation-span {
+  position: absolute;
+  background-color: white;
+
+  top: 14px;
+  left: 4px;
+  width: 22px;
+  height: 2px;
+
+  border-radius: 2px;
+  transition: all 0.5s;
+}
+
+.navigation-button::before,
+.navigation-button::after {
+  content: "";
+  background-color: white;
+  position: absolute;
+  left: 4px;
+  width: 22px;
+  height: 2px;
+
+  border-radius: 2px;
+  transition: all 0.5s;
+}
+
+.navigation-button::before {
+  top: 4px;
+}
+
+.navigation-button::after {
+  bottom: 4px;
+}
+
+.navigation-button.active::before {
+  transform: rotate(45deg);
+  top: 14px;
+}
+
+.navigation-button.active span {
+  display: none;
+}
+
+.navigation-button.active::after {
+  transform: rotate(-45deg);
+  top: 14px;
+}

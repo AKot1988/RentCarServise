@@ -1,0 +1,45 @@
+.form-login,
+.form-register {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: inherit;
+  margin-top: 20px;
+
+  .form-field,
+  .form-btn {
+    padding: 15px 10px;
+    margin: 20px 0px;
+    border-radius: 5px;
+    background-color: transparent;
+    border: 2px solid $header-selected-items-color;
+    cursor: pointer;
+    color: $basic-text-color;
+    transition: padding 0.3s ease-in;
+  }
+  .form-field:hover {
+    padding: 17px 12px;
+  }
+  .form-field:focus {
+    border: transparent;
+    outline: 2px solid $header-selected-items-color;
+  }
+
+  .form-field::placeholder {
+    color: $basic-text-color;
+  }
+
+  .form-btn {
+    color: $header-selected-items-color;
+    transition: all 0.5s ease-in;
+  }
+
+  .form-btn:focus {
+    outline: 2px solid $general-background-color;
+  }
+  .form-btn:hover {
+    @include font(18px, 500, $header-selected-items-color);
+    line-height: 20px;
+    background-color: $basic-decore-color;
+  }
+}
