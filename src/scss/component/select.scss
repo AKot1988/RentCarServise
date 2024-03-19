@@ -20,6 +20,14 @@
       row-gap: 15px;
     }
 
+    @media screen and (min-width: $tablet) and (max-width: $tablet-bigger) {
+      transform: translateY(0%);
+    }
+
+    @media screen and (min-width: 325px) and (max-width: $tablet) {
+      transform: translateY(0%);
+    }
+
     .pick-up__wrapper,
     .drop-off__wrapper {
       box-sizing: border-box;
