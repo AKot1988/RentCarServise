@@ -1,6 +1,6 @@
 .modal {
   display: none;
-
+  z-index: 1;
   &__wrapper {
     padding: 30px 30px;
     width: 30%;
