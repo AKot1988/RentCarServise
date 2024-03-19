@@ -17,6 +17,12 @@ export default class Slider {
         this.autoPlay = autoPlay as boolean
         this.timeToPlay = timeToPlay as number
         this.intervalId = null
+
+        // const firstSlide = this.track.firstChild
+        // const firstSlide = this.slide.cloneNode()
+        // if(firstSlide){
+        //     this.track.append(firstSlide)
+        // }
         
         this.init()
     }
@@ -40,7 +46,22 @@ export default class Slider {
     }
 
     handleScroll() {
+        // const firstSlide = this.track.firstChild
+        // const cloneSlide = firstSlide?.cloneNode()
+        // console.log(cloneSlide);
+        
+        // if (cloneSlide){
+        //     this.track.insertBefore(cloneSlide, this.track.lastChild)
+        // }
+        // entry.target.insertBefore(cloneSlide, entry.target.lastChild)
+
         const spaceForScroll = this.track.scrollWidth - this.track.clientWidth
+        // const spaceForScroll = this.track.scrollWidth
+        // console.log(this.track.scrollLeft);//6611
+        // console.log(this.track.scrollWidth);//7344
+        // console.log(this.track.clientWidth);//733
+        
+        
 
         this.btnLeft.classList.remove('deact')
         this.btnRight.classList.remove('deact')
@@ -50,6 +71,10 @@ export default class Slider {
         }
         if (this.track.scrollLeft === spaceForScroll || this.track.scrollLeft === spaceForScroll - 1) {
             this.btnRight.classList.add('deact')
+
+            // console.log(this.track.scrollLeft);
+            // this.track.scrollLeft = spaceForScroll - this.track.clientWidth
+
             if(this.intervalId){
                 clearInterval(this.intervalId)
             }
@@ -75,9 +100,12 @@ export default class Slider {
                 if (entry.isIntersecting){
                     that.intervalId = setInterval (() => {
                         const slide = entry.target.firstChild
-                        if (slide instanceof HTMLElement) {
+                        
+                        if (slide instanceof HTMLElement ) {
                             const slideWidth = slide.clientWidth + that.gap
                             entry.target.scrollLeft += slideWidth
+
+                            entry.target.append(slide) // carusel (перший елемент переміщує в кінець списку)
                         }
                     }, that.timeToPlay)
                 } else {
