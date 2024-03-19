@@ -2,7 +2,7 @@
   {
     "innerText": "all",
     "classes": ["tab", "tab--active"],
-    "dataset": {"tabHeader": "Sedan"}
+    "dataset": {"tabHeader": "all"}
   },
   {
     "innerText": "Sedan",

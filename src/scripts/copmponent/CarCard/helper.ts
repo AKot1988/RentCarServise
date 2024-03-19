@@ -82,7 +82,7 @@ export let GenerateDataToRender = async function (carType: string, linkToCarsJSO
 
 export let filterCarData = async function (linkToCarsJSON: string, filterOptions: any) {
   try {
-    let response = await new API <carSetInterface>(linkToCarsJSON).getRequest();
+    let response = localStorage.get('carData');
     let filteredCarData: carSetInterface = {}
     let requestedFullTime = new Date(filterOptions['date'] + 'T' + filterOptions['time']).getTime();
     for (let carType in response) {
