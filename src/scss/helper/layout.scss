@@ -77,8 +77,8 @@ html {
   border-radius: 3px;
   background-color: transparent;
   border: none;
-  top: 20px;
-  right: 20px;
+  transform: translateY(0%);
+  right: 35px;
 
   @media screen and (min-width: $tablet-bigger) {
     display: none;

@@ -7,6 +7,10 @@
     padding: 33px 0 75px;
   }
 
+  @media screen and (min-width: 325px) and (max-width: $tablet) {
+    padding: 245px 0 75px;
+  }
+
   &__list {
     @include flex(center, space-between, row);
 

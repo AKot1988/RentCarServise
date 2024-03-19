@@ -11,25 +11,70 @@
     margin: 0 auto;
     @include flex(center, space-between, row);
     flex-wrap: wrap;
+
+    @media screen and (min-width: $tablet) and (max-width: $tablet-bigger) {
+      padding: 25px 40px 125px 40px;
+    }
+
+    @media screen and (min-width: 325px) and (max-width: $tablet) {
+      padding: 15px 20px 75px 20px;
+      flex-direction: column;
+    }
   }
   &__call-to-action {
-    max-width: 575px;
+    width: clamp(200px, 40%, 575px);
+
+    @media screen and (min-width: 325px) and (max-width: $tablet) {
+      width: clamp(200px, 100%, 575px);
+    }
   }
   &__add-caption {
     @include font(14px, 500, $headers1-text-color);
     line-height: 17px;
     margin-bottom: 40px;
+
+    @media screen and (min-width: $tablet) and (max-width: $tablet-bigger) {
+      margin-bottom: 20px;
+    }
+
+    @media screen and (min-width: 325px) and (max-width: $tablet) {
+      margin-bottom: 10px;
+    }
   }
   &__title {
-    @include font(46px, 800, $headers1-text-color);
+    @include font(
+      clamp(1rem, 0.3398rem + 2.8169vw, 2.875rem),
+      600,
+      $headers1-text-color
+    );
+
     line-height: 56px;
     margin-bottom: 25px;
+
+    @media screen and (min-width: $tablet) and (max-width: $tablet-bigger) {
+      line-height: 34px;
+      margin-bottom: 20px;
+    }
+
+    @media screen and (min-width: 325px) and (max-width: $tablet) {
+      line-height: 24px;
+      margin-bottom: 15px;
+    }
   }
   &__sub-title {
     @include font(16px, 500, #8b8c91);
     line-height: 25px;
     letter-spacing: -2%;
     margin-bottom: 55px;
+
+    @media screen and (min-width: $tablet) and (max-width: $tablet-bigger) {
+      line-height: 26px;
+      margin-bottom: 20px;
+    }
+
+    @media screen and (min-width: 325px) and (max-width: $tablet) {
+      margin-bottom: 30px;
+    }
   }
   &__book-btn {
     padding: 10px 20px;
@@ -42,6 +87,37 @@
     &:hover {
       cursor: pointer;
       background-color: rgba(255, 255, 255, 0.542);
+    }
+  }
+
+  &__image {
+    width: 556px;
+    height: 518px;
+
+    @media screen and (max-width: $desktop) {
+      width: 525px;
+      height: 481px;
+    }
+
+    @media screen and (min-width: $tablet) and (max-width: $tablet-bigger) {
+      width: 376px;
+      height: 338px;
+    }
+
+    @media screen and (min-width: 325px) and (max-width: $tablet) {
+      width: 100%;
+      height: 100%;
+      margin-top: 30px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 63px 0px 63px 0px;
+
+      @media screen and (min-width: 325px) and (max-width: $tablet) {
+        border-radius: 33px 0px 33px 0px;
+      }
     }
   }
 }
