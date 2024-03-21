@@ -1,10 +1,12 @@
 import Select from "./select";
 import API from "../../utils/API";
 import { Data } from "./type";
-import { filterCarData, GenerateDataToRender } from "../CarCard/helper";
+import { filterCarData } from "../CarCard/helper";
 import TabContent from "../TabContent/TabContent.ts";
 import { carSetInterface } from "../CarCard/types"
 import { Tab, tabParams } from "../TabHeader/TabHeader.ts"
+import { allCarsData } from "../CarCard/helper.ts"
+import Loader from "../Loader/Loader";
 
 
 
@@ -37,8 +39,7 @@ export default async function fetchData() {
 export function collectDataFromSelect() {
     const selectedRadioValue = document.querySelector('input[type="radio"]:checked') as HTMLInputElement;
     const selectValues = document.querySelectorAll('.select__input-value') as NodeListOf<HTMLElement>;
-    let sellectData: { [key: string]: string | null } = {
-    };
+    let sellectData: { [key: string]: string | null } = {};
 
     if (selectedRadioValue && selectValues) {
         sellectData = Array.from(selectValues)
@@ -61,36 +62,28 @@ export function collectDataFromSelect() {
                 return acc;
             }, {});
 
-        return sellectData.lenght > 0 ? sellectData : null ;
+        return sellectData;
     };
 };
 
-
 const searchBtn = document.querySelector('.button__search') as HTMLElement;
 searchBtn.addEventListener('click', async () => {
-    const collectedData = collectDataFromSelect();
-    console.log(collectedData);
-    TabContent.render(collectedData)
-    // let tabParentElement = document.querySelector('.popular__tabs__container');
-    // while (tabParentElement?.firstChild) {
-    //     console.log('видалили таб');
-    //     tabParentElement.removeChild(tabParentElement.firstChild);
-    // }
-    // let parentElement = document.querySelector(".popular__cars__container");
-    // while (parentElement?.firstChild) {
-    //  parentElement.removeChild(parentElement.firstChild);
-    // }
-
-    // const collectedData = collectDataFromSelect();
-    // if (collectedData) {
-    //     let filteredData = await filterCarData('../../../../dataJSON/carData.json', collectedData);
-    //     if(Object.values(filteredData).length === 0) {
-    //         let tabParentElement = document.querySelector('.popular__tabs__container');
-    //         tabParentElement?.insertAdjacentHTML('beforebegin', `<h2 class="error">Немає автомобілів згідно запиту</h2>`);
-    //     } else {
-    //         new Tab(tabParams, document.querySelector('.popular__tabs__container') as HTMLDivElement);
-    //         new TabsSection(filteredData as carSetInterface);
-    //     }
-    // }
+    let carCardParent = document.querySelector('.popular__cars__container') as HTMLElement;
+    while (carCardParent.firstChild) {
+        carCardParent.removeChild(carCardParent.firstChild);
+    }
+    try{
+        let newLoader = new Loader(document.querySelector('.popular__cars__container') as HTMLElement);
+        let allCars = await allCarsData('../../../../dataJSON/carData.json', 'https://api.thecatapi.com/v1/images/search?limit=1')
+        localStorage.setItem("carData", JSON.stringify(allCars))
+        const collectedData = collectDataFromSelect();
+        filterCarData(collectedData)
+        console.log(localStorage.getItem('carData') ? JSON.parse(localStorage.getItem('carData') as string) : null)
+        newLoader.remove()
+        new TabContent("all").render();
+    }
+    catch (error) {
+        console.error('Error fetching data:', error);
+    };
 })
 

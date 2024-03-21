@@ -1,5 +1,4 @@
 import { fetchResponse, carSetInterface, CarCardPropsExpanded } from "./types"
-import { newElementAttributesInterface } from '../UniversalButton/types'
 import API from "../../utils/API";
 
 
@@ -80,9 +79,9 @@ export let GenerateDataToRender = async function (carType: string, linkToCarsJSO
 
 
 
-export let filterCarData = async function (linkToCarsJSON: string, filterOptions: any) {
-  try {
-    let response = localStorage.get('carData');
+export let filterCarData = function (filterOptions: any) {
+  if (localStorage.getItem('carData')) {
+    let response = localStorage.getItem('carData') ? JSON.parse(localStorage.getItem('carData') as string) : null;
     let filteredCarData: carSetInterface = {}
     let requestedFullTime = new Date(filterOptions['date'] + 'T' + filterOptions['time']).getTime();
     for (let carType in response) {
@@ -93,17 +92,14 @@ export let filterCarData = async function (linkToCarsJSON: string, filterOptions
           filteredCarData[carType].push(car)
         }
       });
-      if (filteredCarData[carType].length === 0) {
-        delete filteredCarData[carType];
-      }
     }
+    localStorage.setItem('carData', JSON.stringify(filteredCarData));
     return filteredCarData;
   }
-  catch (error) {
-    console.error('Помилка під час отримання даних:', error);
+  else {
+    console.error('Помилка під час отримання даних:');
   }
 }
-
 
 let getPhotoURLs = async function (requestQantity: number, URLtoFetchPhoto: string) {
   let URLsArray: string[] = [];
@@ -113,25 +109,3 @@ let getPhotoURLs = async function (requestQantity: number, URLtoFetchPhoto: stri
   }
   return URLsArray;
 }
-// export const generateTabsOptions = function (carData: carSetInterface) {
-//   let tabOptions: newElementAttributesInterface[] = [];
-//   Object.keys(carData).map((carType) => {
-//     if (tabOptions.length === 0) {
-//       let tabOption = {
-//         "innerText": carType,
-//         "className": "tab tab--active",
-//         "dataset": { "tabHeader": `${carType}` }
-//       };
-//       tabOptions.push(tabOption);
-//     } else {
-//       let tabOption = {
-//         "innerText": carType,
-//         "className": "tab",
-//         "dataset": { "tabHeader": `${carType}` }
-//       };
-//       tabOptions.push(tabOption);
-//     }
-//   });
-//   return tabOptions;
-// };
-

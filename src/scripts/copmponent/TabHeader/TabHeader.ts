@@ -6,7 +6,6 @@ import TabContent from "../TabContent/TabContent.ts";
 
 
 export const tabParams = await new API('../../../../dataJSON/tabsData.json').getRequest();
-// Tab class
 export default class TabHeader {
   public parent: HTMLElement
   public tabHaedItems: HTMLElement[] = []
@@ -42,36 +41,3 @@ export default class TabHeader {
     }
   }
 }
-
-
-
-// tabHandler() {
-//   document.querySelector('.popular__tabs__container')?.addEventListener('click', (e) => {
-//     let target = e.target as HTMLElement;
-//     if (target.classList.contains('tab') && !target.classList.contains('tab--active')) {
-//       let carCardParent = document.querySelector('.popular__cars__container') as HTMLElement;
-//       while (carCardParent.firstChild) {
-//         carCardParent.removeChild(carCardParent.firstChild);
-//       }
-//       this.activeTab.classList.remove('tab--active');
-//       this.activeTab = target;
-//       this.activeTab.classList.add('tab--active');
-//       let activeCarTypeRequested = this.activeTab.innerText;
-//       if (activeCarTypeRequested === "all") {
-//         let allCarsData: CarCardPropsExpanded[] = []
-//         for (let carType in this.carData) {
-//           this.carData[carType].forEach((car) => allCarsData.push(car))
-//         }
-//         allCarsData.slice(0, 15).forEach((car: CarCardPropsExpanded) => {
-//           new CarCard(car, carCardParent as HTMLElement)
-//         });
-//       } else if (this.carData[activeCarTypeRequested]) {
-//         this.carData[activeCarTypeRequested].forEach((car: CarCardPropsExpanded) => {
-//           new CarCard(car, carCardParent as HTMLElement)
-//         });
-//       } else {
-//         carCardParent.innerHTML = `<h2 class="error">Немає автомобілів згідно запиту</h2>`;
-//       }
-//     }
-//   });
-// }

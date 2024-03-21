@@ -1,4 +1,4 @@
-// import '../../scss/component/TabContent.scss';
+// import from "../../../scss/component/tabContent.scss";
 import CarCard from "../CarCard/CarCard";
 import { CarCardPropsExpanded, carSetInterface } from "../CarCard/types";
 import Loader from "../Loader/Loader";
@@ -35,44 +35,3 @@ export default class TabContent {
     }
   }
 }
-
-
-
-
-
-// class TabContent {
-// constructor(dataParams) {
-//   this.dataParams = dataParams
-//   this.list = []
-//   this.activeTab = document.querySelector('.tab--active') as HTMLElement;
-// }
-
-// render() {
-//   const data = localStorage.getItem('carData')
-  
-//   while (condition) {
-//     removeChild
-//   }
-//   if (this.dataParams === "all") {
-        
-//         let allCarsData: CarCardPropsExpanded[] = []
-//         for (let carType in this.carData) {
-//           this.carData[carType].forEach((car) => allCarsData.push(car))
-//         }
-//         allCarsData.slice(0, 15).forEach((car: CarCardPropsExpanded) => {
-//           new CarCard(car, carCardParent as HTMLElement)
-//         });
-//       } else if (this.carData[activeCarTypeRequested]) {
-//         this.carData[activeCarTypeRequested].forEach((car: CarCardPropsExpanded) => {
-//           new CarCard(car, carCardParent as HTMLElement)
-//         });
-//       } else {
-//         carCardParent.innerHTML = `<h2 class="error">Немає автомобілів згідно запиту</h2>`;
-//       }
-// } 
-
-// filterContent(collectedData) {
-//     const newData = filterCarData(collectedData)
-//     this.activeTab = document.querySelector('.tab--active') as HTMLElement;
-// }
-// }
