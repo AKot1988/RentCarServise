@@ -16,7 +16,7 @@ const testimonialsList = document.querySelector('.testimonials__wrapper') as HTM
             let marginSize = 65
             let widthTesWrap = 1212
             let maxWidthWrap = SizeScreen.desktop - 2 * gapSize - 2 * marginSize
-            let flexBasis = 25.88 - ((maxWidthWrap - widthTesWrap) / 130)
+            let flexBasis = 25.88
             
             if (width <= SizeScreen.mobile){
                 gapSize = 20
@@ -41,6 +41,7 @@ const testimonialsList = document.querySelector('.testimonials__wrapper') as HTM
                 
             } else if (width <= SizeScreen.desktop) {
                 widthTesWrap = width - 2 * gapSize - 2 * marginSize
+                flexBasis = 25.88 - ((maxWidthWrap - widthTesWrap) / 130)
             } 
             
             
