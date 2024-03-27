@@ -1,0 +1,59 @@
+.modal {
+  display: none;
+  z-index: 1;
+  &__wrapper {
+    padding: 30px 30px;
+    width: 30%;
+    height: max-content;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 20px;
+
+    background-color: $general-background-color;
+
+    @media screen and (min-width: $tablet) and (max-width: $tablet-bigger) {
+      width: 50%;
+    }
+
+    @media screen and (min-width: 325px) and (max-width: $tablet) {
+      width: 80%;
+    }
+  }
+
+  &__content {
+    width: 100%;
+  }
+
+  &__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 28px;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: $headers2-text-color;
+    transition: font-size 0.3s ease-in;
+  }
+
+  &__close:hover {
+    font-size: 35px;
+  }
+}
+.modal.active {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+}
