@@ -5,33 +5,54 @@ import Testimonials from "./Testimonials";
 import Slider from "../Slider";
 
 
-
 export default async function renderTestimonials() {
 const testimonialsList = document.querySelector('.testimonials__wrapper') as HTMLDivElement
 
     if(testimonialsList) {
         const api = new API<Review[]>("../../../../dataJSON/testimonials.json")
         try {
-            const testimonials = await api.getRequest();
-        
-            testimonials.forEach((elem) =>{
-                const review = new Testimonials(elem)
-                review.render(testimonialsList)
-            })
-            
+            const width = window.outerWidth
             let gapSize = 49
-
-            if(window.outerWidth <= SizeScreen.mobile){
-                console.log('mobile')
-                gapSize = 20
-            } else if(window.outerWidth <= SizeScreen.tablet){
-                console.log('tablet');
-                gapSize = 25
-            } else if(window.outerWidth <= SizeScreen.tabletBigger){
-                console.log('tablet-bigger');
-                gapSize = 35
-            }
+            let marginSize = 65
+            let widthTesWrap = 1212
+            let maxWidthWrap = SizeScreen.desktop - 2 * gapSize - 2 * marginSize
+            let flexBasis = 25.88 - ((maxWidthWrap - widthTesWrap) / 130)
             
+            if (width <= SizeScreen.mobile){
+                gapSize = 20
+                marginSize = 20
+                widthTesWrap = width - 2 * marginSize
+                maxWidthWrap = SizeScreen.mobile - 2 * marginSize
+                flexBasis = 89.4 - ((maxWidthWrap - widthTesWrap) / 30)
+                
+            } else if(width <= SizeScreen.tablet){
+                gapSize = 25
+                marginSize = 30
+                widthTesWrap = width - 2 * marginSize
+                maxWidthWrap = SizeScreen.tablet - 2 * marginSize
+                flexBasis = 95 - ((maxWidthWrap - widthTesWrap) / 70)
+                
+            } else if(width <= SizeScreen.tabletBigger){
+                gapSize = 35
+                marginSize = 55
+                widthTesWrap = width - gapSize - 2 * marginSize
+                maxWidthWrap = SizeScreen.tabletBigger - 2 * gapSize - 2 * marginSize
+                flexBasis = 44.8 - ((maxWidthWrap - widthTesWrap) / 130) 
+                
+            } else if (width <= SizeScreen.desktop) {
+                widthTesWrap = width - 2 * gapSize - 2 * marginSize
+            } 
+            
+            
+            const testimonials = await api.getRequest();
+            testimonials.forEach((elem) =>{
+                if(elem.text.length > 156){
+                    elem.text = elem.text.slice(0, 155) + '...'
+                }
+                const review = new Testimonials(elem)
+                review.render(testimonialsList, flexBasis)
+            })
+
             new Slider(
             '.testimonials__wrapper', 
             '.testimonials__wrapper-item', 
@@ -39,7 +60,8 @@ const testimonialsList = document.querySelector('.testimonials__wrapper') as HTM
             '.testimonials__arrow-left', 
             gapSize,
             true, 
-            1500
+            true,
+            2000
             ) 
 
         } catch (error) {

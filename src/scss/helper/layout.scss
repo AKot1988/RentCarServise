@@ -10,9 +10,20 @@ html {
 
 #header,
 .container {
-  max-width: 1310px;
   margin: 0 auto;
-  padding: 0 10px;
+  position: relative;
+  padding-inline: 65px;
+  @media screen and (max-width: $tablet-bigger) and (min-width: 769px) {
+    padding-inline: 55px;
+  }
+
+  @media screen and (max-width: $tablet) and (min-width: 376px) {
+    padding-inline: 30px;
+  }
+
+  @media screen and (max-width: $mobile) {
+    padding-inline: 20px;
+  }
 }
 
 ::-webkit-scrollbar {

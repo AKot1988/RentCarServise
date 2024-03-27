@@ -4,9 +4,13 @@
 
 .testimonials {
     font-family: 'Rubik', sans-serif;
-    position: relative;
-    overflow: hidden;
     padding-top: 100px;
+
+    & > .container{
+        padding-inline: 0;
+        margin-inline: 65px;
+        overflow: hidden;
+    }
     &__title {
         @include font(35px, 500, #0B132A);
         text-align: center;
@@ -28,6 +32,7 @@
         }
     }
     &__arrow > .deact {
+        pointer-events: none;
         cursor: pointer;
         path {
             fill: $basic-decore-color;
@@ -35,20 +40,14 @@
     }
 
     &__wrapper {
-        width: calc(100% + 49px);
+        width: 100%;
         margin-top: 51px;
-        overflow: scroll;
-        scroll-behavior: smooth;
         @include flex(center, start);
-        &::-webkit-scrollbar {
-            display: none;
-        }
-    
+        gap: 49px;
+       
         &-item {
-            margin-right: 49px;
-            width: 100%;
-            height: 100%;
-            flex: 1 0 25%;
+            flex-grow: 1;
+            flex-shrink: 0;
             @include grid(1fr 5fr 1fr, 40px 100px);
             row-gap: 20px; 
             background-color: $basic-decore-color;
@@ -76,11 +75,13 @@
                 grid-row: 1/ span 1;
                 padding-left: 17px;
                 align-self: center;
+                line-height: 26px;
                 &-name{
                     @include font(18px, 500, #0b132a);
                 }
                 &-location{
                     @include font(14px, 400, #4f5665);
+                    line-height: 26px;
                 }
             }
             &-rating{
@@ -95,16 +96,20 @@
                 grid-column: 1/ span 3;
                 grid-row: 2/ span 1;
                 @include font(16px, 400, #4f5665);
+                line-height: 26px;
             }
         }
     }
 }
 
 
-@media screen and (max-width: $tablet-bigger) and (min-width: $tablet) {
+@media screen and (max-width: $tablet-bigger) and (min-width: 769px) {
     .testimonials {
         padding-top: 45px;
         line-height: 20px;
+        > .container{
+            margin-inline: 55px;
+        }
         &__title {
             margin-bottom: 10px;
             @include font(18px, 500, #0B132A);
@@ -121,14 +126,10 @@
         }
     
         &__wrapper {
-            width: calc(100% + 35px);
             margin-top: 20px;
+            gap: 35px;
             &-item {
-                margin-right: 35px;
-                flex: 1 0 43.2%;
                 padding: 18px 13px 13px 17px;
-                border-radius: 10px;
-                
                 &-pic{                   
                     width: 32px;
                     height: 32px;
@@ -158,10 +159,13 @@
     } 
 }
 
-@media screen and (max-width: $tablet) and (min-width: $mobile) {
+@media screen and (max-width: $tablet) and (min-width: 376px) {
     .testimonials {
         padding-top: 45px;
         line-height: 20px;
+        > .container{
+            margin-inline: 30px;
+        }
         &__title {
             margin-bottom: 10px;
             @include font(18px, 500, #0B132A);
@@ -176,16 +180,11 @@
                 height: 25px;
             }
         }
-    
         &__wrapper {
-            width: calc(100% + 25px);
             margin-top: 20px;
+            gap: 25px;
             &-item {
-                margin-right: 25px;
-                flex: 1 0 92%;
                 padding: 20px 15px 15px 20px;
-                border-radius: 10px;
-                
                 &-pic{                   
                     width: 32px;
                     height: 32px;
@@ -219,6 +218,9 @@
     .testimonials {
         padding-top: 45px;
         line-height: 20px;
+        > .container{
+            margin-inline: 20px;
+        }
         &__title {
             margin-bottom: 10px;
             @include font(18px, 500, #0B132A);
@@ -233,16 +235,11 @@
                 height: 25px;
             }
         }
-    
         &__wrapper {
-            width: calc(100% + 20px);
             margin-top: 20px;
+            gap: 20px;
             &-item {
-                margin-right: 20px;
-                flex: 1 0 85%;
                 padding: 20px 15px 15px 20px;
-                border-radius: 10px;
-                
                 &-pic{                   
                     width: 32px;
                     height: 32px;

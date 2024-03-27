@@ -18,34 +18,3 @@
 @import "./component/pictures.scss";
 @import "./component/modal.scss";
 @import "./component/form.scss";
-
-#header,
-#footer,
-.container {
-  font-family: "Plus Jakarta Sans", sans-serif;
-}
-
-#header,
-.container {
-  margin: 0 auto;
-  padding-inline: 65px;
-  position: relative;
-}
-
-@media screen and (max-width: $tablet-bigger) and (min-width: $tablet) {
-  .container {
-    padding-inline: 55px;
-  }
-}
-
-@media screen and (max-width: $tablet) and (min-width: $mobile) {
-  .container {
-    padding-inline: 30px;
-  }
-}
-
-@media screen and (max-width: $mobile) {
-  .container {
-    padding-inline: 20px;
-  }
-}
