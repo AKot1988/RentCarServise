@@ -10,9 +10,11 @@ html {
 
 #header,
 .container {
+  max-width: 1310px;
   margin: 0 auto;
   position: relative;
   padding-inline: 65px;
+  
   @media screen and (max-width: $tablet-bigger) and (min-width: 769px) {
     padding-inline: 55px;
   }
