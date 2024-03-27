@@ -3,91 +3,112 @@ export default class Slider {
     public slide: HTMLElement
     public btnRight: HTMLElement
     public btnLeft: HTMLElement
+
     public gap: number
+    public loop: boolean
     public autoPlay: boolean
     public timeToPlay: number
+
+    public currentOffset: number
+    public currentElement: number
     public intervalId: null | number
+    public slideWidth: number
     
-    constructor(track: string, slideItem: string, btnRight: string, btnLeft: string, gap: number, autoPlay?: boolean, timeToPlay?: number) {
+    constructor(track: string, slideItem: string, btnRight: string, btnLeft: string, gap: number, loop: boolean, autoPlay?: boolean, timeToPlay?: number) {
         this.track = document.querySelector(track) as HTMLElement
         this.slide = document.querySelector(slideItem) as HTMLElement
         this.btnRight = document.querySelector(btnRight) as HTMLElement
         this.btnLeft = document.querySelector(btnLeft) as HTMLElement
+
         this.gap = gap
+        this.loop = loop
         this.autoPlay = autoPlay as boolean
         this.timeToPlay = timeToPlay as number
-        this.intervalId = null
 
-        // const firstSlide = this.track.firstChild
-        // const firstSlide = this.slide.cloneNode()
-        // if(firstSlide){
-        //     this.track.append(firstSlide)
-        // }
+        this.currentOffset = 0
+        this.currentElement = 0
+        this.intervalId = null
+        this.slideWidth = this.slide.clientWidth
         
         this.init()
     }
 
-    slideLeft() {
-        this.btnRight.classList.remove('deact')
+    moveRight() {
         if(this.intervalId){
             clearInterval(this.intervalId)
         }
-        const slideWidth = this.slide.clientWidth + this.gap
-        this.track.scrollLeft -= slideWidth 
-    }
 
-    slideRight() {
-        this.btnLeft.classList.remove('deact')
-        if(this.intervalId){
-            clearInterval(this.intervalId)
-        }
-        const slideWidth = this.slide.clientWidth + this.gap
-        this.track.scrollLeft += slideWidth   
-    }
-
-    handleScroll() {
-        // const firstSlide = this.track.firstChild
-        // const cloneSlide = firstSlide?.cloneNode()
-        // console.log(cloneSlide);
-        
-        // if (cloneSlide){
-        //     this.track.insertBefore(cloneSlide, this.track.lastChild)
-        // }
-        // entry.target.insertBefore(cloneSlide, entry.target.lastChild)
-
-        const spaceForScroll = this.track.scrollWidth - this.track.clientWidth
-        // const spaceForScroll = this.track.scrollWidth
-        // console.log(this.track.scrollLeft);//6611
-        // console.log(this.track.scrollWidth);//7344
-        // console.log(this.track.clientWidth);//733
-        
-        
-
-        this.btnLeft.classList.remove('deact')
-        this.btnRight.classList.remove('deact')
+        if(!this.loop) {
+            this.btnRight.classList.remove('deact')
+            if (this.currentElement == 0) {
+                this.btnLeft.classList.add('deact')
+            } else {
+                this.currentElement--
     
-        if (this.track.scrollLeft <= 0) {
-            this.btnLeft.classList.add('deact')
-        }
-        if (this.track.scrollLeft === spaceForScroll || this.track.scrollLeft === spaceForScroll - 1) {
-            this.btnRight.classList.add('deact')
-
-            // console.log(this.track.scrollLeft);
-            // this.track.scrollLeft = spaceForScroll - this.track.clientWidth
-
-            if(this.intervalId){
-                clearInterval(this.intervalId)
+                this.track.style.cssText = 'transition:margin 750ms ease-in-out;'
+                this.currentOffset += this.slide.clientWidth + this.gap
+                this.track.style.marginLeft = this.currentOffset + 'px'  
             }
+        } else {
+            const num = 1 
+            let that = this
+            
+            for (let i = 0; i < num; i++) {
+                let lastSlide = that.track.lastElementChild
+                if(lastSlide){
+                    that.track.prepend(lastSlide)
+                }
+            }
+            this.track.style.marginLeft = '-' + (this.slideWidth * num + this.gap) + 'px'
+		    window.getComputedStyle(this.track).marginLeft
+            this.track.style.cssText = 'transition:margin 750ms ease-in-out;'
+            this.track.style.marginLeft = '0px'
+
+            setTimeout (function(){
+                that.track.style.transition = 'none'
+            }, 750)
+        }   
+    }
+    
+    moveLeft() {
+        if(this.intervalId){
+            clearInterval(this.intervalId)
         }
+        
+        if(!this.loop) {
+            console.log(this.currentElement);
+            this.currentElement++
+            
+            this.btnLeft.classList.remove('deact')
+            if (this.currentElement == this.track.childElementCount - 3) {
+                this.btnRight.classList.add('deact')
+            }
+    
+            this.track.style.cssText = 'transition:margin 750ms ease-in-out;'
+            this.currentOffset -= this.slide.clientWidth + this.gap
+            this.track.style.marginLeft = this.currentOffset + 'px'
+        } else {
+            const num = 1
+            let that = this
+            
+            this.track.style.cssText = 'transition:margin 750ms ease-in-out;'
+            this.track.style.marginLeft = '-' + (this.slideWidth * num + this.gap) + 'px'
+            setTimeout (function(){
+                that.track.style.transition = 'none'
+                for (let i = 0; i < num; i++) {
+                    let firstSlide = that.track.firstElementChild
+                    if(firstSlide){
+                        that.track.append(firstSlide)
+                    }
+                }
+                that.track.style.marginLeft = '0px'
+            }, 750)
+        }  
     }
     
     handleSlider() {
-        
-        this.btnLeft.addEventListener('click', this.slideLeft.bind(this))
-        
-        this.btnRight.addEventListener('click', this.slideRight.bind(this))
-
-        this.track.addEventListener('scroll', this.handleScroll.bind(this))
+        this.btnLeft.addEventListener('click', this.moveRight.bind(this))
+        this.btnRight.addEventListener('click', this.moveLeft.bind(this))
     }
     
     autoScroll() {
@@ -99,14 +120,7 @@ export default class Slider {
                 
                 if (entry.isIntersecting){
                     that.intervalId = setInterval (() => {
-                        const slide = entry.target.firstChild
-                        
-                        if (slide instanceof HTMLElement ) {
-                            const slideWidth = slide.clientWidth + that.gap
-                            entry.target.scrollLeft += slideWidth
-
-                            entry.target.append(slide) // carusel (перший елемент переміщує в кінець списку)
-                        }
+                        that.moveLeft()
                     }, that.timeToPlay)
                 } else {
                     if(that.intervalId){
