@@ -1,7 +1,7 @@
 import { Review } from "../../utils/types";
 import { SizeScreen } from "../../utils/types"
 import API from "../../utils/API"
-import Testimonials from "./Testimonials";
+import TestimonialCard from "./TestimonialCard";
 import Slider from "../Slider";
 
 
@@ -11,12 +11,13 @@ const testimonialsList = document.querySelector('.testimonials__wrapper') as HTM
     if(testimonialsList) {
         const api = new API<Review[]>("../../../../dataJSON/testimonials.json")
         try {
-            const width = window.outerWidth
+            const width = window.innerWidth
+            
             let gapSize = 49
             let marginSize = 65
-            let widthTesWrap = 1212
+            let widthTesWrap = width - 2 * gapSize - 2 * marginSize
             let maxWidthWrap = SizeScreen.desktop - 2 * gapSize - 2 * marginSize
-            let flexBasis = 25.88
+            let flexBasis = 25.88 - ((maxWidthWrap - widthTesWrap) / 130)
             
             if (width <= SizeScreen.mobile){
                 gapSize = 20
@@ -39,18 +40,16 @@ const testimonialsList = document.querySelector('.testimonials__wrapper') as HTM
                 maxWidthWrap = SizeScreen.tabletBigger - 2 * gapSize - 2 * marginSize
                 flexBasis = 44.8 - ((maxWidthWrap - widthTesWrap) / 130) 
                 
-            } else if (width <= SizeScreen.desktop) {
-                widthTesWrap = width - 2 * gapSize - 2 * marginSize
-                flexBasis = 25.88 - ((maxWidthWrap - widthTesWrap) / 130)
+            } else if (SizeScreen.desktop <= width) {
+                flexBasis = 25.88 
             } 
-            
             
             const testimonials = await api.getRequest();
             testimonials.forEach((elem) =>{
                 if(elem.text.length > 156){
                     elem.text = elem.text.slice(0, 155) + '...'
                 }
-                const review = new Testimonials(elem)
+                const review = new TestimonialCard(elem)
                 review.render(testimonialsList, flexBasis)
             })
 
@@ -60,8 +59,8 @@ const testimonialsList = document.querySelector('.testimonials__wrapper') as HTM
             '.testimonials__arrow-right', 
             '.testimonials__arrow-left', 
             gapSize,
-            true, 
-            true,
+            false, 
+            false,
             2000
             ) 
 
