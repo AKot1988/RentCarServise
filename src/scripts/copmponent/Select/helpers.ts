@@ -3,8 +3,8 @@ import API from "../../utils/API";
 import { Data } from "./type";
 import { filterCarData } from "../CarCard/helper";
 import TabContent from "../TabContent/TabContent.ts";
-import { carSetInterface } from "../CarCard/types"
-import { Tab, tabParams } from "../TabHeader/TabHeader.ts"
+// import { carSetInterface } from "../CarCard/types"
+// import { Tab, tabParams } from "../TabHeader/TabHeader.ts"
 import { allCarsData } from "../CarCard/helper.ts"
 import Loader from "../Loader/Loader";
 
