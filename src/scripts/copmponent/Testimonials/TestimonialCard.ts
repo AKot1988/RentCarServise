@@ -1,7 +1,7 @@
 import { Review } from "../../utils/types"
 import CreateElement from "../CreateElement/CreateElement"
 
-export default class Testimonials {
+export default class TestimonialCard {
     constructor(public singleReview: Review) { 
     }
     render(container: HTMLElement, flex: number): void {

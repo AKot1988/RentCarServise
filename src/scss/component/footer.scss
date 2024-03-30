@@ -15,14 +15,16 @@
 }
 
 @media screen and (max-width: $tablet-bigger) and (min-width: $tablet) {
-    
+    .footer__content {
+        padding-top: 45px;
+        padding-bottom: 45px;
+        &-item{
+            @include font(12px, 600, $basic-text-color);
+        }
+    }
 }
 
-@media screen and (max-width: $tablet) and (min-width: $mobile) {
-    
-}
-
-@media screen and (max-width: $mobile) {
+@media screen and (max-width: $tablet) {
     #footer {
         margin-top: 60px;
     }

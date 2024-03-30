@@ -40,7 +40,3 @@ export default class CreateElement {
         return element
     }
 }
-
-
-
-//some change

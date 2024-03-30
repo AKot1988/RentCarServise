@@ -106,7 +106,7 @@ export default class Slider {
         }  
     }
     
-    handleSlider() {
+    attachHandlers() {
         this.btnLeft.addEventListener('click', this.moveRight.bind(this))
         this.btnRight.addEventListener('click', this.moveLeft.bind(this))
     }
@@ -138,7 +138,7 @@ export default class Slider {
         
     init(){
         if(!!this.slide){
-            this.handleSlider()
+            this.attachHandlers()
         } 
         if(this.autoPlay){
             this.autoScroll()

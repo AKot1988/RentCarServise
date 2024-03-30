@@ -25,6 +25,7 @@
         @include flex(center, flex-end);
         gap: 50px;
         &-left, &-right {
+            cursor: pointer;
             width: 30px;
             height: 30px;
             border: transparent;
@@ -33,7 +34,6 @@
     }
     &__arrow > .deact {
         pointer-events: none;
-        cursor: pointer;
         path {
             fill: $basic-decore-color;
         }
@@ -105,9 +105,6 @@
 @media screen and (min-width: 1441px) {
     .testimonials > .container {
         margin: 0 auto;
-    }
-    .testimonials__wrapper {
-        overflow: hidden;
     }
 }
 
