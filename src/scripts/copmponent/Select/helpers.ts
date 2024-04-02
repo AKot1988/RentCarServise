@@ -1,18 +1,19 @@
 import Select from "./select";
 import API from "../../utils/API";
-import { Data } from "./type";
+
 import { filterCarData } from "../CarCard/helper";
 import TabContent from "../TabContent/TabContent.ts";
-import { carSetInterface } from "../CarCard/types"
-import { Tab, tabParams } from "../TabHeader/TabHeader.ts"
+import { ICollectedData } from "../../utils/types.ts";
+import { Data } from "./type.ts";
+
 import { allCarsData } from "../CarCard/helper.ts"
 import Loader from "../Loader/Loader";
 
 
 
 export default async function fetchData() {
-    const api = new API<Data>('/dataJSON/dataSelect.json');
     try {
+        const api = new API<Data>('/dataJSON/dataSelect.json');
         const response = await api.getRequest();
         const { date, location, time } = response;
 
@@ -33,57 +34,129 @@ export default async function fetchData() {
         });
     } catch (error) {
         console.error('Error fetching data:', error);
-    };
+    }
+
 };
 
-export function collectDataFromSelect() {
+
+const searchBtn = document.querySelector('.button__search') as HTMLButtonElement;
+
+
+export function collectDataFromSelect(): ICollectedData {
     const selectedRadioValue = document.querySelector('input[type="radio"]:checked') as HTMLInputElement;
     const selectValues = document.querySelectorAll('.select__input-value') as NodeListOf<HTMLElement>;
-    let sellectData: { [key: string]: string | null } = {};
+
+    const sellectData: ICollectedData = {};
 
     if (selectedRadioValue && selectValues) {
-        sellectData = Array.from(selectValues)
-            .map(item => item.textContent)
-            .filter(item => !item?.includes('Select'))
-            .reduce((acc: { [key: string]: string | null }, currentValue, index) => {
-                switch (index) {
-                    case 0:
-                        acc['location'] = currentValue;
-                        break;
-                    case 1:
-                        acc['date'] = currentValue ? currentValue.split('.').join('-') : null;;
-                        break;
-                    case 2:
-                        acc['time'] = currentValue;
-                        break;
-                    default:
-                        break;
+        selectValues.forEach((selectValue, index) => {
+            if (selectValue.classList.contains('checked')) {
+                const name = selectValue.dataset.name;
+                const textContent = selectValue.textContent?.trim();
+                if (name && textContent) {
+                    switch (index) {
+                        case 0:
+                            sellectData['location'] = textContent;
+                            break;
+                        case 1:
+                            sellectData['date'] = textContent.split('.').join('-');
+                            break;
+                        case 2:
+                            sellectData['time'] = textContent;
+                            break;
+                    }
                 }
-                return acc;
-            }, {});
+            }
+        });
+    }
 
-        return sellectData;
-    };
-};
+    checkCollectedData(sellectData);
+    return sellectData;
+}
 
-const searchBtn = document.querySelector('.button__search') as HTMLElement;
+
+function checkCollectedData(collectedData: ICollectedData): boolean {
+    const { location, date, time } = collectedData;
+    if (location && date && time) {
+
+
+        const searchBtn = document.querySelector('.button__search') as HTMLElement;
+        searchBtn.classList.remove('disable')
+        const targetSectionId = searchBtn.getAttribute('href');
+
+        if (targetSectionId) {
+            const targetSection = document.querySelector(targetSectionId);
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+                return true;
+            } else {
+                console.error('Target section does not exist:', targetSectionId);
+            }
+        } else {
+            console.error('Did not find any HREF.');
+        }
+    } else {
+        handleIncompleteData();
+    }
+    return false;
+}
+
+function showPopup(message: string, delay: number) {
+    const popup = document.createElement('div');
+    popup.classList.add('popup');
+    popup.textContent = message;
+
+    document.body.append(popup);
+
+    setTimeout(() => {
+        popup.remove();
+    }, delay);
+}
+
+
+function handleIncompleteData() {
+    const pickUpWrapper = document.querySelector('.pick-up__wrapper') as HTMLElement;
+    const selectInputValue = pickUpWrapper.querySelectorAll('.select__input-value') as NodeListOf<HTMLElement>;
+
+    selectInputValue.forEach(selectValue => {
+        if (!selectValue || !selectValue.classList.contains('checked')) {
+            selectValue.style.borderBottom = '1px solid red';
+            setTimeout(() => {
+                selectValue.style.borderBottom = 'none';
+            }, 1500)
+
+        } else {
+            selectValue.style.border = 'none';
+        }
+    });
+}
+
 searchBtn.addEventListener('click', async () => {
+
     let carCardParent = document.querySelector('.popular__cars__container') as HTMLElement;
     while (carCardParent.firstChild) {
         carCardParent.removeChild(carCardParent.firstChild);
     }
-    try{
-        let newLoader = new Loader(document.querySelector('.popular__cars__container') as HTMLElement);
-        let allCars = await allCarsData('../../../../dataJSON/carData.json', 'https://api.thecatapi.com/v1/images/search?limit=1')
-        localStorage.setItem("carData", JSON.stringify(allCars))
+
+    try {
+        const newLoader = new Loader(carCardParent);
         const collectedData = collectDataFromSelect();
-        filterCarData(collectedData)
-        console.log(localStorage.getItem('carData') ? JSON.parse(localStorage.getItem('carData') as string) : null)
-        newLoader.remove()
-        new TabContent("all").render();
-    }
-    catch (error) {
+        if (checkCollectedData(collectedData)) {
+
+            const allCars = await allCarsData('../../../../dataJSON/carData.json', 'https://api.thecatapi.com/v1/images/search?limit=1');
+            localStorage.setItem("carData", JSON.stringify(allCars));
+            handleIncompleteData();
+            filterCarData(collectedData);
+            console.log('Local storage data:', JSON.parse(localStorage.getItem('carData') || 'null'));
+            newLoader.remove();
+            new TabContent("all").render();
+        } else {
+            showPopup('Please, choose Pick-Up and enter all options!', 1500);
+        }
+    } catch (error) {
         console.error('Error fetching data:', error);
-    };
-})
+    }
+});
+
+
 
