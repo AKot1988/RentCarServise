@@ -1,5 +1,6 @@
 import CreateElement from "../CreateElement/CreateElement";
 import { DataItem } from "./type";
+import { Icon } from "../../utils/Icon";
 
 export default class Select {
     public elem: HTMLElement;
@@ -26,7 +27,7 @@ export default class Select {
 
         const selectInputValue = new CreateElement('span', {
             className: 'select__input-value',
-            dataset: { type: 'value' },
+            dataset: { type: 'value', name: 'name' },
             textContent: placeholder
         }).render();
 
@@ -35,15 +36,8 @@ export default class Select {
             dataset: { type: 'arrow' }
         }).render();
 
-        selectSvg.innerHTML = `
-        <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-           <path d="M6.0002 5.79963C5.59186 5.79963 5.18353 5.64213 4.87436 5.33297L1.07103 1.52963C0.901861 
-           1.36047 0.901861 1.08047 1.07103 0.911299C1.24019 0.742132 1.52019 0.742132 1.68936 0.911299L5.49269
-           4.71463C5.7727 4.99463 6.22769 4.99463 6.5077 4.71463L10.311 0.911299C10.4802 0.742132 10.7602 0.742132 10.9294
-           0.911299C11.0985 1.08047 11.0985 1.36047 10.9294 1.52963L7.12603 5.33297C6.81686 5.64213 6.40853 5.79963 6.0002 5.79963Z"
-              fill="#1A202C" stroke="#1A202C" stroke-width="0.5"/>
-        </svg>
-        `
+        selectSvg.innerHTML = Icon.arrowSelect();
+
         selectInputWrapper.append(selectInputValue, selectSvg);
 
         const selectDropdown = new CreateElement('div', {
@@ -116,8 +110,10 @@ export default class Select {
     selectItem(id: string) {
         this.selectedId = id;
         const selectedItem = this.options.data.find(item => item.id === this.selectedId);
+
         if (selectedItem) {
             this.value.textContent = selectedItem.value;
+            this.value.classList.add('checked');
             this.value.style.fontSize = '16px';
             this.close();
             this.elem.querySelectorAll('[data-type="item"]').forEach(item => {
