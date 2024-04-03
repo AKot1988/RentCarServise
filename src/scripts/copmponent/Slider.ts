@@ -76,7 +76,6 @@ export default class Slider {
         }
         
         if(!this.loop) {
-            console.log(this.currentElement);
             this.currentElement++
             
             this.btnLeft.classList.remove('deact')
