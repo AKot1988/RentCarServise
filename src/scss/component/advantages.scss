@@ -12,28 +12,40 @@
     margin-top: 34px;
     @include flex(center, space-between);
 
+    column-gap: 32px;
+
     @media screen and (max-width: $tablet) {
       flex-direction: column;
       margin-top: 24px;
     }
   }
   &__pic {
-    width: 566px;
-    aspect-ratio: 566 / 528;
-    background-color: #999999;
-    margin-right: 10px;
-
+    flex-basis: 43.2%;
+    aspect-ratio: 16 / 15;
+    flex-shrink: 1;
     @media screen and (max-width: $tablet) {
       width: 100%;
-      aspect-ratio: auto;
       margin: 0px 0px 10px 0px;
+      max-height: 472px;
+    }
+
+    @media screen and (min-width: $tablet) and (max-width: $tablet-bigger) {
+      flex-basis: 48.2%;
     }
   }
   &__pic > img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
   }
   &__list {
+    flex-shrink: 1;
+    flex-basis: 41%;
+
+    @media screen and (min-width: $tablet) and (max-width: $tablet-bigger) {
+      flex-shrink: 1;
+      flex-basis: 48.2%;
+    }
     &-item {
       margin-bottom: 40px;
       @include flex(start, space-between);
