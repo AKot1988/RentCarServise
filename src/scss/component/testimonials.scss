@@ -13,11 +13,11 @@
     }
     &__title {
         @include font(
-            clamp(1.5rem, 2vw, 2.1875rem),
+            clamp(1.5rem, 2.3vw + 0.7rem, 2.1875rem),
             500, 
             #0b132a
         );
-        line-height: clamp(1.3rem, 1vw, 3.125rem);
+        line-height: clamp(1.5rem, 3vw + 1rem, 3.125rem);
         text-align: center;
         margin-inline: auto;
         width: 422px;
@@ -43,7 +43,7 @@
             fill: $basic-decore-color;
         }
     }
-
+    
     &__wrapper {
         width: 100%;
         margin-top: 51px;
@@ -195,7 +195,7 @@
         }
         &__title {
             margin-bottom: 10px;
-            width: 250px;
+            width: 290px;
         }
         &__text {
             margin-top: 10px;
