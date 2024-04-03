@@ -3,8 +3,8 @@ export type Options = {
   body: any
 }
 
-export interface DataItem {[key: string]: string}
-export interface Data {[k: string]: DataItem[];}
+export interface DataItem { [key: string]: string }
+export interface Data { [k: string]: DataItem[]; }
 
 export enum SizeScreen {
   mobile = 375,
@@ -21,3 +21,8 @@ export interface Review {
   rating: string
   text: string
 }
+
+export interface ICollectedData {
+  [key: string]: string | null;
+}
+

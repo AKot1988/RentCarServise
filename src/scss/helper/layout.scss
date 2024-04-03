@@ -13,7 +13,7 @@ html {
   max-width: 1310px;
   margin: 0 auto;
   padding-inline: 65px;
-  
+
   @media screen and (max-width: $tablet-bigger) and (min-width: 769px) {
     padding-inline: 55px;
   }
@@ -143,4 +143,27 @@ html {
 .navigation-button.active::after {
   transform: rotate(-45deg);
   top: 14px;
+}
+
+.popup {
+  padding: 10px;
+  width: 300px;
+  height: max-content;
+  position: absolute;
+  background-color: #8c8787;
+  color: $header-unselected-items-color;
+  top: 80%;
+  left: 50%;
+
+  transform: translateX(-50%);
+  border-radius: 10px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 18;
+  line-height: 24px;
+  font-weight: 600;
+  text-align: center;
+
+  @media screen and (min-width: $tablet) and (max-width: $tablet-bigger) {
+    top: 40%;
+  }
 }
