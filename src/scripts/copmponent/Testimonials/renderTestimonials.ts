@@ -1,5 +1,5 @@
 import { Review } from "../../utils/types";
-import { countingFlexBasis, countingGapSize } from "./countingSizesForRender";
+import { countingFlexBasis, countingGapSize, cutText } from "./countingSizes";
 import API from "../../utils/API";
 import TestimonialCard from "./TestimonialCard";
 import Slider from "../Slider";
@@ -16,9 +16,9 @@ const testimonialsList = document.querySelector('.testimonials__wrapper') as HTM
 
             const testimonials = await api.getRequest();
             testimonials.forEach((elem) =>{
-                if(elem.text.length > 156){
-                    elem.text = elem.text.slice(0, 155) + '...'
-                }
+                const elemAllText = elem.text
+                elem.text = cutText(elemAllText)
+                
                 const review = new TestimonialCard(elem)
                 review.render(testimonialsList, flexBasis)
             })
@@ -29,8 +29,8 @@ const testimonialsList = document.querySelector('.testimonials__wrapper') as HTM
             '.testimonials__arrow-right', 
             '.testimonials__arrow-left', 
             gapSize,
-            false, 
-            false,
+            true, 
+            true,
             2000
             ) 
 

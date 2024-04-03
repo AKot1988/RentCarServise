@@ -79,7 +79,6 @@ export default class Slider {
             this.currentElement++
             
             this.btnLeft.classList.remove('deact')
-            //замінити: "3" на кількість елементів в слайді (в залежності від розміру екрану)
             if (this.currentElement == this.track.childElementCount - 3) {
                 this.btnRight.classList.add('deact')
             }
