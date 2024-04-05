@@ -34,7 +34,7 @@ export default class CarCard {
     this.self = new CreateElement('div', {classes: 'car-card'}).render();
     this.modelFavContainer = new CreateElement('div', {classes: 'car-card__model-fav-container'}).render();
     this.carmodel = new CreateElement('p', {classes: 'car-card__model', innerText: this.data.model}).render();
-    this.price = new CreateElement('p', {classes: 'car-card__price', innerHTML: `${this.data.price}/<span class="car-card__price--period">day</span>`}).render();
+    this.price = new CreateElement('p', {classes: 'car-card__price', innerHTML: `<span class="car-card__price--currency">$</span>${this.data.price}/<span class="car-card__price--period">day</span>`}).render();
     this.image = new CreateElement('img', {classes: 'car-card__image', src: this.data.image}).render();
     this.priceButtonContainer = new CreateElement('div', {classes: 'car-card__price-button-container'}).render();
     this.favIcon = new CreateElement('figure', { classes: 'car-card__fav-icon', innerHTML: heart_to_favoritesSVG }).render();
