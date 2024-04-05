@@ -20,7 +20,9 @@
   &__image {
     margin-top: 20px;
     aspect-ratio: 16/14;
-    width: 95%;
+    width: 98%;
+    object-fit: cover;
+    // height: 200px;
     border-radius: 10px;
     margin-bottom: 20px;
   }
@@ -37,6 +39,10 @@
   &__price {
     @include font($large-font-size, $third-font-weight, $basic-text-color);
     padding-right: 20px;
+
+    &--currency {
+      @include font($large-font-size, $third-font-weight, $basic-text-color);
+    }
 
     &--period {
       @include font($tiny-font-size, $third-font-weight, $basic-text-color);

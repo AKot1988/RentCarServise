@@ -1,6 +1,6 @@
 [
   {
-    "innerText": "all",
+    "innerText": "All",
     "classes": ["tab", "tab--active"],
     "dataset": {"tabHeader": "all"}
   },

@@ -6,7 +6,8 @@
   width: 100%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  margin-top: 50px
+  margin-top: 50px;
+  cursor: pointer
 }
 
 .tab {
@@ -34,4 +35,19 @@
   @include flex (center,start);
   flex-wrap: wrap;
   gap: 30px;
+}
+
+@media screen and (max-width: 1105px){
+  .popular__cars__container {
+    @include flex (center,center);
+  }
+}
+
+@media screen and (max-width: 600px){
+  .popular__tabs__container {
+    grid-template-columns: repeat(1, 1fr);
+    grid-auto-rows: 50px;
+    margin-top: 10px;
+    width: 200px;
+  }
 }
